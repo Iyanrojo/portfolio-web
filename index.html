@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Iyán Rojo Greciet</title>
+<meta name="description" content="Iyán Rojo Greciet: analogue black-and-white photography, documentary film and communications.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body class="landing">
+
+<header id="top">
+  <div class="wrap">
+    <a class="name" href="#top"><span>Iyán Rojo</span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="gallery.html">Photography</a></li>
+        <li><a href="films.html">Films</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><button class="lang" id="lang" type="button">ES / <b>EN</b></button></li>
+        <li><a class="ig" href="https://www.instagram.com/iyanrojo_/" target="_blank" rel="noopener" aria-label="Instagram @iyanrojo_"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- PHOTOGRAPHY: large slideshow. Files go in photos/01.jpg … photos/40.jpg (any proportions; each is shown whole).
+       To add more, copy a <figure class="slide"> line and change the number. -->
+  <div class="wrap" id="photography">
+    <div class="show" aria-roledescription="carousel" aria-label="Photography">
+      <div class="stage">
+      </div>
+      <button class="nav-btn" type="button" aria-label="Next photo"></button>
+    </div>
+  </div>
+
+</main>
+
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged photo">
+  <button type="button" id="lb-close">Close</button>
+  <img id="lb-img" alt="">
+</div>
+
+<script src="js/photos.js"></script>
+<script>
+// A photo appears when its file exists; otherwise the empty mount stays.
+document.querySelectorAll('.ph img').forEach(function (img) {
+  function ok(){ img.parentNode.classList.add('has-img'); }
+  function fail(){ img.remove(); }
+  if (img.complete) { img.naturalWidth ? ok() : fail(); }
+  else { img.addEventListener('load', ok); img.addEventListener('error', fail); }
+});
+var lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img');
+document.querySelectorAll('.ph').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var img = b.querySelector('img');
+    if (!img || !b.classList.contains('has-img')) return;
+    lbImg.src = img.src; lb.classList.add('open'); document.getElementById('lb-close').focus();
+  });
+});
+function closeLb(){ lb.classList.remove('open'); setTimeout(function(){ if(!lb.classList.contains('open')) lbImg.removeAttribute('src'); }, 520); }
+document.getElementById('lb-close').addEventListener('click', closeLb);
+lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLb(); });
+
+// Slideshow: shows only the photos whose files exist; crossfades every 5 s without pausing.
+// A click (or swipe / arrow key) moves on with the same fade and restarts the timer.
+(function(){
+  var cur=null, timer=null, playing=true;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function list(){ return [].slice.call(document.querySelectorAll('.slide.has-img')); }
+  function show(n){ var L=list(); if(!L.length) return;
+    var i=(n+L.length)%L.length;
+    document.querySelectorAll('.slide.on').forEach(function(s){s.classList.remove('on');});
+    cur=L[i]; cur.classList.add('on');
+ }
+  function idx(){ return Math.max(0,list().indexOf(cur)); }
+  function stop(){ if(timer){clearInterval(timer);timer=null;} }
+  function start(){ stop(); if(playing && !reduce) timer=setInterval(function(){show(idx()+1);},5000); }
+  function go(d){ show(idx()+d); start(); }
+  // Build the slides from the photo list, in random order on every visit.
+  var stage=document.querySelector('.stage');
+  (window.PHOTOS||[]).forEach(function(p){
+    var f=document.createElement('figure'); f.className='slide'; f.setAttribute('data-n',p.f.slice(0,2));
+    var img=document.createElement('img'); img.alt=''; img.src='photos/'+p.f; f.appendChild(img); stage.appendChild(f);
+  });
+  var all=[].slice.call(stage.querySelectorAll('.slide'));
+  for(var k=all.length-1;k>0;k--){ var r=Math.floor(Math.random()*(k+1)); var t=all[k]; all[k]=all[r]; all[r]=t; }
+  all.forEach(function(sl){ sl.classList.remove('on'); stage.appendChild(sl); });
+  var slides=all;
+  slides.forEach(function(sl){ sl.classList.remove('on'); var img=sl.querySelector('img');
+    function ok(){ sl.classList.add('has-img'); if(!cur || list().indexOf(cur)<0) show(0); else show(idx()); }
+    function fail(){ sl.remove(); }
+    if(img.complete){img.naturalWidth?ok():fail();} else {img.addEventListener('load',ok);img.addEventListener('error',fail);} });
+  document.querySelector('.nav-btn').onclick=function(){go(1);};
+  var box=document.querySelector('.show');
+  var x0=null; box.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+  box.addEventListener('touchend',function(e){ if(x0===null)return; var dx=e.changedTouches[0].clientX-x0; if(Math.abs(dx)>40) go(dx<0?1:-1); x0=null; });
+  document.addEventListener('keydown',function(e){ if(document.getElementById('lb').classList.contains('open'))return;
+    var r=box.getBoundingClientRect(); if(r.bottom<0||r.top>innerHeight)return;
+    if(e.key==='ArrowRight')go(1); if(e.key==='ArrowLeft')go(-1); });
+  start();
+})();
+</script>
+<script src="js/i18n.js"></script>
+</body>
+</html>

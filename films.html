@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Iyán Rojo Greciet · Films</title>
+<meta name="description" content="Iyán Rojo Greciet: analogue black-and-white photography, documentary film and communications.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap">
+    <a class="name" href="index.html"><span>Iyán Rojo</span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="gallery.html">Photography</a></li>
+        <li><a href="films.html" class="on">Films</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><button class="lang" id="lang" type="button">ES / <b>EN</b></button></li>
+        <li><a class="ig" href="https://www.instagram.com/iyanrojo_/" target="_blank" rel="noopener" aria-label="Instagram @iyanrojo_"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- FILMS (personal work): one <article class="piece"> per film.
+       Still: photos/art-01.jpg, art-02.jpg … (16:9). Replace [bracketed] text with the real details.
+       To add the link, swap the "Link soon" span for <a class="more" href="…" target="_blank" rel="noopener">Watch</a>. -->
+  <div class="wrap">
+    <div class="sec-top" style="border-top:0;padding-top:0"><h2>Films</h2><p>Video portraits, experimental pieces and documentaries</p></div>
+    <div class="pieces">
+      <article class="piece">
+        <!-- Still: photos/art-01.jpg. The still and the Play button open the video where it is hosted. -->
+        <a class="ph r-w frame player" href="https://vimeo.com/341890221" target="_blank" rel="noopener" aria-label="Play Skateboard Diaries on Vimeo">
+          <img src="photos/art-01.jpg" alt="Still from Skateboard Diaries">
+          <span class="play"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg><span>Play</span></span>
+        </a>
+        <div class="piece-txt">
+          <div class="caption">Skateboard Diaries</div>
+          <div class="small meta">2019 · Videocam</div>
+          <p>A skater drifts through Barcelona, searching for himself. Shot on a camcorder, the film moves between streets, squares and empty corners, turning the city into both a diary and a mirror.</p>
+          <a class="more" href="https://vimeo.com/341890221" target="_blank" rel="noopener">Watch on Vimeo</a>
+        </div>
+      </article>
+      <article class="piece" id="lefeu">
+        <a class="ph r-w frame player" href="https://vimeo.com/527723680" target="_blank" rel="noopener" aria-label="Play LeFeu on Vimeo">
+          <img src="photos/art-02.jpg" alt="Still from LeFeu">
+          <span class="play"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg><span>Play</span></span>
+        </a>
+        <div class="piece-txt">
+          <div class="caption">LeFeu</div>
+          <div class="small meta">2021 · Digital &amp; 120 film · Commission</div>
+          <p>Minimalist Scandinavian fireplaces in Barcelona. A brand film for LeFeu that combines digital video with medium-format photographs on 120 film.</p>
+          <a class="more" href="https://vimeo.com/527723680" target="_blank" rel="noopener">Watch on Vimeo</a>
+        </div>
+      </article>
+      <article class="piece">
+        <div class="ph r-w frame"><img src="photos/art-03.jpg" alt=""><span class="n">Still / clip</span></div>
+        <div class="piece-txt">
+          <div class="caption">[Documentary title]</div>
+          <div class="small meta">[Year] · Documentary · Pescaito Studio</div>
+          <p>Selected at the Cerdanya Film Festival and the Oregon Documentary Film Festival.</p>
+          <span class="small soon">Link soon</span>
+        </div>
+      </article>
+      <article class="piece">
+        <div class="ph r-w frame"><img src="photos/art-04.jpg" alt=""><span class="n">Still / clip</span></div>
+        <div class="piece-txt">
+          <div class="caption">[Title]</div>
+          <div class="small meta">[Year] · [Format] · [Duration]</div>
+          <span class="small soon">Link soon</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap small"><span>© 2026 Iyán Rojo Greciet</span><a href="#top" style="text-decoration:none">Back to top ↑</a></div>
+</footer>
+
+<script>
+// Stills and clips appear when their files exist; empty frames stay as grey placeholders.
+document.querySelectorAll('.ph img').forEach(function (img) {
+  function ok(){ img.parentNode.classList.add('has-img'); }
+  function fail(){ img.remove(); }
+  if (img.complete) { img.naturalWidth ? ok() : fail(); }
+  else { img.addEventListener('load', ok); img.addEventListener('error', fail); }
+});
+</script>
+<script src="js/i18n.js"></script>
+</body>
+</html>
