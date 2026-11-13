@@ -1,27 +1,28 @@
 /* List of photos shown in the gallery and the home slideshow.
-   To add a photo: put the file in photos/ and add a line here with its width and height. */
+   To add a photo: put the file in photos/ and add a line here with its width and height.
+   The order below is the gallery order (mixed on purpose so portraits are not grouped); the home slideshow shuffles. */
 window.PHOTOS = [
-  {"f": "02.jpg", "w": 655, "h": 670},
-  {"f": "03.jpg", "w": 889, "h": 896},
-  {"f": "04.jpg", "w": 691, "h": 894},
-  {"f": "05.jpg", "w": 1146, "h": 1240},
-  {"f": "06.jpg", "w": 1402, "h": 1434},
-  {"f": "07.jpg", "w": 1198, "h": 1370},
-  {"f": "08.jpg", "w": 1176, "h": 1360},
-  {"f": "09.jpg", "w": 940, "h": 1004},
-  {"f": "11.jpg", "w": 1025, "h": 1024},
-  {"f": "12.jpg", "w": 1004, "h": 1004},
-  {"f": "14.jpg", "w": 1337, "h": 1324},
-  {"f": "15.jpg", "w": 1350, "h": 1320},
   {"f": "16.jpg", "w": 1445, "h": 1442},
-  {"f": "17.jpg", "w": 1572, "h": 1298},
-  {"f": "18.jpg", "w": 1050, "h": 1290},
-  {"f": "19.jpg", "w": 1058, "h": 1298},
   {"f": "20.jpg", "w": 1936, "h": 1287},
+  {"f": "08.jpg", "w": 1176, "h": 1360},
   {"f": "21.jpg", "w": 2000, "h": 1339},
-  {"f": "22.jpg", "w": 2000, "h": 1341},
   {"f": "23.jpg", "w": 1360, "h": 1366},
-  {"f": "24.jpg", "w": 1949, "h": 1302},
+  {"f": "18.jpg", "w": 1050, "h": 1290},
+  {"f": "14.jpg", "w": 1337, "h": 1324},
+  {"f": "22.jpg", "w": 2000, "h": 1341},
+  {"f": "07.jpg", "w": 1198, "h": 1370},
   {"f": "25.jpg", "w": 2000, "h": 1338},
-  {"f": "26.jpg", "w": 1942, "h": 1296}
+  {"f": "06.jpg", "w": 1402, "h": 1434},
+  {"f": "03.jpg", "w": 889, "h": 896},
+  {"f": "26.jpg", "w": 1942, "h": 1296},
+  {"f": "15.jpg", "w": 1350, "h": 1320},
+  {"f": "04.jpg", "w": 691, "h": 894},
+  {"f": "09.jpg", "w": 940, "h": 1004},
+  {"f": "02.jpg", "w": 655, "h": 670},
+  {"f": "11.jpg", "w": 1025, "h": 1024},
+  {"f": "17.jpg", "w": 1572, "h": 1298},
+  {"f": "24.jpg", "w": 1949, "h": 1302},
+  {"f": "05.jpg", "w": 1146, "h": 1240},
+  {"f": "12.jpg", "w": 1004, "h": 1004},
+  {"f": "19.jpg", "w": 1058, "h": 1298}
 ];
