@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bienvenido al futuro · Iyán Rojo</title>
+<meta name="description" content="Iyán Rojo Greciet: analogue black-and-white photography, documentary film and communications.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap">
+    <a class="name" href="index.html"><span>Iyán Rojo</span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="gallery.html">Photography</a></li>
+        <li><a href="films.html">Films</a></li>
+        <li><a href="work.html" class="on">Work</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><button class="lang" id="lang" type="button">ES / <b>EN</b></button></li>
+        <li><a class="ig" href="https://www.instagram.com/iyanrojo_/" target="_blank" rel="noopener" aria-label="Instagram @iyanrojo_"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="case-page">
+  <!-- CASE STUDY: Bienvenido al futuro (Calidad Rural).
+       Images: photos/film-08.jpg (cover) and photos/baf-01.jpg … baf-03.jpg (stills). All in the film's scope format (2.30:1). -->
+  <div class="wrap">
+    <a class="back small" href="work.html">← Work</a>
+
+    <header class="case-hero">
+      <div class="small meta">Rural promotion campaign · Calidad Rural · 2026</div>
+      <h1 class="case-title">Bienvenido al futuro</h1>
+      <p class="case-lede">The latest technology has always been in the countryside. A short film that presents rural life like a product launch, to get people to look at it, visit it and choose it.</p>
+    </header>
+
+    <a class="ph case-cover scope player" href="https://www.instagram.com/p/DT2S0kaiL1K/" target="_blank" rel="noopener" aria-label="Play Bienvenido al futuro on Instagram"><img src="photos/film-08.jpg" alt="A man on a horse-drawn cart crossing a green meadow"><span class="n">Cover still</span><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg><span>Play</span></span></a>
+
+    <dl class="case-facts">
+      <div><dt>Client</dt><dd>Calidad Rural, European territorial quality mark</dd></div>
+      <div><dt>Date</dt><dd>2026</dd></div>
+      <div><dt>My role</dt><dd>Filming and edit</dd></div>
+      <div><dt>Format</dt><dd>Short video for social media</dd></div>
+    </dl>
+
+    <div class="figures case-figures">
+      <div><b>300K+</b>organic views</div>
+    </div>
+
+    <section class="case-body">
+      <h2 class="case-h">The context</h2>
+      <p>Calidad Rural is the European territorial quality mark for products and services made in rural areas: cheese, honey, cured meats, crafts or rural tourism, produced with differentiated quality, respect for the environment and social responsibility. The goal of the campaign was to give rural life visibility and encourage people to consume what the countryside produces.</p>
+      <h2 class="case-h">The idea</h2>
+      <p>Bienvenido al futuro borrows the language of technology launches and turns it towards the countryside. A cheesemaker in his ageing room, a horse and cart, the snowy mountains: rural life presented feature by feature, like the latest device. Intelligence that isn’t artificial. Real noise cancellation. Behind the humour, a commitment to rural life and to respect for nature and animals.</p>
+    </section>
+
+    <section class="case-gallery">
+      <h2 class="case-h">Stills</h2>
+      <div class="still-grid scope-grid">
+        <div class="ph scope"><img src="photos/baf-01.jpg" alt="A cheesemaker holding a wheel of cheese in the ageing room"><span class="n">Still 01</span></div>
+        <div class="ph scope"><img src="photos/baf-02.jpg" alt="A man speaking to camera in front of snowy mountains"><span class="n">Still 02</span></div>
+        <div class="ph scope"><img src="photos/baf-03.jpg" alt="Snow-capped mountains above green and brown valleys"><span class="n">Still 03</span></div>
+      </div>
+    </section>
+
+    <section class="case-body">
+      <h2 class="case-h">The result</h2>
+      <p>More than 300,000 organic views, with no paid promotion, for a message that is usually hard to place in front of urban audiences: that the countryside is not the past, but a way of living and producing worth choosing.</p>
+      <div class="link-row"><a class="more" href="https://www.instagram.com/p/DT2S0kaiL1K/" target="_blank" rel="noopener">Watch on Instagram</a></div>
+    </section>
+
+    <div class="case-credits small">
+      <span>Filming &amp; edit: Iyán Rojo</span>
+      <span>Client: Calidad Rural</span>
+    </div>
+
+    <div class="to-gallery" style="margin-top:80px"><a class="more" href="work.html">← Back to Work</a></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap small"><span>© 2026 Iyán Rojo Greciet</span><a href="#top" style="text-decoration:none">Back to top ↑</a></div>
+</footer>
+
+<script>
+document.querySelectorAll('.ph img').forEach(function (img) {
+  function ok(){ img.parentNode.classList.add('has-img'); }
+  function fail(){ img.remove(); }
+  if (img.complete) { img.naturalWidth ? ok() : fail(); }
+  else { img.addEventListener('load', ok); img.addEventListener('error', fail); }
+});
+</script>
+<script src="js/i18n.js"></script>
+</body>
+</html>

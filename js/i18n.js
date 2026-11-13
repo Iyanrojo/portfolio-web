@@ -249,6 +249,19 @@ var ES = {
   "Filming and edit.": "Grabación y montaje.",
   "More than 300,000 organic views.": "Más de 300.000 visualizaciones orgánicas.",
   "Watch on Instagram": "Ver en Instagram",
+  // Case: Bienvenido al futuro
+  "Rural promotion campaign · Calidad Rural · 2026": "Campaña de promoción rural · Calidad Rural · 2026",
+  "The latest technology has always been in the countryside. A short film that presents rural life like a product launch, to get people to look at it, visit it and choose it.": "La última tecnología siempre estuvo en el campo. Una pieza que presenta la vida rural como el lanzamiento de un producto, para que la gente la mire, la visite y la elija.",
+  "Calidad Rural, European territorial quality mark": "Calidad Rural, marca de calidad territorial europea",
+  "Filming and edit": "Grabación y montaje",
+  "Short video for social media": "Vídeo corto para redes sociales",
+  "<b>300K+</b>organic views": "<b>300K+</b>visualizaciones orgánicas",
+  "Calidad Rural is the European territorial quality mark for products and services made in rural areas: cheese, honey, cured meats, crafts or rural tourism, produced with differentiated quality, respect for the environment and social responsibility. The goal of the campaign was to give rural life visibility and encourage people to consume what the countryside produces.": "Calidad Rural es la marca de calidad territorial europea para productos y servicios del medio rural: quesos, miel, embutidos, artesanía o turismo rural, elaborados con una calidad diferenciada, respeto al medio ambiente y responsabilidad social. El objetivo de la campaña era dar visibilidad a lo rural e incentivar el consumo de lo que produce el campo.",
+  "Bienvenido al futuro borrows the language of technology launches and turns it towards the countryside. A cheesemaker in his ageing room, a horse and cart, the snowy mountains: rural life presented feature by feature, like the latest device. Intelligence that isn’t artificial. Real noise cancellation. Behind the humour, a commitment to rural life and to respect for nature and animals.": "Bienvenido al futuro toma prestado el lenguaje de los lanzamientos tecnológicos y lo lleva al campo. Un quesero en su cámara de curación, un carro tirado por un caballo, las montañas nevadas: la vida rural presentada función a función, como el último dispositivo. Una inteligencia que no es artificial. Cancelación de ruido de verdad. Detrás del humor, un compromiso con lo rural y con el respeto por la naturaleza y los animales.",
+  "Stills": "Fotogramas",
+  "More than 300,000 organic views, with no paid promotion, for a message that is usually hard to place in front of urban audiences: that the countryside is not the past, but a way of living and producing worth choosing.": "Más de 300.000 visualizaciones orgánicas, sin promoción pagada, para un mensaje que cuesta hacer llegar al público urbano: que el campo no es el pasado, sino una forma de vivir y de producir que merece la pena elegir.",
+  "Filming &amp; edit: Iyán Rojo": "Grabación y montaje: Iyán Rojo",
+  "Client: Calidad Rural": "Cliente: Calidad Rural",
   "← Back to home": "← Volver al inicio"
 };
 
