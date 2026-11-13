@@ -244,6 +244,11 @@ var ES = {
   "Still 04": "Fotograma 04",
   "Still 05": "Fotograma 05",
   "Still 06": "Fotograma 06",
+  // Work: Bienvenido al futuro
+  "A campaign to give visibility to rural life and encourage people to choose rural products and services. Calidad Rural is the European territorial quality mark for goods made in the countryside with respect for the environment.": "Campaña para dar visibilidad a lo rural e incentivar el consumo de productos y servicios del medio rural. Calidad Rural es la marca de calidad territorial europea para lo que se produce en el campo con respeto por el medio ambiente.",
+  "Filming and edit.": "Grabación y montaje.",
+  "More than 300,000 organic views.": "Más de 300.000 visualizaciones orgánicas.",
+  "Watch on Instagram": "Ver en Instagram",
   "← Back to home": "← Volver al inicio"
 };
 
