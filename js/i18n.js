@@ -227,6 +227,23 @@ var ES = {
 
   "Photo gallery": "Galería de fotos",
   "Click a photo to enlarge": "Haz clic en una foto para ampliarla",
+  // Tierra de nadie (project page) and other missing strings
+  "2026 · Medium format 6×6 · Black-and-white film": "2026 · Medio formato 6×6 · Película en blanco y negro",
+  "A photo-poetry book inspired by Tierra de Campos. Poetry and photography combine for a journey into the past, back to the summers in the village.": "Fotopoemario inspirado en Tierra de Campos. Poesía y fotografía se combinan para hacer un viaje al pasado y recordar los veranos en el pueblo.",
+  "The setting is Tierra de Campos: plains of wheat and barley under very blue skies. The poems follow the protagonist’s life, from childhood, with its first falls and discoveries, through adolescence, with love and violence, to adulthood, a time to look back. A time of memory.": "El contexto es Tierra de Campos: llanuras de trigo y cebada, cielos muy azules. El poemario recorre la trayectoria vital del protagonista, desde la infancia, con las primeras caídas y los descubrimientos, la adolescencia, con el amor y la violencia, hasta llegar a la madurez, un tiempo para mirar atrás. Un tiempo de recuerdo.",
+  "The photographs appear alongside the poems. Slow images of the landscape, the farm tools, the walls and the sobriety of Castile. Agile poetry that recalls what was lived, with images that stop time: the two speeds at which the book beats.": "Junto a los poemas aparece la fotografía. Imágenes lentas que reflejan los paisajes, las herramientas, los muros y la sobriedad castellana. Una poesía ágil que rememora lo vivido, acompañada de imágenes que sirven para detener el tiempo: son las dos velocidades a las que late el libro.",
+  "From Tierra de Campos to Tierra de nadie": "De Tierra de Campos a Tierra de nadie",
+  "Tierra de Campos is emptying out. Every year there are fewer neighbours in the villages, fewer children on the threshing floors and more houses shut, waiting for a summer to open them. The project sets out to make the rural world known through poetry and documentary photography, speaking equally to those who came back, those who left, those who stayed and those who were never there.": "Tierra de Campos se despuebla. Cada año hay menos vecinos en los pueblos, menos niños en las eras y más casas cerradas a la espera de un verano que las abra. El proyecto quiere dar a conocer lo rural con las herramientas de la poesía y la fotografía documental, e interpela igual a quien volvió, a quien se fue, a quien se quedó y a quien nunca estuvo.",
+  "A poetry book illustrated with photography, from a complete series of 25 analogue photographs in medium format. A selection of the poems received the José Hierro Prize in 2025. The book will be presented together with a photographic exhibition.": "Poemario ilustrado con fotografía, a partir de una serie completa de 25 fotografías analógicas en medio formato. Una selección de los poemas recibió el Certamen José Hierro en 2025. El libro se presentará acompañado de una exposición fotográfica.",
+  "The project in 6 pages: texts, poems and photographs.": "El proyecto en 6 páginas: textos, poemas y fotografías.",
+  "2019 · Videocam": "2019 · Videocámara",
+  "Email": "Correo",
+  "Still 01": "Fotograma 01",
+  "Still 02": "Fotograma 02",
+  "Still 03": "Fotograma 03",
+  "Still 04": "Fotograma 04",
+  "Still 05": "Fotograma 05",
+  "Still 06": "Fotograma 06",
   "← Back to home": "← Volver al inicio"
 };
 
