@@ -249,6 +249,7 @@ var ES = {
   "Filming and edit.": "Grabación y montaje.",
   "More than 300,000 organic views.": "Más de 300.000 visualizaciones orgánicas.",
   "Watch on Instagram": "Ver en Instagram",
+  "Watch on YouTube": "Ver en YouTube",
   // Case: Bienvenido al futuro
   "Rural promotion campaign · Calidad Rural · 2026": "Campaña de promoción rural · Calidad Rural · 2026",
   "The latest technology has always been in the countryside. A short film that presents rural life like a product launch, to get people to look at it, visit it and choose it.": "La última tecnología siempre estuvo en el campo. Una pieza que presenta la vida rural como el lanzamiento de un producto, para que la gente la mire, la visite y la elija.",
