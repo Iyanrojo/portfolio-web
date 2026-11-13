@@ -1,7 +1,6 @@
 /* List of photos shown in the gallery and the home slideshow.
    To add a photo: put the file in photos/ and add a line here with its width and height. */
 window.PHOTOS = [
-  {"f": "01.jpg", "w": 809, "h": 540},
   {"f": "02.jpg", "w": 655, "h": 670},
   {"f": "03.jpg", "w": 889, "h": 896},
   {"f": "04.jpg", "w": 691, "h": 894},
@@ -10,10 +9,8 @@ window.PHOTOS = [
   {"f": "07.jpg", "w": 1198, "h": 1370},
   {"f": "08.jpg", "w": 1176, "h": 1360},
   {"f": "09.jpg", "w": 940, "h": 1004},
-  {"f": "10.jpg", "w": 1016, "h": 1026},
   {"f": "11.jpg", "w": 1025, "h": 1024},
   {"f": "12.jpg", "w": 1004, "h": 1004},
-  {"f": "13.jpg", "w": 1441, "h": 1438},
   {"f": "14.jpg", "w": 1337, "h": 1324},
   {"f": "15.jpg", "w": 1350, "h": 1320},
   {"f": "16.jpg", "w": 1445, "h": 1442},
@@ -26,6 +23,5 @@ window.PHOTOS = [
   {"f": "23.jpg", "w": 1360, "h": 1366},
   {"f": "24.jpg", "w": 1949, "h": 1302},
   {"f": "25.jpg", "w": 2000, "h": 1338},
-  {"f": "26.jpg", "w": 1942, "h": 1296},
-  {"f": "27.jpg", "w": 1708, "h": 1014}
+  {"f": "26.jpg", "w": 1942, "h": 1296}
 ];
