@@ -290,6 +290,7 @@ var ES = {
   "2023–present": "2023–actualidad",
   "Copywriter and filmmaker": "Copy y realizador",
   "Campaigns, films and social media": "Campañas, piezas audiovisuales y redes sociales",
+  "2019 · Documentary · Pescaito Studio": "2019 · Documental · Pescaito Studio",
   "← Back to home": "← Volver al inicio"
 };
 
