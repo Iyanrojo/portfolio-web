@@ -280,6 +280,16 @@ var ES = {
   "The anniversary film: a quarter of a century in the voices of the people who lived it.": "La pieza del aniversario: un cuarto de siglo en la voz de quienes lo vivieron.",
   "Allies": "Aliados",
   "The fight against trafficking also plays at El Sardinero: Real Racing Club de Santander and its Foundation have joined Nueva Vida’s cause, and in 2026 the organisation recognised them on the International Day against Sexual Exploitation and Trafficking.": "La lucha contra la trata también se juega en El Sardinero: el Real Racing Club de Santander y su Fundación se han sumado a la causa de Nueva Vida, que en 2026 les rindió homenaje en el Día Internacional contra la Explotación Sexual y la Trata.",
+  // Case: Nueva Vida
+  "Long-term collaboration · 2023–": "Colaboración continuada · 2023–",
+  "Turning the daily work of an organisation with people on the margins into campaigns people actually stop to watch.": "Convertir el trabajo diario de una entidad con personas en los márgenes en campañas que la gente se para a ver.",
+  "Copywriter and filmmaker: idea, script, shoot, edit and social media.": "Copy y realizador: idea, guion, rodaje, montaje y redes.",
+  "More than three years of campaigns and over 6 million views.": "Más de tres años de campañas y más de 6 millones de visualizaciones.",
+  "Asociación Nueva Vida, Santander": "Asociación Nueva Vida, Santander",
+  "Period": "Periodo",
+  "2023–present": "2023–actualidad",
+  "Copywriter and filmmaker": "Copy y realizador",
+  "Campaigns, films and social media": "Campañas, piezas audiovisuales y redes sociales",
   "← Back to home": "← Volver al inicio"
 };
 
