@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TIERRA · Iyán Rojo</title>
+<meta name="description" content="Iyán Rojo Greciet: analogue black-and-white photography, documentary film and communications.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap">
+    <a class="name" href="index.html"><span>Iyán Rojo</span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="gallery.html">Photography</a></li>
+        <li><a href="films.html" class="on">Films</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><button class="lang" id="lang" type="button">ES / <b>EN</b></button></li>
+        <li><a class="ig" href="https://www.instagram.com/iyanrojo_/" target="_blank" rel="noopener" aria-label="Instagram @iyanrojo_"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="case-page">
+  <!-- FILM: TIERRA (2019). Cover: photos/art-03.jpg. Stills: photos/tierra-01.jpg … tierra-04.jpg (16:9). -->
+  <div class="wrap">
+    <a class="back small" href="films.html">← Films</a>
+
+    <header class="case-hero">
+      <div class="small meta">Documentary · 2019</div>
+      <h1 class="case-title">TIERRA</h1>
+      <p class="case-lede">Don Adolfo, the village schoolteacher, was murdered in Sahelices del Río during the Spanish Civil War. Testimonies and an investigation uncover a village with a great deal to tell.</p>
+    </header>
+
+    <a class="ph r-w case-cover player" href="https://www.youtube.com/watch?v=FFCa6GAHRDk" target="_blank" rel="noopener" aria-label="Play TIERRA on YouTube"><img src="photos/art-03.jpg" alt="A swallow on a wire against a grey sky"><span class="play"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></svg><span>Play</span></span></a>
+
+    <dl class="case-facts">
+      <div><dt>Year</dt><dd>2019</dd></div>
+      <div><dt>Format</dt><dd>Documentary</dd></div>
+      <div><dt>Location</dt><dd>Sahelices del Río, Castilla y León</dd></div>
+      <div><dt>My role</dt><dd>Direction and edit</dd></div>
+    </dl>
+
+    <section class="case-body">
+      <h2 class="case-h">The film</h2>
+      <p>TIERRA starts from a name: don Adolfo, the schoolteacher of Sahelices del Río, a small village in Castilla y León, murdered during the Civil War. Through the testimonies of the people who still live there and an investigation that follows every lead, the documentary uncovers a village that has a great deal to tell.</p>
+      <p>A film about memory, made street by street: the processions, the doorways, the fields at harvest time, and the voices that remember.</p>
+    </section>
+
+    <section class="case-gallery">
+      <h2 class="case-h">Stills</h2>
+      <div class="still-grid two-col">
+        <div class="ph r-w" style="grid-column:1/-1"><img src="photos/tierra-05.jpg" alt="Two girls on bicycles reflected in a round traffic mirror against a blue sky"></div>
+        <div class="ph r-w"><img src="photos/tierra-01.jpg" alt="A tractor raising dust across a harvested field below the village"></div>
+        <div class="ph r-w"><img src="photos/tierra-02.jpg" alt="An elderly woman with a cane leaning against a large wooden door"></div>
+        <div class="ph r-w"><img src="photos/tierra-03.jpg" alt="An elderly woman with a white headscarf resting on a chair in a courtyard"></div>
+        <div class="ph r-w"><img src="photos/tierra-04.jpg" alt="Priests and neighbours walking in a procession through the village"></div>
+      </div>
+    </section>
+
+    <section class="case-body">
+      <div class="link-row"><a class="more" href="https://www.youtube.com/watch?v=FFCa6GAHRDk" target="_blank" rel="noopener">Watch on YouTube</a></div>
+    </section>
+
+    <div class="case-credits small">
+      <span>Direction &amp; edit: Iyán Rojo</span>
+    </div>
+
+    <div class="to-gallery" style="margin-top:80px"><a class="more" href="films.html">← Back to Films</a></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap small"><span>© 2026 Iyán Rojo Greciet</span><a href="#top" style="text-decoration:none">Back to top ↑</a></div>
+</footer>
+
+<script>
+document.querySelectorAll('.ph img').forEach(function (img) {
+  function ok(){ img.parentNode.classList.add('has-img'); }
+  function fail(){ img.remove(); }
+  if (img.complete) { img.naturalWidth ? ok() : fail(); }
+  else { img.addEventListener('load', ok); img.addEventListener('error', fail); }
+});
+</script>
+<script src="js/i18n.js"></script>
+</body>
+</html>

@@ -369,3 +369,6 @@ button.more{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:u
 .nv-list a .nv-name{border-bottom:1px solid currentColor}
 .nv-desc{font-size:14px;color:#4a4945;line-height:1.5}
 @media (max-width:760px){.nv-grid{grid-template-columns:1fr}}
+
+.still-grid.two-col{grid-template-columns:1fr 1fr}
+@media (max-width:760px){.still-grid.two-col{grid-template-columns:1fr}}

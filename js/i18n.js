@@ -291,6 +291,23 @@ var ES = {
   "Copywriter and filmmaker": "Copy y realizador",
   "Campaigns, films and social media": "Campañas, piezas audiovisuales y redes sociales",
   "2019 · Documentary · Pescaito Studio": "2019 · Documental · Pescaito Studio",
+  // Film: TIERRA
+  "2019 · Documentary · Direction &amp; edit": "2019 · Documental · Dirección y montaje",
+  "Don Adolfo, the village schoolteacher, was murdered in Sahelices del Río, in Castilla y León, during the Spanish Civil War. Testimonies and an investigation uncover a village with a great deal to tell.": "Don Adolfo, el maestro del pueblo, fue asesinado en Sahelices del Río, en Castilla y León, durante la Guerra Civil. Testimonios y una investigación que descubren un pueblo con mucho que contar.",
+  "Don Adolfo, the village schoolteacher, was murdered in Sahelices del Río during the Spanish Civil War. Testimonies and an investigation uncover a village with a great deal to tell.": "Don Adolfo, el maestro del pueblo, fue asesinado en Sahelices del Río durante la Guerra Civil. Testimonios y una investigación que descubren un pueblo con mucho que contar.",
+  "Read more →": "Leer más →",
+  "← Films": "← Films",
+  "Documentary · 2019": "Documental · 2019",
+  "Year": "Año",
+  "Documentary": "Documental",
+  "Location": "Lugar",
+  "Sahelices del Río, Castilla y León": "Sahelices del Río, Castilla y León",
+  "Direction and edit": "Dirección y montaje",
+  "The film": "La película",
+  "TIERRA starts from a name: don Adolfo, the schoolteacher of Sahelices del Río, a small village in Castilla y León, murdered during the Civil War. Through the testimonies of the people who still live there and an investigation that follows every lead, the documentary uncovers a village that has a great deal to tell.": "TIERRA parte de un nombre: don Adolfo, el maestro de Sahelices del Río, un pequeño pueblo de Castilla y León, asesinado durante la Guerra Civil. A través de los testimonios de quienes siguen viviendo allí y de una investigación que sigue cada pista, el documental descubre un pueblo que tiene mucho que contar.",
+  "A film about memory, made street by street: the processions, the doorways, the fields at harvest time, and the voices that remember.": "Una película sobre la memoria, hecha calle a calle: las procesiones, los portales, los campos en tiempo de cosecha y las voces que recuerdan.",
+  "Direction &amp; edit: Iyán Rojo": "Dirección y montaje: Iyán Rojo",
+  "← Back to Films": "← Volver a Films",
   "← Back to home": "← Volver al inicio"
 };
 
