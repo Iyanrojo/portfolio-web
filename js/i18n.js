@@ -274,7 +274,7 @@ var ES = {
   "Copywriter and filmmaker, hand in hand with the team. I take each campaign from the first idea and the script to the shoot, the edit and the line that goes out on social media. The challenge is always the same: to talk about exclusion without pity and without spectacle. With humour when it helps, and with respect always.": "Copy y realizador, mano a mano con el equipo. Llevo cada campaña desde la primera idea y el guion hasta el rodaje, el montaje y la frase que sale en redes. El reto es siempre el mismo: hablar de exclusión sin lástima y sin espectáculo. Con humor cuando ayuda, y con respeto siempre.",
   "Campaigns": "Campañas",
   "A walking tour through the trafficking hidden in plain sight. 4M+ views and national press.": "Un paseo guiado por la trata que se esconde a plena vista. Más de 4 millones de visualizaciones y prensa nacional.",
-  "Trafficking and sexual exploitation, told on film, at sea and on social media.": "La trata y la explotación sexual, contadas en vídeo, en el mar y en redes.",
+  "“In Cantabria there are more than 150 prostitution flats. Behind them, trafficking goes on.” A message hoisted on a sailboat, on film and on social media.": "«En Cantabria hay más de 150 pisos de prostitución. Detrás, continúa la trata de personas.» Un mensaje izado en un velero, en vídeo y en redes.",
   "A campaign for the city, from script to edit.": "Una campaña para la ciudad, del guion al montaje.",
   "The anti-trafficking channel: content and copy, every week.": "El canal contra la trata: contenido y copy, cada semana.",
   "The anniversary film: a quarter of a century in the voices of the people who lived it.": "La pieza del aniversario: un cuarto de siglo en la voz de quienes lo vivieron.",
