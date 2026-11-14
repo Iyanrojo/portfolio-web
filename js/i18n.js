@@ -308,6 +308,8 @@ var ES = {
   "A film about memory, made street by street: the processions, the doorways, the fields at harvest time, and the voices that remember.": "Una película sobre la memoria, hecha calle a calle: las procesiones, los portales, los campos en tiempo de cosecha y las voces que recuerdan.",
   "Direction &amp; edit: Iyán Rojo": "Dirección y montaje: Iyán Rojo",
   "← Back to Films": "← Volver a Films",
+  "Page not found": "Página no encontrada",
+  "This page doesn’t exist, or it has moved.": "Esta página no existe o ha cambiado de sitio.",
   "← Back to home": "← Volver al inicio"
 };
 
