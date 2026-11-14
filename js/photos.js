@@ -7,13 +7,11 @@ window.PHOTOS = [
   {"f": "28.jpg", "w": 1994, "h": 1634, "l": "Liencres", "le": "Liencres", "y": 2024},
   {"f": "35.jpg", "w": 915, "h": 761, "l": "Gran Canaria", "le": "Gran Canaria", "y": 2020},
   {"f": "42.jpg", "w": 1085, "h": 729, "l": "Islas Canarias", "le": "Canary Islands", "y": 2022},
-  {"f": "06.jpg", "w": 1396, "h": 1428, "l": "Ámsterdam", "le": "Amsterdam", "y": 2025},
   {"f": "24.jpg", "w": 1930, "h": 1285, "l": "Gran Canaria", "le": "Gran Canaria", "y": 2022},
   {"f": "20.jpg", "w": 1930, "h": 1272, "l": "Gran Canaria", "le": "Gran Canaria", "y": 2022},
   {"f": "19.jpg", "w": 1041, "h": 1292, "l": "Proyecto 2 amigos", "le": "2 amigos project", "y": 2026},
   {"f": "05.jpg", "w": 1140, "h": 1234, "l": "Asturias", "le": "Asturias", "y": 2020},
   {"f": "17.jpg", "w": 1566, "h": 1292},
-  {"f": "33.jpg", "w": 947, "h": 754},
   {"f": "34.jpg", "w": 596, "h": 761},
   {"f": "07.jpg", "w": 1165, "h": 1349},
   {"f": "47.jpg", "w": 552, "h": 764},
@@ -28,7 +26,6 @@ window.PHOTOS = [
   {"f": "38.jpg", "w": 760, "h": 753},
   {"f": "12.jpg", "w": 966, "h": 967},
   {"f": "18.jpg", "w": 1044, "h": 1284},
-  {"f": "37.jpg", "w": 727, "h": 730},
   {"f": "49.jpg", "w": 1086, "h": 733},
   {"f": "44.jpg", "w": 1069, "h": 702},
   {"f": "31.jpg", "w": 738, "h": 759},
@@ -46,6 +43,5 @@ window.PHOTOS = [
   {"f": "04.jpg", "w": 682, "h": 888},
   {"f": "46.jpg", "w": 1632, "h": 1984},
   {"f": "26.jpg", "w": 1928, "h": 1281},
-  {"f": "21.jpg", "w": 1994, "h": 1333},
   {"f": "09.jpg", "w": 931, "h": 985}
 ];
