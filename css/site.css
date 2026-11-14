@@ -397,18 +397,18 @@ a.lang{text-decoration:none;display:inline-block}
 .vp-close:hover{opacity:.7}
 
 
-/* Films section: dark page */
-body.dark{--bg:#111110;--ink:#f6f5f2;--muted:#96958f;--slot:#262523;--rule:#343330;--ink-2:#d6d4ce;--ink-3:#bebcb6}
 
 /* Films: soft fade-in on arrival */
 @keyframes softIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.pieces>.piece,.dark .case-hero,.dark .case-cover{animation:softIn .9s ease both}
+.pieces>.piece{animation:softIn .9s ease both}
 .pieces>.piece:nth-child(2){animation-delay:.12s}
 .pieces>.piece:nth-child(3){animation-delay:.24s}
 .pieces>.piece:nth-child(n+4){animation-delay:.36s}
-.dark .case-cover{animation-delay:.12s}
-@media (prefers-reduced-motion:reduce){.pieces>.piece,.dark .case-hero,.dark .case-cover{animation:none}}
+@media (prefers-reduced-motion:reduce){.pieces>.piece{animation:none}}
 
 /* Contact: press */
 .contact-press{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--rule);padding-top:28px;max-width:900px}
 .contact-press .clips{margin-top:6px}
+
+/* Films: narrower content column (header keeps the site-wide width) */
+.films-page main .wrap{max-width:1240px;padding:0 clamp(18px,3.4vw,40px)}
