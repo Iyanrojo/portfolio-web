@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://iyanrojo.com/</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://iyanrojo.com/gallery.html</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://iyanrojo.com/dos-amigos.html</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://iyanrojo.com/tierra-de-nadie.html</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://iyanrojo.com/films.html</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://iyanrojo.com/tierra.html</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://iyanrojo.com/work.html</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://iyanrojo.com/nueva-vida.html</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://iyanrojo.com/free-tour.html</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://iyanrojo.com/bienvenido-al-futuro.html</loc><lastmod>2026-11-14</lastmod></url>
-  <url><loc>https://iyanrojo.com/contact.html</loc><lastmod>2026-11-14</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url><loc>https://iyanrojo.com/</loc><lastmod>2026-11-14</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://iyanrojo.com/"/><xhtml:link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/"/></url>
+  <url><loc>https://iyanrojo.com/es/</loc><lastmod>2026-11-14</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://iyanrojo.com/"/><xhtml:link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/"/></url>
+  <url><loc>https://iyanrojo.com/gallery.html</loc><lastmod>2026-11-14</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://iyanrojo.com/gallery.html"/><xhtml:link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/gallery.html"/></url>
+  <url><loc>https://iyanrojo.com/es/gallery.html</loc><lastmod>2026-11-14</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://iyanrojo.com/gallery.html"/><xhtml:link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/gallery.html"/></url>
+  <url><loc>https://iyanrojo.com/dos-amigos.html</loc><lastmod>2026-11-14</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://iyanrojo.com/dos-amigos.html"/><xhtml:link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/dos-amigos.html"/></url>
+  <url><loc>https://iyanrojo.com/es/dos-amigos.html</loc><lastmod>2026-11-14</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://iyanrojo.com/dos-amigos.html"/><xhtml:link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/dos-amigos.html"/></url>
+  <url><loc>https://iyanrojo.com/tierra-de-nadie.html</loc><lastmod>2026-11-14</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://iyanrojo.com/tierra-de-nadie.html"/><xhtml:link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/tierra-de-nadie.html"/></url>
+  <url><loc>https://iyanrojo.com/es/tierra-de-nadie.html</loc><lastmod>2026-11-14</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://iyanrojo.com/tierra-de-nadie.html"/><xhtml:link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/tierra-de-nadie.html"/></url>
+  <url><loc>https://iyanrojo.com/films.html</loc><lastmod>2026-11-14</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://iyanrojo.com/films.html"/><xhtml:link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/films.html"/></url>
+  <url><loc>https://iyanrojo.com/es/films.html</loc><lastmod>2026-11-14</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://iyanrojo.com/films.html"/><xhtml:link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/films.html"/></url>
+  <url><loc>https://iyanrojo.com/tierra.html</loc><lastmod>2026-11-14</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://iyanrojo.com/tierra.html"/><xhtml:link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/tierra.html"/></url>
+  <url><loc>https://iyanrojo.com/es/tierra.html</loc><lastmod>2026-11-14</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://iyanrojo.com/tierra.html"/><xhtml:link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/tierra.html"/></url>
+  <url><loc>https://iyanrojo.com/work.html</loc><lastmod>2026-11-14</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://iyanrojo.com/work.html"/><xhtml:link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/work.html"/></url>
+  <url><loc>https://iyanrojo.com/es/work.html</loc><lastmod>2026-11-14</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://iyanrojo.com/work.html"/><xhtml:link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/work.html"/></url>
+  <url><loc>https://iyanrojo.com/nueva-vida.html</loc><lastmod>2026-11-14</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://iyanrojo.com/nueva-vida.html"/><xhtml:link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/nueva-vida.html"/></url>
+  <url><loc>https://iyanrojo.com/es/nueva-vida.html</loc><lastmod>2026-11-14</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://iyanrojo.com/nueva-vida.html"/><xhtml:link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/nueva-vida.html"/></url>
+  <url><loc>https://iyanrojo.com/free-tour.html</loc><lastmod>2026-11-14</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://iyanrojo.com/free-tour.html"/><xhtml:link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/free-tour.html"/></url>
+  <url><loc>https://iyanrojo.com/es/free-tour.html</loc><lastmod>2026-11-14</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://iyanrojo.com/free-tour.html"/><xhtml:link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/free-tour.html"/></url>
+  <url><loc>https://iyanrojo.com/bienvenido-al-futuro.html</loc><lastmod>2026-11-14</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://iyanrojo.com/bienvenido-al-futuro.html"/><xhtml:link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/bienvenido-al-futuro.html"/></url>
+  <url><loc>https://iyanrojo.com/es/bienvenido-al-futuro.html</loc><lastmod>2026-11-14</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://iyanrojo.com/bienvenido-al-futuro.html"/><xhtml:link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/bienvenido-al-futuro.html"/></url>
+  <url><loc>https://iyanrojo.com/contact.html</loc><lastmod>2026-11-14</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://iyanrojo.com/contact.html"/><xhtml:link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/contact.html"/></url>
+  <url><loc>https://iyanrojo.com/es/contact.html</loc><lastmod>2026-11-14</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://iyanrojo.com/contact.html"/><xhtml:link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/contact.html"/></url>
 </urlset>

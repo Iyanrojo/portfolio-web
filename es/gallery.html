@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Analogue photography · Iyán Rojo, photographer in Cantabria</title>
+<meta content="Analogue photography by Iyán Rojo, photographer based in Cantabria: 35 mm and medium-format film, black-and-white and colour. Prints available." name="description"/>
+<!-- SEO -->
+<link href="https://iyanrojo.com/gallery.html" rel="canonical"/>
+<link href="https://iyanrojo.com/gallery.html" hreflang="en" rel="alternate"/>
+<link href="https://iyanrojo.com/es/gallery.html" hreflang="es" rel="alternate"/>
+<link href="https://iyanrojo.com/gallery.html" hreflang="x-default" rel="alternate"/>
+<meta content="website" property="og:type"/>
+<meta content="Iyán Rojo" property="og:site_name"/>
+<meta content="en_GB" property="og:locale"/>
+<meta content="Analogue photography · Iyán Rojo, photographer in Cantabria" property="og:title"/>
+<meta content="Analogue photography by Iyán Rojo, photographer based in Cantabria: 35 mm and medium-format film, black-and-white and colour. Prints available." property="og:description"/>
+<meta content="https://iyanrojo.com/gallery.html" property="og:url"/>
+<meta content="https://iyanrojo.com/photos/28.jpg" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<!-- /SEO -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&amp;family=Hanken+Grotesk:wght@500;600&amp;family=Cormorant+Garamond:ital,wght@1,400;1,500&amp;display=swap" rel="stylesheet"/>
+<link href="../css/site.css" rel="stylesheet"/>
+<script>window.ROOT='../';</script></head>
+<body class="photo-page">
+<header id="top">
+<div class="wrap">
+<a class="name" href="index.html"><span>Iyán Rojo</span></a>
+<nav aria-label="Main">
+<ul>
+<li><a class="on" href="gallery.html">Fotografía</a></li>
+<li><a href="films.html">Films</a></li>
+<li><a href="work.html">Encargos</a></li>
+<li><a href="contact.html">Contacto</a></li>
+<li><a class="lang" href="../gallery.html" hreflang="en" id="lang" lang="en" title="View in English"><b>ES</b> / EN</a></li>
+<li><a aria-label="Instagram @iyanrojo_" class="ig" href="https://www.instagram.com/iyanrojo_/" rel="noopener" target="_blank"><svg aria-hidden="true" fill="none" height="18" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="18"><rect height="18" rx="5" width="18" x="3" y="3"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.6" fill="currentColor" r="1" stroke="none"></circle></svg></a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main>
+<!-- GALLERY: every photo lives in photos/ as 01.jpg, 02.jpg … Add or remove <button class="ph"> lines to match.
+       The first ten are also the ones in the slideshow on the home page. -->
+<div class="wrap">
+<div class="photo-layout">
+<aside class="photo-side">
+<div class="side-block">
+<div class="side-label small">Proyectos</div>
+<ul class="proj-list">
+<li><a data-cover="../photos/2a-cover.jpg" href="dos-amigos.html"><span class="proj-name">2 amigos</span></a></li>
+<li><a data-cover="../photos/tdn-cover.jpg" href="tierra-de-nadie.html"><span class="proj-name">Tierra de nadie</span></a></li>
+</ul>
+</div>
+</aside>
+<div class="photo-main">
+<div class="masonry gallery">
+</div>
+</div>
+</div>
+<section class="prints" id="prints">
+<h2 class="case-h">¿Te interesa una copia?</h2>
+<p>Las fotografías de esta galería están disponibles como copias impresas. Al abrir una foto verás su referencia (por ejemplo IR-05): dime la referencia de la que te guste y te enviaré los tamaños, papeles y precios disponibles.</p>
+<div class="link-row">
+<button class="more copy-btn" data-copy="general" type="button">Pedir información</button>
+<span class="small" style="color:var(--muted);margin-top:8px">iyanrojo@gmail.com</span>
+</div>
+</section>
+<div class="to-gallery"><a class="more" href="index.html">← Volver al inicio</a></div>
+</div>
+</main>
+<footer>
+<div class="wrap small"><span>© 2026 Iyán Rojo Greciet · Fotógrafo y realizador audiovisual · Cantabria</span><a href="#top" style="text-decoration:none">Volver arriba ↑</a></div>
+</footer>
+<div aria-label="Enlarged photo" aria-modal="true" class="lb" id="lb" role="dialog">
+<button id="lb-close" type="button">Cerrar</button>
+<img alt="" id="lb-img"/>
+<span class="lb-ref small" id="lb-count"></span>
+</div>
+<script src="../js/photos.js"></script>
+<script>
+// Build the mosaic from the photo list. Each frame gets its final proportions up front,
+// so the layout never jumps while images load; each photo then fades in.
+(function(){
+  var box=document.querySelector('.masonry.gallery');
+  (window.PHOTOS||[]).forEach(function(p, n){
+    var b=document.createElement('button'); b.type='button'; b.className='ph';
+    b.style.aspectRatio=p.w+' / '+p.h;
+    var img=document.createElement('img'); img.alt=(document.documentElement.lang==='es'?'Fotografía analógica de Iyán Rojo, ref. IR-':'Analogue photograph by Iyán Rojo, ref. IR-')+p.f.replace('.jpg',''); img.decoding='async';
+    if(n>8) img.loading='lazy';
+    img.style.transitionDelay=Math.min(n,8)*80+'ms';
+    img.onload=function(){ b.classList.add('has-img'); };
+    img.src=(window.ROOT||'')+'photos/'+p.f; b.appendChild(img); box.appendChild(b);
+  });
+})();
+var lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img'), lbCount = document.getElementById('lb-count'), cur = 0;
+function list(){ return [].slice.call(document.querySelectorAll('.ph.has-img img')); }
+function openAt(n){ var L = list(); if (!L.length) return; cur = (n + L.length) % L.length;
+  var src = L[cur].src, wasOpen = lb.classList.contains('open');
+  window.currentPhoto = 'IR-' + ((L[cur].getAttribute('src').match(/(\d+)\.jpg/) || [,''])[1]);
+  lbCount.textContent = 'Ref. ' + window.currentPhoto;
+  if (!wasOpen) { lbImg.src = src; lb.classList.add('open'); return; }
+  lbImg.classList.add('swap');
+  setTimeout(function(){ lbImg.onload = function(){ lbImg.classList.remove('swap'); }; lbImg.src = src;
+    if (lbImg.complete) lbImg.classList.remove('swap'); }, 220); }
+document.querySelectorAll('.ph').forEach(function (b) {
+  b.addEventListener('click', function () { if (!b.classList.contains('has-img')) return;
+    openAt(list().indexOf(b.querySelector('img'))); document.getElementById('lb-close').focus(); });
+});
+function closeLb(){ lb.classList.remove('open'); setTimeout(function(){ if(!lb.classList.contains('open')) lbImg.removeAttribute('src'); }, 520); }
+document.getElementById('lb-close').addEventListener('click', closeLb);
+// Click the right half of the photo for the next one, the left half for the previous one.
+lbImg.addEventListener('click', function (e) {
+  e.stopPropagation();
+  var r = lbImg.getBoundingClientRect();
+  openAt(e.clientX - r.left > r.width / 2 ? cur + 1 : cur - 1);
+});
+lbImg.addEventListener('mousemove', function (e) {
+  var r = lbImg.getBoundingClientRect();
+  lbImg.style.cursor = e.clientX - r.left > r.width / 2 ? 'e-resize' : 'w-resize';
+});
+// Swipe on phones.
+var sx = null;
+lb.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, {passive:true});
+lb.addEventListener('touchend', function (e) { if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) openAt(dx < 0 ? cur + 1 : cur - 1); sx = null; });
+lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+document.addEventListener('keydown', function (e) {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLb(); if (e.key === 'ArrowRight') openAt(cur+1); if (e.key === 'ArrowLeft') openAt(cur-1);
+});
+</script>
+<div aria-hidden="true" class="proj-preview" id="proj-preview"><img alt=""/></div>
+<script>
+// Hovering a project name shows its cover floating next to the cursor (when the cover exists).
+(function(){
+  var pv=document.getElementById('proj-preview'), im=pv.querySelector('img');
+  document.querySelectorAll('.proj-list a').forEach(function(a){
+    var src=a.getAttribute('data-cover'), ok=false, probe=new Image();
+    probe.onload=function(){ ok=true; }; probe.src=src;
+    a.addEventListener('mouseenter',function(){ if(!ok) return; im.src=src; pv.classList.add('on'); });
+    a.addEventListener('mouseleave',function(){ pv.classList.remove('on'); });
+    a.addEventListener('mousemove',function(e){ pv.style.transform='translate('+(e.clientX+28)+'px,'+(e.clientY-90)+'px)'; });
+  });
+})();
+</script>
+<script src="../js/print.js"></script>
+<script src="../js/lang.js"></script>
+</body>
+</html>

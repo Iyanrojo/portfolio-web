@@ -3,18 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Photography · Iyán Rojo</title>
-<meta name="description" content="Analogue photography archive by Iyán Rojo: 35 mm and medium format, black-and-white and colour film. Prints available.">
+<title>Analogue photography · Iyán Rojo, photographer in Cantabria</title>
+<meta name="description" content="Analogue photography by Iyán Rojo, photographer based in Cantabria: 35 mm and medium-format film, black-and-white and colour. Prints available.">
 <!-- SEO -->
 <link rel="canonical" href="https://iyanrojo.com/gallery.html">
+<link rel="alternate" hreflang="en" href="https://iyanrojo.com/gallery.html">
+<link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/gallery.html">
+<link rel="alternate" hreflang="x-default" href="https://iyanrojo.com/gallery.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Iyán Rojo">
-<meta property="og:title" content="Photography · Iyán Rojo">
-<meta property="og:description" content="Analogue photography archive by Iyán Rojo: 35 mm and medium format, black-and-white and colour film. Prints available.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Analogue photography · Iyán Rojo, photographer in Cantabria">
+<meta property="og:description" content="Analogue photography by Iyán Rojo, photographer based in Cantabria: 35 mm and medium-format film, black-and-white and colour. Prints available.">
 <meta property="og:url" content="https://iyanrojo.com/gallery.html">
 <meta property="og:image" content="https://iyanrojo.com/photos/28.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:,">
 <!-- /SEO -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,7 +35,7 @@
         <li><a href="films.html">Films</a></li>
         <li><a href="work.html">Work</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><button class="lang" id="lang" type="button">ES / <b>EN</b></button></li>
+        <li><a class="lang" id="lang" href="es/gallery.html" hreflang="es" lang="es" title="Ver en español">ES / <b>EN</b></a></li>
         <li><a class="ig" href="https://www.instagram.com/iyanrojo_/" target="_blank" rel="noopener" aria-label="Instagram @iyanrojo_"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a></li>
       </ul>
     </nav>
@@ -71,7 +74,7 @@
 </main>
 
 <footer>
-  <div class="wrap small"><span>© 2026 Iyán Rojo Greciet</span><a href="#top" style="text-decoration:none">Back to top ↑</a></div>
+  <div class="wrap small"><span>© 2026 Iyán Rojo Greciet · Photographer and filmmaker · Cantabria, Spain</span><a href="#top" style="text-decoration:none">Back to top ↑</a></div>
 </footer>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged photo">
@@ -89,11 +92,11 @@
   (window.PHOTOS||[]).forEach(function(p, n){
     var b=document.createElement('button'); b.type='button'; b.className='ph';
     b.style.aspectRatio=p.w+' / '+p.h;
-    var img=document.createElement('img'); img.alt=''; img.decoding='async';
+    var img=document.createElement('img'); img.alt=(document.documentElement.lang==='es'?'Fotografía analógica de Iyán Rojo, ref. IR-':'Analogue photograph by Iyán Rojo, ref. IR-')+p.f.replace('.jpg',''); img.decoding='async';
     if(n>8) img.loading='lazy';
     img.style.transitionDelay=Math.min(n,8)*80+'ms';
     img.onload=function(){ b.classList.add('has-img'); };
-    img.src='photos/'+p.f; b.appendChild(img); box.appendChild(b);
+    img.src=(window.ROOT||'')+'photos/'+p.f; b.appendChild(img); box.appendChild(b);
   });
 })();
 var lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img'), lbCount = document.getElementById('lb-count'), cur = 0;
@@ -147,6 +150,6 @@ document.addEventListener('keydown', function (e) {
 })();
 </script>
 <script src="js/print.js"></script>
-<script src="js/i18n.js"></script>
+<script src="js/lang.js"></script>
 </body>
 </html>

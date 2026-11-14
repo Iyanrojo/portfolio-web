@@ -1,4 +1,5 @@
-/* Language switch (English / Spanish).
+/* Spanish dictionary used by tools/build_es.py to generate the /es/ pages (not loaded by the pages).
+   Language switch (English / Spanish).
    The pages are written in English. Each entry below maps an element's exact English
    content to its Spanish version. To change a translation, edit the right-hand side.
    To translate new text, add a line with the exact English HTML on the left. */
@@ -310,6 +311,19 @@ var ES = {
   "← Back to Films": "← Volver a Films",
   "Page not found": "Página no encontrada",
   "This page doesn’t exist, or it has moved.": "Esta página no existe o ha cambiado de sitio.",
+  // SEO: services, footer, landing heading
+  "Services": "Servicios",
+  "Video production and filming": "Producción y grabación de vídeo",
+  "Campaigns, documentaries and films for brands, NGOs and institutions, from the idea and the script to the shoot and the edit.": "Campañas, documentales y piezas audiovisuales para marcas, ONG e instituciones, desde la idea y el guion hasta el rodaje y el montaje.",
+  "Analogue photography": "Fotografía analógica",
+  "35 mm and medium format, black-and-white and colour film: portraits, documentary series and commissions.": "35 mm y medio formato, en blanco y negro y en color: retratos, series documentales y encargos.",
+  "Copywriting and communication": "Copy y comunicación",
+  "Campaign concepts, scripts and social media for social causes and organisations.": "Conceptos de campaña, guiones y redes sociales para causas sociales y entidades.",
+  "Fine-art prints": "Copias de autor",
+  "Prints of my photographs, numbered and on request.": "Copias de mis fotografías, numeradas y bajo pedido.",
+  "Based between Torrelavega and Santander. I work across Cantabria and the north of Spain, and travel wherever the project needs.": "Vivo entre Torrelavega y Santander. Trabajo en toda Cantabria y el norte de España, y me desplazo allí donde lo pida el proyecto.",
+  "© 2026 Iyán Rojo Greciet · Photographer and filmmaker · Cantabria, Spain": "© 2026 Iyán Rojo Greciet · Fotógrafo y realizador audiovisual · Cantabria",
+  "Iyán Rojo, analogue photographer and filmmaker in Cantabria, Spain: video production and filming, documentary and analogue photography.": "Iyán Rojo, fotógrafo analógico y realizador audiovisual en Cantabria: producción y grabación de vídeo, documental y fotografía analógica.",
   "← Back to home": "← Volver al inicio"
 };
 

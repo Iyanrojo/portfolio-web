@@ -3,19 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Iyán Rojo · Photographer and filmmaker</title>
-<meta name="description" content="Iyán Rojo Greciet: analogue black-and-white photography, documentary film and audiovisual campaigns. Based in Cantabria, Spain.">
+<title>Iyán Rojo · Photographer and filmmaker in Cantabria, Spain</title>
+<meta name="description" content="Iyán Rojo Greciet, analogue photographer and filmmaker based in Cantabria, Spain: video production and filming, documentaries, campaigns and film photography.">
 <!-- SEO -->
 <link rel="canonical" href="https://iyanrojo.com/">
+<link rel="alternate" hreflang="en" href="https://iyanrojo.com/">
+<link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/">
+<link rel="alternate" hreflang="x-default" href="https://iyanrojo.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Iyán Rojo">
-<meta property="og:title" content="Iyán Rojo · Photographer and filmmaker">
-<meta property="og:description" content="Iyán Rojo Greciet: analogue black-and-white photography, documentary film and audiovisual campaigns. Based in Cantabria, Spain.">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Iyán Rojo · Photographer and filmmaker in Cantabria, Spain">
+<meta property="og:description" content="Iyán Rojo Greciet, analogue photographer and filmmaker based in Cantabria, Spain: video production and filming, documentaries, campaigns and film photography.">
 <meta property="og:url" content="https://iyanrojo.com/">
 <meta property="og:image" content="https://iyanrojo.com/photos/02.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:,">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Iyán Rojo Greciet","alternateName":"Iyán Rojo","url":"https://iyanrojo.com/","jobTitle":"Photographer and filmmaker","address":{"@type":"PostalAddress","addressRegion":"Cantabria","addressCountry":"ES"},"sameAs":["https://www.instagram.com/iyanrojo_/"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Person", "@id": "https://iyanrojo.com/#person", "name": "Iyán Rojo Greciet", "alternateName": "Iyán Rojo", "url": "https://iyanrojo.com/", "image": "https://iyanrojo.com/assets/portrait.jpg", "jobTitle": ["Fotógrafo", "Realizador audiovisual", "Photographer", "Filmmaker"], "knowsAbout": ["Fotografía analógica", "Producción de vídeo", "Grabación de vídeo", "Documental", "Analogue photography", "Video production"], "address": {"@type": "PostalAddress", "addressLocality": "Torrelavega", "addressRegion": "Cantabria", "addressCountry": "ES"}, "sameAs": ["https://www.instagram.com/iyanrojo_/", "https://vimeo.com/341890221", "https://www.youtube.com/watch?v=FFCa6GAHRDk"]}, {"@type": "ProfessionalService", "@id": "https://iyanrojo.com/#service", "name": "Iyán Rojo · Fotografía y producción de vídeo", "url": "https://iyanrojo.com/", "image": "https://iyanrojo.com/photos/02.jpg", "founder": {"@id": "https://iyanrojo.com/#person"}, "email": "iyanrojo@gmail.com", "telephone": "+34649925806", "address": {"@type": "PostalAddress", "addressLocality": "Torrelavega", "addressRegion": "Cantabria", "addressCountry": "ES"}, "areaServed": [{"@type": "AdministrativeArea", "name": "Cantabria"}, {"@type": "City", "name": "Santander"}, {"@type": "City", "name": "Torrelavega"}, {"@type": "Country", "name": "España"}], "serviceType": ["Producción de vídeo", "Grabación de vídeo", "Fotografía analógica", "Fotógrafo", "Documental", "Campañas audiovisuales"]}]}</script>
 <!-- /SEO -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,13 +36,14 @@
         <li><a href="films.html">Films</a></li>
         <li><a href="work.html">Work</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><button class="lang" id="lang" type="button">ES / <b>EN</b></button></li>
+        <li><a class="lang" id="lang" href="es/" hreflang="es" lang="es" title="Ver en español">ES / <b>EN</b></a></li>
         <li><a class="ig" href="https://www.instagram.com/iyanrojo_/" target="_blank" rel="noopener" aria-label="Instagram @iyanrojo_"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a></li>
       </ul>
     </nav>
   </div>
 </header>
 
+<h1 class="sr-only">Iyán Rojo, analogue photographer and filmmaker in Cantabria, Spain: video production and filming, documentary and analogue photography.</h1>
 <main>
   <!-- PHOTOGRAPHY: large slideshow. Files go in photos/01.jpg … photos/40.jpg (any proportions; each is shown whole).
        To add more, copy a <figure class="slide"> line and change the number. -->
@@ -100,7 +104,7 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape') clos
   var stage=document.querySelector('.stage');
   (window.PHOTOS||[]).forEach(function(p){
     var f=document.createElement('figure'); f.className='slide'; f.setAttribute('data-n',p.f.slice(0,2));
-    var img=document.createElement('img'); img.alt=''; img.src='photos/'+p.f; f.appendChild(img); stage.appendChild(f);
+    var img=document.createElement('img'); img.alt=(document.documentElement.lang==='es'?'Fotografía analógica de Iyán Rojo, ref. IR-':'Analogue photograph by Iyán Rojo, ref. IR-')+p.f.replace('.jpg',''); img.src=(window.ROOT||'')+'photos/'+p.f; f.appendChild(img); stage.appendChild(f);
   });
   var all=[].slice.call(stage.querySelectorAll('.slide'));
   for(var k=all.length-1;k>0;k--){ var r=Math.floor(Math.random()*(k+1)); var t=all[k]; all[k]=all[r]; all[r]=t; }
@@ -120,6 +124,6 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape') clos
   start();
 })();
 </script>
-<script src="js/i18n.js"></script>
+<script src="js/lang.js"></script>
 </body>
 </html>
