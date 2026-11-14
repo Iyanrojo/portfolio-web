@@ -77,7 +77,7 @@ SEO = {
 BUSINESS = {
  "@context": "https://schema.org",
  "@graph": [
-  {"@type": "Person", "@id": D + "/#person", "name": "Iyán Rojo Greciet", "alternateName": "Iyán Rojo",
+  {"@type": "Person", "@id": D + "/#person", "name": "Iyán Rojo Greciet", "alternateName": ["Iyán Rojo", "Iyan Rojo", "Iyan Rojo Greciet"],
    "url": D + "/", "image": D + "/assets/portrait.jpg",
    "jobTitle": ["Fotógrafo", "Realizador audiovisual", "Photographer", "Filmmaker"],
    "knowsAbout": ["Fotografía analógica", "Producción de vídeo", "Grabación de vídeo", "Documental", "Analogue photography", "Video production"],
