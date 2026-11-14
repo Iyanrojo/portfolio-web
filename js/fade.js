@@ -12,12 +12,12 @@
     ticking = false;
     var max = Math.max(1, root.scrollHeight - window.innerHeight);
     var span = Math.max(max, 900);                            // short pages change less
-    var t = Math.min(1, Math.max(0, (window.scrollY - span * 0.12) / (span * 0.8)));
+    var t = Math.min(1, Math.max(0, (window.scrollY - span * 0.1) / (span * 0.35)));
     t = ease(t);
     if (Math.abs(t - last) < 0.002) return;
     last = t;
-    // Text stays readable: it crosses over to light around the middle, while the background darkens gradually.
-    var tt = ease(Math.min(1, Math.max(0, (t - 0.42) / 0.16)));
+    // Text never fades through grey: it switches straight to light when the background reaches mid-grey.
+    var tt = t >= 0.46 ? 1 : 0;
     for (var k in FROM) {
       var a = FROM[k], b = TO[k], u = TEXT[k] ? tt : t;
       root.style.setProperty("--" + k, "rgb(" + Math.round(a[0] + (b[0] - a[0]) * u) + "," + Math.round(a[1] + (b[1] - a[1]) * u) + "," + Math.round(a[2] + (b[2] - a[2]) * u) + ")");
