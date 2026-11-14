@@ -328,6 +328,13 @@ var ES = {
   "2020 · Music video": "2020 · Videoclip",
   "A music video made in 2020 for the Asturian artist Leapoldo.": "Un videoclip realizado en 2020 para la artista asturiana Leapoldo.",
   "Play the video": "Ver el vídeo",
+  // Radio
+  "Radio": "Radio",
+  "Weekly film section on Onda Occidental": "Sección semanal de cine en Onda Occidental",
+  "Muy Nuestro · Onda Occidental · Weekly": "Muy Nuestro · Onda Occidental · Semanal",
+  "Every week, in the programme Muy Nuestro on Onda Occidental, I talk about films and series and try to shed a little light on the world of cinema: what to watch, why it matters and what lies behind each film.": "Cada semana, en el programa Muy Nuestro de Onda Occidental, hablo de películas y series e intento arrojar un poco de luz sobre el mundo del cine: qué ver, por qué importa y qué hay detrás de cada película.",
+  "Listen to an episode (from minute 50)": "Escuchar un programa (desde el minuto 50)",
+  "Film section «Mamá, ¿quién es Godard?», Muy Nuestro, Onda Occidental (radio)": "Sección de cine «Mamá, ¿quién es Godard?», Muy Nuestro, Onda Occidental (radio)",
   "← Back to home": "← Volver al inicio"
 };
 
