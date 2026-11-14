@@ -16,6 +16,8 @@ window.PHOTOS = [
   {"f": "07.jpg", "w": 1165, "h": 1349},
   {"f": "47.jpg", "w": 552, "h": 764},
   {"f": "29.jpg", "w": 750, "h": 738},
+  {"f": "51.jpg", "w": 1095, "h": 711, "l": "Barcelona", "le": "Barcelona", "y": 2019},
+  {"f": "52.jpg", "w": 946, "h": 613, "l": "Barcelona", "le": "Barcelona", "y": 2019},
   {"f": "14.jpg", "w": 1319, "h": 1318, "l": "Islas Canarias", "le": "Canary Islands", "y": 2023},
   {"f": "41.jpg", "w": 1086, "h": 721, "l": "Gran Canaria", "le": "Gran Canaria", "y": 2023},
   {"f": "25.jpg", "w": 1994, "h": 1329, "l": "Gran Canaria", "le": "Gran Canaria", "y": 2023},
