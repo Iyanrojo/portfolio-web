@@ -336,6 +336,9 @@ var ES = {
   "Listen to an episode (from minute 50)": "Escuchar un programa (desde el minuto 50)",
   "Film section «Mamá, ¿quién es Godard?», Muy Nuestro, Onda Occidental (radio)": "Sección de cine «Mamá, ¿quién es Godard?», Muy Nuestro, Onda Occidental (radio)",
   "I also talk about cinema on the radio: every week I present <a class=\"u\" href=\"https://www.ondaoccidental.es/episodio-28-muy-nuestro-con-samira-hidalgo-15-10-2026/\" target=\"_blank\" rel=\"noopener\">«Mamá, ¿quién es Godard?»</a>, my film section in the programme Muy Nuestro on Onda Occidental, where I discuss films and series.": "También hablo de cine en la radio: cada semana presento <a class=\"u\" href=\"https://www.ondaoccidental.es/episodio-28-muy-nuestro-con-samira-hidalgo-15-10-2026/\" target=\"_blank\" rel=\"noopener\">«Mamá, ¿quién es Godard?»</a>, mi sección de cine en el programa Muy Nuestro de Onda Occidental, donde comento películas y series.",
+  "Press": "Prensa",
+  "See the photo gallery ↗": "Ver la galería de fotos ↗",
+  "17 Oct 2019": "17 oct. 2019",
   "← Back to home": "← Volver al inicio"
 };
 

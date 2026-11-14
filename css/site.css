@@ -408,3 +408,7 @@ body.dark{--bg:#111110;--ink:#f6f5f2;--muted:#96958f;--slot:#262523;--rule:#3433
 .pieces>.piece:nth-child(n+4){animation-delay:.36s}
 .dark .case-cover{animation-delay:.12s}
 @media (prefers-reduced-motion:reduce){.pieces>.piece,.dark .case-hero,.dark .case-cover{animation:none}}
+
+/* Contact: press */
+.contact-press{margin-top:clamp(48px,6vw,80px);border-top:1px solid var(--rule);padding-top:28px;max-width:900px}
+.contact-press .clips{margin-top:6px}
