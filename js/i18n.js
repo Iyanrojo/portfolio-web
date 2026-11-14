@@ -339,6 +339,8 @@ var ES = {
   "Press": "Prensa",
   "See the photo gallery ↗": "Ver la galería de fotos ↗",
   "17 Oct 2019": "17 oct. 2019",
+  "28 June 2025": "28 jun. 2025",
+  "Read the news ↗": "Leer la noticia ↗",
   "← Back to home": "← Volver al inicio"
 };
 
