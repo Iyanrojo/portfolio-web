@@ -396,9 +396,6 @@ a.lang{text-decoration:none;display:inline-block}
 .vp-close{position:absolute;top:18px;right:22px;background:none;border:0;color:#f6f5f2;cursor:pointer;letter-spacing:.08em;text-transform:uppercase;font-weight:700}
 .vp-close:hover{opacity:.7}
 
-/* Films: radio section */
-.radio{margin-top:clamp(72px,9vw,120px)}
-.radio-grid{display:grid;grid-template-columns:minmax(220px,1fr) 2fr;gap:clamp(20px,4vw,56px);align-items:start}
-.radio-grid p{margin:0 0 6px;max-width:62ch;color:var(--ink-2)}
-.radio audio{width:100%;max-width:520px;margin-top:18px}
-@media (max-width:760px){.radio-grid{grid-template-columns:1fr}}
+
+/* Films section: dark page */
+body.dark{--bg:#111110;--ink:#f6f5f2;--muted:#96958f;--slot:#262523;--rule:#343330;--ink-2:#d6d4ce;--ink-3:#bebcb6}

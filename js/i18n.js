@@ -335,6 +335,7 @@ var ES = {
   "Every week, in the programme Muy Nuestro on Onda Occidental, I talk about films and series and try to shed a little light on the world of cinema: what to watch, why it matters and what lies behind each film.": "Cada semana, en el programa Muy Nuestro de Onda Occidental, hablo de películas y series e intento arrojar un poco de luz sobre el mundo del cine: qué ver, por qué importa y qué hay detrás de cada película.",
   "Listen to an episode (from minute 50)": "Escuchar un programa (desde el minuto 50)",
   "Film section «Mamá, ¿quién es Godard?», Muy Nuestro, Onda Occidental (radio)": "Sección de cine «Mamá, ¿quién es Godard?», Muy Nuestro, Onda Occidental (radio)",
+  "I also talk about cinema on the radio: every week I present <a class=\"u\" href=\"https://www.ondaoccidental.es/episodio-28-muy-nuestro-con-samira-hidalgo-15-10-2026/\" target=\"_blank\" rel=\"noopener\">«Mamá, ¿quién es Godard?»</a>, my film section in the programme Muy Nuestro on Onda Occidental, where I discuss films and series and try to shed a little light on the world of cinema.": "También hablo de cine en la radio: cada semana presento <a class=\"u\" href=\"https://www.ondaoccidental.es/episodio-28-muy-nuestro-con-samira-hidalgo-15-10-2026/\" target=\"_blank\" rel=\"noopener\">«Mamá, ¿quién es Godard?»</a>, mi sección de cine en el programa Muy Nuestro de Onda Occidental, donde comento películas y series e intento arrojar un poco de luz sobre el mundo del cine.",
   "← Back to home": "← Volver al inicio"
 };
 

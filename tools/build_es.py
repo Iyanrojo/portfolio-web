@@ -38,9 +38,9 @@ SEO = {
    "Tierra de nadie: fotopoemario de Iyán Rojo inspirado en Tierra de Campos, con fotografías analógicas en blanco y negro en medio formato 6×6.",
    "photos/tdn-cover.jpg"),
  "films.html": ("Films and documentaries · Iyán Rojo, filmmaker",
-   "Documentaries, video portraits and personal films by Iyán Rojo, filmmaker based in Cantabria: TIERRA, Skateboard Diaries, LeFeu the music video AGUA for Leapoldo, and the weekly film section «Mamá, ¿quién es Godard?» on Onda Occidental radio.",
+   "Documentaries, video portraits and personal films by Iyán Rojo, filmmaker based in Cantabria: TIERRA, Skateboard Diaries, LeFeu and the music video AGUA for Leapoldo.",
    "Documentales y películas · Iyán Rojo, realizador audiovisual",
-   "Documentales, videorretratos y películas de Iyán Rojo, realizador audiovisual en Cantabria: TIERRA, Skateboard Diaries, LeFeu el videoclip AGUA para Leapoldo y la sección semanal de cine «Mamá, ¿quién es Godard?» en Onda Occidental.",
+   "Documentales, videorretratos y películas de Iyán Rojo, realizador audiovisual en Cantabria: TIERRA, Skateboard Diaries, LeFeu y el videoclip AGUA para Leapoldo.",
    "photos/art-03.jpg"),
  "tierra.html": ("TIERRA · Documentary (2019) · Iyán Rojo",
    "TIERRA: a documentary about don Adolfo, the schoolteacher murdered in Sahelices del Río during the Spanish Civil War. Directed and edited by Iyán Rojo.",
@@ -137,7 +137,10 @@ def set_head(s, page, lang):
     return s
 
 def build():
-    ES = {norm(k): v for k, v in es_dict().items()}
+    ES = {}
+    for k, v in es_dict().items():
+        ES[norm(k)] = v
+        ES[norm(BeautifulSoup(k, "html.parser").decode())] = v  # same markup as BeautifulSoup writes it
     os.makedirs("es", exist_ok=True)
     today = datetime.date.today().isoformat()
     missing = {}
