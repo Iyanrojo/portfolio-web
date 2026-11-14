@@ -263,6 +263,23 @@ var ES = {
   "More than 300,000 organic views, with no paid promotion, for a message that is usually hard to place in front of urban audiences: that the countryside is not the past, but a way of living and producing worth choosing.": "Más de 300.000 visualizaciones orgánicas, sin promoción pagada, para un mensaje que cuesta hacer llegar al público urbano: que el campo no es el pasado, sino una forma de vivir y de producir que merece la pena elegir.",
   "Filming &amp; edit: Iyán Rojo": "Grabación y montaje: Iyán Rojo",
   "Client: Calidad Rural": "Cliente: Calidad Rural",
+  // Work: Nueva Vida feature
+  "Long-term collaboration · 2023–present": "Colaboración continuada · 2023–actualidad",
+  "More than three years telling stories that are hard to tell. From inside the organisation, I turn its daily work with people on the margins into campaigns people actually stop to watch.": "Más de tres años contando historias difíciles de contar. Desde dentro de la entidad, convierto su trabajo diario con las personas en los márgenes en campañas que la gente se para a ver.",
+  "<b>3+</b>years working side by side": "<b>3+</b>años trabajando mano a mano",
+  "<b>6M+</b>views across campaigns": "<b>6M+</b>visualizaciones entre todas las campañas",
+  "<b>4</b>groups, one message: dignity": "<b>4</b>colectivos, un mismo mensaje: dignidad",
+  "The organisation": "La entidad",
+  "For three decades Nueva Vida has worked in Santander, Torrelavega and Cabezón de la Sal with the people a city tends not to see: people experiencing homelessness, women who have survived trafficking for sexual exploitation, refugees and asylum seekers, and people in prison and their families. Shelters, reception centres, food and clothing banks, and NUVITEX, a textile social enterprise that trains and employs trafficking survivors.": "Desde hace tres décadas, Nueva Vida trabaja en Santander, Torrelavega y Cabezón de la Sal con las personas que una ciudad suele no ver: personas sin hogar, mujeres supervivientes de trata con fines de explotación sexual, personas refugiadas y solicitantes de asilo, y personas en prisión y sus familias. Albergues, centros de acogida, bancos de alimentos y ropa, y NUVITEX, una empresa textil de inserción que forma y da empleo a supervivientes de trata.",
+  "Copywriter and filmmaker, hand in hand with the team. I take each campaign from the first idea and the script to the shoot, the edit and the line that goes out on social media. The challenge is always the same: to talk about exclusion without pity and without spectacle. With humour when it helps, and with respect always.": "Copy y realizador, mano a mano con el equipo. Llevo cada campaña desde la primera idea y el guion hasta el rodaje, el montaje y la frase que sale en redes. El reto es siempre el mismo: hablar de exclusión sin lástima y sin espectáculo. Con humor cuando ayuda, y con respeto siempre.",
+  "Campaigns": "Campañas",
+  "A walking tour through the trafficking hidden in plain sight. 4M+ views and national press.": "Un paseo guiado por la trata que se esconde a plena vista. Más de 4 millones de visualizaciones y prensa nacional.",
+  "Trafficking and sexual exploitation, told on film, at sea and on social media.": "La trata y la explotación sexual, contadas en vídeo, en el mar y en redes.",
+  "A campaign for the city, from script to edit.": "Una campaña para la ciudad, del guion al montaje.",
+  "The anti-trafficking channel: content and copy, every week.": "El canal contra la trata: contenido y copy, cada semana.",
+  "The anniversary film: a quarter of a century in the voices of the people who lived it.": "La pieza del aniversario: un cuarto de siglo en la voz de quienes lo vivieron.",
+  "Allies": "Aliados",
+  "The fight against trafficking also plays at El Sardinero: Real Racing Club de Santander and its Foundation have joined Nueva Vida’s cause, and in 2026 the organisation recognised them on the International Day against Sexual Exploitation and Trafficking.": "La lucha contra la trata también se juega en El Sardinero: el Real Racing Club de Santander y su Fundación se han sumado a la causa de Nueva Vida, que en 2026 les rindió homenaje en el Día Internacional contra la Explotación Sexual y la Trata.",
   "← Back to home": "← Volver al inicio"
 };
 

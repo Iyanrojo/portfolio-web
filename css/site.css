@@ -351,3 +351,21 @@ button.more{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:u
 .scope-grid{grid-template-columns:1fr;gap:18px}
 .scope-grid .ph.has-img{aspect-ratio:2.3/1}
 @media (max-width:760px){.scope-grid{grid-template-columns:1fr}}
+
+/* Work: featured long-term client (Nueva Vida) */
+.nv-feature{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:clamp(34px,5vw,56px) 0;margin:clamp(34px,5vw,56px) 0 clamp(56px,7vw,88px)}
+.nv-kicker{color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.nv-title{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(34px,5vw,56px);line-height:1.02;margin:10px 0 16px}
+.nv-lede{font-size:clamp(17px,1.6vw,20px);line-height:1.5;max-width:60ch;margin:0 0 8px}
+.nv-figures{margin:26px 0 34px}
+.nv-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px)}
+.nv-grid p{font-size:15px;line-height:1.65;color:#2b2a27;margin:0 0 22px;max-width:62ch}
+.nv-h{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:0 0 10px}
+.nv-list{list-style:none;padding:0;margin:0 0 26px}
+.nv-list li{border-top:1px solid var(--rule);padding:12px 0;display:grid;gap:3px}
+.nv-list li:last-child{border-bottom:1px solid var(--rule)}
+.nv-name{font-family:var(--serif);font-style:italic;font-size:21px;line-height:1.2}
+.nv-list a{text-decoration:none}
+.nv-list a .nv-name{border-bottom:1px solid currentColor}
+.nv-desc{font-size:14px;color:#4a4945;line-height:1.5}
+@media (max-width:760px){.nv-grid{grid-template-columns:1fr}}
