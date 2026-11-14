@@ -324,6 +324,10 @@ var ES = {
   "Based between Torrelavega and Santander. I work across Cantabria and the north of Spain, and travel wherever the project needs.": "Vivo entre Torrelavega y Santander. Trabajo en toda Cantabria y el norte de España, y me desplazo allí donde lo pida el proyecto.",
   "© 2026 Iyán Rojo Greciet · Photographer and filmmaker · Cantabria, Spain": "© 2026 Iyán Rojo Greciet · Fotógrafo y realizador audiovisual · Cantabria",
   "Iyán Rojo, analogue photographer and filmmaker in Cantabria, Spain: video production and filming, documentary and analogue photography.": "Iyán Rojo, fotógrafo analógico y realizador audiovisual en Cantabria: producción y grabación de vídeo, documental y fotografía analógica.",
+  // Films: AGUA
+  "2020 · Music video": "2020 · Videoclip",
+  "A music video made in 2020 for the Asturian artist Leapoldo.": "Un videoclip realizado en 2020 para la artista asturiana Leapoldo.",
+  "Play the video": "Ver el vídeo",
   "← Back to home": "← Volver al inicio"
 };
 
