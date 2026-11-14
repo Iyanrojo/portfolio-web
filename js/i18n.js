@@ -321,7 +321,7 @@ var ES = {
   "Campaign concepts, scripts and social media for social causes and organisations.": "Conceptos de campaña, guiones y redes sociales para causas sociales y entidades.",
   "Fine-art prints": "Copias de autor",
   "Prints of my photographs, numbered and on request.": "Copias de mis fotografías, numeradas y bajo pedido.",
-  "Based between Torrelavega and Santander. I work across Cantabria and the north of Spain, and travel wherever the project needs.": "Vivo entre Torrelavega y Santander. Trabajo en toda Cantabria y el norte de España, y me desplazo allí donde lo pida el proyecto.",
+  "Based in Cantabria. I travel wherever the project takes me.": "Con base en Cantabria. Me desplazo donde lo pida el proyecto.",
   "© 2026 Iyán Rojo Greciet · Photographer and filmmaker · Cantabria, Spain": "© 2026 Iyán Rojo Greciet · Fotógrafo y realizador audiovisual · Cantabria",
   "Iyán Rojo, analogue photographer and filmmaker in Cantabria, Spain: video production and filming, documentary and analogue photography.": "Iyán Rojo, fotógrafo analógico y realizador audiovisual en Cantabria: producción y grabación de vídeo, documental y fotografía analógica.",
   // Films: AGUA
