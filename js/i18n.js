@@ -426,6 +426,8 @@ var ES = {
   "Fine art print · Signed and numbered, limited edition of 15 · Secure payment with Stripe · Shipping address requested at checkout": "Copia fine art · Firmada y numerada, edición limitada de 15 · Pago seguro con Stripe · La dirección de envío se pide al pagar",
   "Want this photograph?": "¿Quieres esta fotografía?",
   "Fine art prints": "Copias fine art",
+  "Author’s prints": "Copias de autor",
+  "Shop": "Tienda",
   "← Back to home": "← Volver al inicio"
 };
 
