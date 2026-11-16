@@ -378,6 +378,8 @@ var ES = {
   "The fight against trafficking also plays at El Sardinero. Nueva Vida and the Fundación Real Racing Club work together on Mujer Global, a programme that uses sport to create safe spaces for women in vulnerable situations: survivors of trafficking, refugees and victims of gender violence. In 2026 Nueva Vida recognised the club and its Foundation with its ‘Por una Nueva Vida’ award.": "La lucha contra la trata también se juega en El Sardinero. Nueva Vida y la Fundación Real Racing Club trabajan juntas en Mujer Global, un programa que usa el deporte para crear espacios seguros para mujeres en situación de vulnerabilidad: supervivientes de trata, refugiadas y víctimas de violencia de género. En 2026, Nueva Vida reconoció al club y a su Fundación con el galardón «Por una Nueva Vida».",
   "Mujer Global · with the Fundación Real Racing Club": "Mujer Global · con la Fundación Real Racing Club",
   "Football as a safe space for women in vulnerable situations.": "El fútbol como espacio seguro para mujeres en situación de vulnerabilidad.",
+  "David’s story": "La historia de David",
+  "Prison programme: a life rebuilt with the support of Nueva Vida.": "Medio penitenciario: una vida que se reconstruye con el acompañamiento de Nueva Vida.",
   "← Back to home": "← Volver al inicio"
 };
 
