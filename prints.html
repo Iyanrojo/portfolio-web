@@ -26,8 +26,8 @@
 <!-- /SEO -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=006fa374">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Homemade+Apple&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=6e5058a5">
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
 </head>
 <body class="prints-page">
@@ -64,7 +64,28 @@
 <div class="shop-panel" id="shop-panel" role="dialog" aria-modal="true" aria-labelledby="shop-ref">
   <button type="button" class="shop-close small" id="shop-close">Close</button>
   <div class="shop-inner">
-    <div class="shop-photo"><img id="shop-img" alt=""></div>
+    <div class="shop-photo">
+      <!-- Mockup: the photo shown as a fine art print in its plastic sleeve; "Back" shows the authenticity stamp and signature -->
+      <div class="mock" id="mock">
+        <div class="mock-face mock-front">
+          <div class="mock-paper"><img id="shop-img" alt=""></div>
+          <div class="mock-sleeve" aria-hidden="true"><span class="mock-flap"></span><span class="mock-glare"></span></div>
+        </div>
+        <div class="mock-face mock-back" aria-hidden="true">
+          <div class="mock-paper mock-paper-back" id="mock-back">
+            <div class="stamp">
+              <div class="stamp-name">IYÁN ROJO</div>
+              <div class="stamp-line">Copia de autor · Fine art print</div>
+              <div class="stamp-rows"><span>Ref.</span><b id="stamp-ref">IR-00</b><span>Nº</span><b class="stamp-blank">&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;</b></div>
+              <div class="stamp-line">Cantabria · Analogue photography</div>
+            </div>
+            <div class="sign">Iyán Rojo</div>
+          </div>
+          <div class="mock-sleeve" aria-hidden="true"><span class="mock-flap"></span><span class="mock-glare"></span></div>
+        </div>
+      </div>
+      <div class="mock-toggle"><button type="button" class="on" data-side="front">Front</button><button type="button" data-side="back">Back</button></div>
+    </div>
     <div class="shop-side">
       <div class="small meta" id="shop-place"></div>
       <h3 class="shop-ref" id="shop-ref"></h3>
@@ -114,12 +135,18 @@
   function open(p){
     cur=p; size=S.sizes[0]||null;
     img.src=R+'photos/'+p.f; img.alt='IR-'+p.f.replace('.jpg','');
+    document.getElementById('stamp-ref').textContent='IR-'+p.f.replace('.jpg','');
+    var mock=document.getElementById('mock'); mock.style.setProperty('--ar', p.w/p.h); side('front');
     refEl.textContent='Ref. IR-'+p.f.replace('.jpg','');
     var place=es?p.l:(p.le||p.l); placeEl.textContent=place?(place+(p.y?', '+p.y:'')):(p.y||'');
     render(); panel.classList.add('open'); document.documentElement.style.overflow='hidden';
     document.getElementById('shop-close').focus();
   }
   function close(){ panel.classList.remove('open'); document.documentElement.style.overflow=''; }
+  function side(v){ document.getElementById('mock').classList.toggle('flip', v==='back');
+    [].forEach.call(document.querySelectorAll('.mock-toggle button'),function(b){ b.classList.toggle('on', b.getAttribute('data-side')===v); }); }
+  [].forEach.call(document.querySelectorAll('.mock-toggle button'),function(b){ b.addEventListener('click',function(){ side(b.getAttribute('data-side')); }); });
+  if(es){ var tb=document.querySelectorAll('.mock-toggle button'); tb[0].textContent='Frente'; tb[1].textContent='Dorso'; }
   document.getElementById('shop-close').addEventListener('click',close);
   panel.addEventListener('click',function(e){ if(e.target===panel) close(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
