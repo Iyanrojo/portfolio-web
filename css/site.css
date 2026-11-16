@@ -562,3 +562,5 @@ html[data-theme="dark"] .shop-photo{background:#2b2a27}
 .lb-cta:hover{opacity:.85}
 .lb img{max-height:80vh}
 @media (max-width:620px){.lb .lb-foot{left:18px;right:18px;bottom:16px}.lb-cta{padding:10px 14px;font-size:11px}}
+.photo-side .side-prints{margin-top:56px;padding-top:18px;border-top:1px solid var(--rule)}
+@media (max-width:860px){.photo-side .side-prints{margin-top:0;padding-top:0;border-top:0}}
