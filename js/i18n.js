@@ -392,6 +392,18 @@ var ES = {
   "Awareness campaign · NO.MAS.TRATA · 2025": "Campaña de sensibilización · NO.MAS.TRATA · 2025",
   "Client: NO.MAS.TRATA": "Cliente: NO.MAS.TRATA",
   "The photographs in this gallery are available as prints. Write me an email at <a class=\"u\" href=\"mailto:iyanrojo@gmail.com\">iyanrojo@gmail.com</a>.": "Las fotografías de esta galería están disponibles en copia. Escríbeme un email a <a class=\"u\" href=\"mailto:iyanrojo@gmail.com\">iyanrojo@gmail.com</a>.",
+  "2022 · Gran Canaria · 35 mm colour film": "2022 · Gran Canaria · Película color 35 mm",
+  "very small particles of dust, ash, clay and sand in suspension.": "partículas muy pequeñas de polvo, cenizas, arcilla, arena en suspensión.",
+  "between 2022 and 2023 I spent six months working on a television project in the Canary Islands.": "entre 2022 y 2023 pasé 6 meses trabajando en un proyecto para televisión en las Islas Canarias.",
+  "in my free time I went out with a 35 mm compact camera to portray the most touristic part of the islands: Maspalomas, in Gran Canaria. Adeje, in Tenerife.": "en mi tiempo libre salía con una cámara compacta de 35mm para retratar la zona más turistizada de las islas: Maspalomas, en Gran Canaria. Adeje, en Tenerife.",
+  "the calima, a natural phenomenon that covers the islands with sand from the Sahara, would appear for several days, tinting the landscape an unbreathable orange.": "la calima, fenómeno natural que cubre las islas con arena del Sáhara, aparecía durante varios días tiñendo el paisaje de un naranja irrespirable.",
+  "tourists and workers finally seemed to understand each other on the battlefield, thanks to this toxic heat that seeps through the fabric of your clothes and stings your eyes.": "turistas y trabajadores parecían por fin entenderse en el campo de batalla gracias a este calor tóxico que se cuela por el tejido de la ropa e irrita los ojos.",
+  "even at night, when temperatures settle, drought and sweat are the leitmotif for anyone who dares to live on the volcano.": "incluso en la noche, cuando las temperaturas se estabilizan, la sequía y el sudor son el leit motiv para quien se aventura a vivir sobre el volcán.",
+  "the calima is trying to say something.": "la calima intenta decir algo.",
+  "when the cloud of dust appears on the horizon, swallowing the yachts and blinding the hashish sellers on the Adeje promenade, remember: this is the moment,": "cuando la nube de polvo aparezca en el horizonte engullendo los yates y cegando a los vendedores de hachís de la rambla de Adeje recuérdalo: es el momento,",
+  "get on your jet ski and leave the archipelago.": "sube a tu moto de agua y abandona el archipiélago.",
+  "the calima will disappear after a few days.": "la calima desaparecerá después de varios días.",
+  "by then, everything will have changed.": "para entonces, todo habrá cambiado.",
   "← Back to home": "← Volver al inicio"
 };
 

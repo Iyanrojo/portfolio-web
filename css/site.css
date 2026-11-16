@@ -453,3 +453,17 @@ html[data-theme="dark"] .theme-t svg{transform:rotate(180deg)}
 .vp-frame.v{width:min(100%,calc((100vh - 120px) * 9 / 16));aspect-ratio:9/16}
 .case-watch{margin:-14px 0 24px}
 @media (max-width:760px){.masonry.gallery:has(.gcol){gap:0}}
+
+/* CALIMA: the whole page in the dossier orange, in light and dark mode */
+html:has(body.calima-page){background:#fa803d}
+body.calima-page{--bg:#fa803d;--ink:#1d1109;--ink-2:#2a170b;--ink-3:#3a210f;--muted:#6b3510;--rule:rgba(29,17,9,.22);--slot:#f39456;background:#fa803d;color:var(--ink)}
+.cal-title{font-family:var(--sans);font-style:normal;font-weight:700;letter-spacing:.04em}
+.cal-txt{max-width:640px;margin:0 auto 22px;font-size:clamp(17px,1.5vw,20px);line-height:1.55;font-style:italic;font-weight:400;color:var(--ink-2)}
+.calima-page .seq{padding-top:10px;margin-bottom:40px;gap:clamp(20px,3vw,40px)}
+.cal-pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,20px);width:min(100%,1240px)}
+.cal-pair .ph{cursor:default;background:none}
+.cal-pair img{width:100%;height:auto}
+.cal-end{margin:12px auto 32px;max-width:640px}
+.cal-end .cal-txt{margin-bottom:14px}
+.cal-end .cal-txt:nth-child(2){margin-bottom:34px}
+@media (max-width:760px){.cal-pair{grid-template-columns:1fr}}
