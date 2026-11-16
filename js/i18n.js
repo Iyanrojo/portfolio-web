@@ -424,6 +424,8 @@ var ES = {
   "Signed and numbered fine art prints · Editions of 10": "Copias fine art firmadas y numeradas · Ediciones de 10",
   "Every photograph on this page is available as a fine art print: an author’s copy, signed and numbered, in two sizes, small and medium. Each photograph is a limited edition of 10 prints.": "Todas las fotografías de esta página están disponibles como copia fine art: una copia de autor, firmada y numerada, en dos tamaños, pequeño y mediano. Cada fotografía es una edición limitada de 10 copias.",
   "Fine art print · Signed and numbered, limited edition of 10 · Secure payment with Stripe · Shipping address requested at checkout": "Copia fine art · Firmada y numerada, edición limitada de 10 · Pago seguro con Stripe · La dirección de envío se pide al pagar",
+  "Want this photograph?": "¿Quieres esta fotografía?",
+  "Fine art prints": "Copias fine art",
   "← Back to home": "← Volver al inicio"
 };
 
