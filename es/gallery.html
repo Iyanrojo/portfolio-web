@@ -127,7 +127,7 @@ function openAt(n){ var L = list(); if (!L.length) return; cur = (n + L.length) 
   var place = document.documentElement.lang === 'es' ? meta.l : (meta.le || meta.l);
   var ref = window.currentPhoto.replace('IR-',''), cta = document.getElementById('lb-cta'), ex = ((window.SHOP||{}).exclude||[]);
   cta.style.display = ex.indexOf(ref) > -1 ? 'none' : '';
-  cta.href = (window.ROOT||'') + (document.documentElement.lang==='es' ? '' : '') + 'prints.html#' + window.currentPhoto;
+  cta.href = 'prints.html#' + window.currentPhoto;
   lbCount.textContent = (place ? place + (meta.y ? ', ' + meta.y : '') + ' · ' : (meta.y ? meta.y + ' · ' : '')) + 'Ref. ' + window.currentPhoto;
   if (!wasOpen) { lbImg.src = src; lb.classList.add('open'); return; }
   lbImg.classList.add('swap');
