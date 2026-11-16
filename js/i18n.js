@@ -409,7 +409,7 @@ var ES = {
   "Master’s in Teacher Training, Universidad de Cantabria": "Máster en Formación del Profesorado, Universidad de Cantabria",
   "Diploma in International Development Cooperation, OEI": "Diploma en Cooperación Internacional para el Desarrollo, OEI",
   "Spanish · English C1 · French C1 · Portuguese B2": "Español · Inglés C1 · Francés C1 · Portugués B2",
-  "Photographer, filmmaker and communications professional.": "Fotógrafo, cineasta y profesional de la comunicación.",
+  "Photographer, filmmaker and communications professional.": "Fotógrafo, realizador y profesional de la comunicación.",
   "← Back to home": "← Volver al inicio"
 };
 
