@@ -63,7 +63,7 @@
 <button id="lb-close" type="button">Cerrar</button>
 <img alt="" id="lb-img"/>
 </div>
-<script src="../js/photos.js?v=92bd2b67"></script>
+<script src="../js/photos.js?v=a86c9f34"></script>
 <script>
 // A photo appears when its file exists; otherwise the empty mount stays.
 document.querySelectorAll('.ph img').forEach(function (img) {
@@ -102,7 +102,7 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape') clos
   function go(d){ show(idx()+d); start(); }
   // Build the slides from the photo list, in random order on every visit.
   var stage=document.querySelector('.stage');
-  (window.PHOTOS||[]).forEach(function(p){
+  (window.PHOTOS||[]).filter(function(p){return !p.nohome;}).forEach(function(p){
     var f=document.createElement('figure'); f.className='slide'; f.setAttribute('data-n',p.f.slice(0,2));
     var img=document.createElement('img'); img.alt=(document.documentElement.lang==='es'?'Fotografía analógica de Iyán Rojo, ref. IR-':'Analogue photograph by Iyán Rojo, ref. IR-')+p.f.replace('.jpg',''); img.src=(window.ROOT||'')+'photos/'+p.f; f.appendChild(img); stage.appendChild(f);
   });
