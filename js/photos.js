@@ -33,7 +33,6 @@ window.PHOTOS = [
   {"f": "49.jpg", "w": 1086, "h": 733},
   {"f": "23.jpg", "w": 1354, "h": 1360, "l": "Proyecto Tierra de nadie", "le": "Tierra de nadie project", "y": 2024},
   {"f": "30.jpg", "w": 746, "h": 935},
-  {"f": "56.jpg", "w": 591, "h": 940},
   {"f": "64.jpg", "w": 624, "h": 920},
   {"f": "14.jpg", "w": 1319, "h": 1318, "l": "Islas Canarias", "le": "Canary Islands", "y": 2023},
   {"f": "66.jpg", "w": 1342, "h": 921},
