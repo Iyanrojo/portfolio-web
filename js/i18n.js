@@ -349,6 +349,20 @@ var ES = {
   "2023 · Book trailer · Analogue photography": "2023 · Book trailer · Fotografía analógica",
   "Tarada trailer (2021)": "Tráiler de Tarada (2021)",
   "Short version": "Versión corta",
+  // Case: EUROsociAL+
+  "Video campaigns · EUROsociAL+ · 2022": "Campañas en vídeo · EUROsociAL+ · 2022",
+  "Two video campaigns on what the European Union’s cooperation with Central America has achieved, told as a calm conversation: two chairs, a table and time to listen.": "Dos campañas en vídeo sobre lo que ha logrado la cooperación de la Unión Europea con Centroamérica, contadas como una conversación pausada: dos sillas, una mesa y tiempo para escuchar.",
+  "EUROsociAL+, European Union programme": "EUROsociAL+, programa de la Unión Europea",
+  "Direction": "Dirección",
+  "Two video campaigns": "Dos campañas en vídeo",
+  "The programme": "El programa",
+  "EUROsociAL+ is a European Union cooperation programme with Latin America. Since 2005 it has worked to reduce inequality, strengthen social cohesion and support public institutions in 19 Latin American countries, through peer learning and the exchange of experience between institutions of both regions. Its three areas are gender equality, democratic governance and social policies.": "EUROsociAL+ es un programa de cooperación de la Unión Europea con América Latina. Desde 2005 trabaja para reducir las desigualdades, mejorar la cohesión social y fortalecer las instituciones públicas en 19 países latinoamericanos, a través del aprendizaje entre pares y el intercambio de experiencias entre instituciones de ambas regiones. Sus tres áreas son la igualdad de género, la gobernanza democrática y las políticas sociales.",
+  "The campaigns": "Las campañas",
+  "Two pieces built around a conversation between two of the programme’s consultants: <em>En materia: Guatemala y Honduras</em>, on the work done in both countries, and <em>Visiones de futuro</em>, on the challenges ahead. A warm set with crafts from the region, natural light and an unhurried rhythm, to make a technical subject feel close.": "Dos piezas construidas en torno a una conversación entre dos consultoras del programa: <em>En materia: Guatemala y Honduras</em>, sobre el trabajo realizado en ambos países, y <em>Visiones de futuro</em>, sobre los retos que vienen. Un plató cálido con artesanía de la región, luz natural y un ritmo sin prisa, para acercar un tema técnico.",
+  "Direction: Iyán Rojo": "Dirección: Iyán Rojo",
+  "Art direction: Gino Pavona García": "Dirección de arte: Gino Pavona García",
+  "Director of photography: Julian Azcutia": "Dirección de fotografía: Julian Azcutia",
+  "Editing: Ângela Ramos": "Montaje: Ângela Ramos",
   "← Back to home": "← Volver al inicio"
 };
 
