@@ -481,7 +481,8 @@ html[data-theme="dark"] body.calima-page{--rule:rgba(0,0,0,.3);--slot:transparen
 @media (min-width:621px){.about:not(:has(.side)){grid-template-columns:minmax(0,1fr) minmax(0,2.4fr)}}
 
 /* Prints shop (prints.html; settings in js/shop.js) */
-.shop-intro{max-width:62ch;color:var(--ink-3);margin:0 0 28px}
+.shop-intro{max-width:62ch;color:var(--ink-3);margin:0 0 12px}
+.shop-intro:last-of-type{margin-bottom:28px}
 .shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:24px 18px;align-items:end}
 .shop-item{background:none;border:0;padding:0;cursor:pointer;text-align:left;color:var(--ink);font:inherit}
 .shop-thumb{display:block;width:100%;overflow:hidden;background:var(--slot)}

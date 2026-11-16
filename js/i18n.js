@@ -414,6 +414,10 @@ var ES = {
   "Every photograph in the gallery can be ordered as a signed print, in two sizes. Choose a photo, choose a size and pay securely; it is shipped to your address from Cantabria.": "Todas las fotografías de la galería pueden pedirse en copia firmada, en dos tamaños. Elige la foto, elige el tamaño y paga de forma segura; te la envío a tu dirección desde Cantabria.",
   "Signed by the author · Secure payment with Stripe · Shipping address requested at checkout": "Firmada por el autor · Pago seguro con Stripe · La dirección de envío se pide al pagar",
   "Prints": "Copias",
+  "Signed and numbered fine art prints": "Copias fine art firmadas y numeradas",
+  "Every photograph in the gallery is available as a small fine art print on paper: an author’s copy, signed and numbered, in two sizes, small and large. Choose a photo, choose a size and pay securely; it is shipped to your address from Cantabria.": "Todas las fotografías de la galería están disponibles como pequeña copia fine art en papel: una copia de autor, firmada y numerada, en dos tamaños, pequeño y grande. Elige la foto, elige el tamaño y paga de forma segura; te la envío a tu dirección desde Cantabria.",
+  "Looking for a print to frame? Write to me at <a class=\"u\" href=\"mailto:iyanrojo@gmail.com\">iyanrojo@gmail.com</a> and I will send you sizes and prices.": "¿Buscas una copia para enmarcar? Escríbeme a <a class=\"u\" href=\"mailto:iyanrojo@gmail.com\">iyanrojo@gmail.com</a> y te paso tamaños y precios.",
+  "Fine art print · Signed and numbered by the author · Secure payment with Stripe · Shipping address requested at checkout": "Copia fine art · Firmada y numerada por el autor · Pago seguro con Stripe · La dirección de envío se pide al pagar",
   "← Back to home": "← Volver al inicio"
 };
 
