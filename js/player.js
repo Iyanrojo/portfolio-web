@@ -2,7 +2,7 @@
    instead of sending visitors to the platform. Instagram links still open outside. */
 (function () {
   function embed(href) {
-    var m = href.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([\w-]{6,})/);
+    var m = href.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/shorts\/)([\w-]{6,})/);
     if (m) return "https://www.youtube-nocookie.com/embed/" + m[1] + "?autoplay=1&rel=0&modestbranding=1&playsinline=1";
     m = href.match(/vimeo\.com\/(?:video\/)?(\d+)/);
     if (m) return "https://player.vimeo.com/video/" + m[1] + "?autoplay=1&title=0&byline=0&portrait=0&dnt=1";
@@ -30,6 +30,7 @@
     if (!a || e.metaKey || e.ctrlKey || e.shiftKey) return;
     var src = embed(a.getAttribute("href"));
     if (!src) return;
+    frame.classList.toggle("v", /\/shorts\//.test(a.getAttribute("href")));
     e.preventDefault(); open(src);
   });
   box.addEventListener("click", function (e) { if (e.target === box) close(); });

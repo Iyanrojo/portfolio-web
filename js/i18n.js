@@ -385,6 +385,9 @@ var ES = {
   "For World Homeless Day: personal stories that show anyone can end up on the street.": "Para el Día de las Personas Sin Hogar: historias personales que muestran que cualquiera puede acabar en la calle.",
   "The housing search migrants face, and the one they should have: films and posters in Santander and Bilbao.": "La búsqueda de vivienda que vive la población migrante, y la que debería vivir: vídeos y carteles en Santander y Bilbao.",
   "A three-part documentary series on the educator who opened schools for women in Santander in 1871, and on the right to education.": "Miniserie documental en tres capítulos sobre la educadora que abrió escuelas para mujeres en Santander en 1871, y sobre el derecho a la educación.",
+  "Five women, five portraits · Nueva Vida": "Cinco mujeres, cinco retratos · Nueva Vida",
+  "2026 · Video portraits · 8M": "2026 · Videorretratos · 8M",
+  "For International Women’s Day, a commission for Asociación Nueva Vida: five women, five portraits.": "Para el Día Internacional de la Mujer, un encargo de la Asociación Nueva Vida: cinco mujeres, cinco retratos.",
   "← Back to home": "← Volver al inicio"
 };
 
