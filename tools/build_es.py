@@ -145,6 +145,16 @@ def set_head(s, page, lang):
     s = re.sub(r"<!-- SEO -->.*?<!-- /SEO -->", lambda m: block, s, count=1, flags=re.S)
     return s
 
+def bust(s):
+    """Add ?v=<content hash> to css/js links so browsers fetch new versions after each publish."""
+    import hashlib
+    def rep(m):
+        p = m.group(1)
+        try: h = hashlib.md5(open(p, "rb").read()).hexdigest()[:8]
+        except OSError: return m.group(0)
+        return '%s?v=%s"' % (p, h)
+    return re.sub(r'((?:css|js)/[\w.-]+\.(?:css|js))(?:\?v=\w+)?"', rep, s)
+
 def build():
     ES = {}
     for k, v in es_dict().items():
@@ -155,7 +165,7 @@ def build():
     missing = {}
     for page in SEO:
         src = open(page, encoding="utf-8").read()
-        src = set_head(src, page, "en")
+        src = bust(set_head(src, page, "en"))
         open(page, "w", encoding="utf-8").write(src)
 
         soup = BeautifulSoup(src, "html.parser")
@@ -185,6 +195,10 @@ def build():
         soup.head.append(root)
         out = str(soup)
         open(os.path.join("es", page), "w", encoding="utf-8").write(out)
+
+    for extra in ("404.html",):
+        if os.path.exists(extra):
+            x = open(extra, encoding="utf-8").read(); open(extra, "w", encoding="utf-8").write(bust(x))
 
     # sitemap with language alternates
     rows = []
