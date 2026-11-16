@@ -9,7 +9,7 @@ window.SHOP = {
   shipping: 5,   // shown next to the price; charged by the Stripe shipping rate
   sizes: [
     { id: "small",  en: "Small",  es: "Pequeña", dims: "10 × 10 cm", price: 25, link: "https://buy.stripe.com/test_00w00c5z26WCaoN90tdQQ00" },
-    { id: "medium", en: "Medium", es: "Mediana", dims: "21 × 29.7 cm (A4)", dims_es: "21 × 29,7 cm (A4)", price: 50, link: "https://buy.stripe.com/test_bJe14g1iMdl07cB7WpdQQ01" }
+    { id: "medium", en: "Medium", es: "Mediana", dims: "21 × 29.7 cm (A4)", dims_es: "21 × 29,7 cm (A4)", price: 50, link: "https://buy.stripe.com/test_aFa3coaTm2Gm68x7WpdQQ02" }
   ],
   // Leave empty to offer every photo in the gallery; or list the references on sale, e.g. ["02","19","53"].
   only: [],
