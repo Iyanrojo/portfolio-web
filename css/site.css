@@ -540,3 +540,24 @@ html[data-theme="dark"] body.calima-page{--rule:rgba(0,0,0,.3);--slot:transparen
 html[data-theme="dark"] .shop-photo{background:#2b2a27}
 .shop-frame,.shop-frame a{color:#c8281c}
 .shop-frame a{text-decoration:underline;text-underline-offset:4px}
+/* "In place" view: the print leaning on a shelf, to scale */
+.scene{position:relative;width:min(100%,calc(70vh * 4 / 3));aspect-ratio:4/3;margin:0 auto;overflow:hidden;
+  background-color:#e7e1d6;
+  background-image:radial-gradient(ellipse at 18% 8%,rgba(255,250,238,.75),rgba(255,250,238,0) 60%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.02' numOctaves='5' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .45  0 0 0 0 .4  0 0 0 0 .32  0.55 0 0 0 -.26'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E")}
+.scene[hidden]{display:none}
+.scene-light{position:absolute;inset:0;background:linear-gradient(100deg,rgba(255,255,255,.18) 0 30%,rgba(0,0,0,0) 30% 38%,rgba(255,255,255,.12) 38% 52%,rgba(0,0,0,.05) 60%,rgba(0,0,0,.12));pointer-events:none}
+.scene-shelf{position:absolute;left:4%;right:4%;top:72%;height:4.2%;background:linear-gradient(#b48c62,#9a7450 55%,#7d5c3e);
+  box-shadow:0 18px 26px -10px rgba(40,25,10,.45),0 2px 0 rgba(255,255,255,.18) inset}
+.scene-shelf::after{content:"";position:absolute;left:0;right:0;top:100%;height:9%;background:rgba(0,0,0,.12)}
+.scene-print{position:absolute;left:34%;bottom:28%;transform-origin:bottom center;transform:rotate(-1.2deg);
+  filter:drop-shadow(10px 6px 9px rgba(40,28,15,.35))}
+.scene-print .mock-paper{width:100%;height:100%;box-sizing:border-box;padding:7%;box-shadow:none;display:flex;align-items:center;justify-content:center}
+.scene-print .mock-paper img{width:100%;height:100%;object-fit:contain}
+.scene-books{position:absolute;right:6%;bottom:28%;width:14%;display:flex;flex-direction:column;align-items:flex-end}
+.scene-books i{display:block;height:1.9vh;max-height:16px;min-height:8px;border-radius:1px;box-shadow:0 1px 0 rgba(0,0,0,.15)}
+.scene-books i:nth-child(1){width:84%;background:#3e4a3f}
+.scene-books i:nth-child(2){width:100%;background:#d8cdb7}
+.scene-books i:nth-child(3){width:92%;background:#8a3b2a}
+.scene-vase{position:absolute;left:11%;bottom:28%;height:30%;width:auto;filter:drop-shadow(6px 4px 6px rgba(40,28,15,.3))}
+.shop-photo:has(.scene:not([hidden])){padding:0;background:none}
