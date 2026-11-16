@@ -16,6 +16,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 
 # page: (EN title, EN description, ES title, ES description, share image)
+HIDDEN = {"prints.html"}  # built in both languages but kept out of the sitemap (and noindex in the page)
+
 SEO = {
  "index.html": ("Iyán Rojo · Photographer and filmmaker in Cantabria, Spain",
    "Iyán Rojo Greciet, analogue photographer and filmmaker based in Cantabria, Spain: video production and filming, documentaries, campaigns and film photography.",
@@ -32,6 +34,11 @@ SEO = {
    "CALIMA · Serie de fotografía analógica · Iyán Rojo",
    "CALIMA: serie en película de color de 35 mm de Iyán Rojo, fotografiada en Gran Canaria en 2022, cuando el polvo del Sáhara tiñe de naranja la costa más turística de Canarias.",
    "photos/cal-cover.jpg"),
+ "prints.html": ("Prints · Iyán Rojo",
+   "Signed prints of analogue photographs by Iyán Rojo, in two sizes, shipped from Cantabria.",
+   "Copias · Iyán Rojo",
+   "Copias firmadas de fotografías analógicas de Iyán Rojo, en dos tamaños, con envío desde Cantabria.",
+   "photos/02.jpg"),
  "dos-amigos.html": ("2 amigos · Analogue photography series · Iyán Rojo",
    "2 amigos: a medium-format film series by Iyán Rojo about Pedro and Tino ‘el Tigre’. Exhibited at the Centro Nacional de Fotografía, Torrelavega (Cantabria).",
    "2 amigos · Serie de fotografía analógica · Iyán Rojo",
@@ -208,6 +215,7 @@ def build():
     # sitemap with language alternates
     rows = []
     for page in SEO:
+        if page in HIDDEN: continue
         for lang in ("en", "es"):
             rows.append('  <url><loc>%s</loc><lastmod>%s</lastmod>'
                         '<xhtml:link rel="alternate" hreflang="en" href="%s"/>'

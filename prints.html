@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prints · Iyán Rojo</title>
+<meta name="description" content="Signed prints of analogue photographs by Iyán Rojo, in two sizes, shipped from Cantabria.">
+<meta name="robots" content="noindex, nofollow">
+<!-- SEO -->
+<link rel="canonical" href="https://iyanrojo.com/prints.html">
+<link rel="alternate" hreflang="en" href="https://iyanrojo.com/prints.html">
+<link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/prints.html">
+<link rel="alternate" hreflang="x-default" href="https://iyanrojo.com/prints.html">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Iyán Rojo">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Prints · Iyán Rojo">
+<meta property="og:description" content="Signed prints of analogue photographs by Iyán Rojo, in two sizes, shipped from Cantabria.">
+<meta property="og:url" content="https://iyanrojo.com/prints.html">
+<meta property="og:image" content="https://iyanrojo.com/photos/02.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /SEO -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=7f911185">
+<script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
+</head>
+<body class="prints-page">
+
+<header id="top">
+  <div class="wrap">
+    <a class="name" href="index.html"><span>Iyán Rojo</span></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="gallery.html">Photography</a></li>
+        <li><a href="films.html">Films</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="lang" id="lang" href="es/prints.html" hreflang="es" lang="es" title="Ver en español">ES / <b>EN</b></a></li>
+        <li><a class="ig" href="https://www.instagram.com/iyanrojo_/" target="_blank" rel="noopener" aria-label="Instagram @iyanrojo_"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- PRINTS SHOP (hidden: not linked from the menu, noindex, not in the sitemap).
+       Settings, sizes, prices and Stripe links: js/shop.js -->
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-top"><h2>Prints</h2><p>Signed prints of analogue photographs</p></div>
+      <p class="shop-intro">Every photograph in the gallery can be ordered as a signed print, in two sizes. Choose a photo, choose a size and pay securely; it is shipped to your address from Cantabria.</p>
+      <div class="shop-grid" id="shop-grid"></div>
+    </div>
+  </section>
+</main>
+
+<div class="shop-panel" id="shop-panel" role="dialog" aria-modal="true" aria-labelledby="shop-ref">
+  <button type="button" class="shop-close small" id="shop-close">Close</button>
+  <div class="shop-inner">
+    <div class="shop-photo"><img id="shop-img" alt=""></div>
+    <div class="shop-side">
+      <div class="small meta" id="shop-place"></div>
+      <h3 class="shop-ref" id="shop-ref"></h3>
+      <div class="shop-sizes" id="shop-sizes"></div>
+      <div class="shop-buy"><a class="shop-btn" id="shop-btn" href="#" rel="noopener">Buy</a><span class="shop-soon small" id="shop-soon">Coming soon</span></div>
+      <p class="shop-note small">Signed by the author · Secure payment with Stripe · Shipping address requested at checkout</p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap small"><span>© 2026 Iyán Rojo Greciet · Photographer and filmmaker · Cantabria, Spain</span><a href="#top" style="text-decoration:none">Back to top ↑</a></div>
+</footer>
+
+<script src="js/photos.js?v=b75bf368"></script>
+<script src="js/shop.js?v=e007a749"></script>
+<script>
+(function(){
+  var es=document.documentElement.lang==='es', S=window.SHOP||{sizes:[]}, R=window.ROOT||'';
+  var only=(S.only||[]).map(String);
+  var list=(window.PHOTOS||[]).filter(function(p){ return !only.length || only.indexOf(p.f.replace('.jpg',''))>-1; });
+  var grid=document.getElementById('shop-grid');
+  list.forEach(function(p){
+    var b=document.createElement('button'); b.type='button'; b.className='shop-item';
+    var ref='IR-'+p.f.replace('.jpg','');
+    b.innerHTML='<span class="shop-thumb" style="aspect-ratio:'+p.w+' / '+p.h+'"><img loading="lazy" alt="'+ref+'" src="'+R+'photos/'+p.f+'"></span><span class="shop-cap small">'+ref+'</span>';
+    b.addEventListener('click',function(){ open(p); });
+    grid.appendChild(b);
+  });
+  var panel=document.getElementById('shop-panel'), img=document.getElementById('shop-img'), refEl=document.getElementById('shop-ref'),
+      placeEl=document.getElementById('shop-place'), sizesEl=document.getElementById('shop-sizes'), btn=document.getElementById('shop-btn'), soon=document.getElementById('shop-soon');
+  var cur=null, size=null;
+  function price(s){ return s.price==null ? '' : s.price+' '+(S.currency||'€'); }
+  function render(){
+    sizesEl.innerHTML='';
+    S.sizes.forEach(function(s){
+      var l=document.createElement('label'); l.className='shop-size'+(size===s?' on':'');
+      l.innerHTML='<input type="radio" name="size"'+(size===s?' checked':'')+'><span class="nm">'+(es?s.es:s.en)+'</span><span class="dm">'+s.dims+'</span><span class="pr">'+price(s)+'</span>';
+      l.querySelector('input').addEventListener('change',function(){ size=s; render(); });
+      sizesEl.appendChild(l);
+    });
+    var ok=size && size.link;
+    btn.style.display=ok?'':'none'; soon.style.display=ok?'none':'';
+    if(ok){ var ref='IR-'+cur.f.replace('.jpg',''); btn.href=size.link+(size.link.indexOf('?')>-1?'&':'?')+'client_reference_id='+encodeURIComponent(ref+'_'+size.id);
+      btn.textContent=(es?'Comprar':'Buy')+(size.price!=null?' · '+price(size):''); }
+  }
+  function open(p){
+    cur=p; size=S.sizes[0]||null;
+    img.src=R+'photos/'+p.f; img.alt='IR-'+p.f.replace('.jpg','');
+    refEl.textContent='Ref. IR-'+p.f.replace('.jpg','');
+    var place=es?p.l:(p.le||p.l); placeEl.textContent=place?(place+(p.y?', '+p.y:'')):(p.y||'');
+    render(); panel.classList.add('open'); document.documentElement.style.overflow='hidden';
+    document.getElementById('shop-close').focus();
+  }
+  function close(){ panel.classList.remove('open'); document.documentElement.style.overflow=''; }
+  document.getElementById('shop-close').addEventListener('click',close);
+  panel.addEventListener('click',function(e){ if(e.target===panel) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+  if(es){ document.getElementById('shop-close').textContent='Cerrar'; soon.textContent='Próximamente'; }
+})();
+</script>
+<script src="js/lang.js?v=558c6978"></script>
+<script src="js/theme.js?v=4df66a4c"></script>
+</body>
+</html>

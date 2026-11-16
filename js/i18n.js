@@ -410,6 +410,10 @@ var ES = {
   "Diploma in International Development Cooperation, OEI": "Diploma en Cooperación Internacional para el Desarrollo, OEI",
   "Spanish · English C1 · French C1 · Portuguese B2": "Español · Inglés C1 · Francés C1 · Portugués B2",
   "Photographer, filmmaker and communications professional.": "Fotógrafo, realizador y profesional de la comunicación.",
+  "Signed prints of analogue photographs": "Copias firmadas de fotografías analógicas",
+  "Every photograph in the gallery can be ordered as a signed print, in two sizes. Choose a photo, choose a size and pay securely; it is shipped to your address from Cantabria.": "Todas las fotografías de la galería pueden pedirse en copia firmada, en dos tamaños. Elige la foto, elige el tamaño y paga de forma segura; te la envío a tu dirección desde Cantabria.",
+  "Signed by the author · Secure payment with Stripe · Shipping address requested at checkout": "Firmada por el autor · Pago seguro con Stripe · La dirección de envío se pide al pagar",
+  "Prints": "Copias",
   "← Back to home": "← Volver al inicio"
 };
 
