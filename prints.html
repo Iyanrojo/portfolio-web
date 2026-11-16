@@ -26,8 +26,8 @@
 <!-- /SEO -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=8d7e1905">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Special+Elite&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=5ccb6561">
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
 </head>
 <body class="prints-page">
@@ -73,7 +73,17 @@
         </div>
         <div class="mock-face mock-back" aria-hidden="true">
           <div class="mock-paper mock-paper-back" id="mock-back">
-            <img class="datos" src="assets/datos-copia.png" alt="Print details handwritten by the author: title, edition, year, print date and paper">
+            <div class="cert">
+              <div class="cert-head" data-t="head">Certificate of authenticity</div>
+              <div class="cert-sub" data-t="sub">Author’s copy · Fine art print</div>
+              <dl class="cert-form">
+                <div><dt data-t="title">1- Title:</dt><dd class="hw" id="h-title"></dd></div>
+                <div><dt data-t="ed">2- Edition:</dt><dd class="hw" id="h-ed"></dd></div>
+                <div><dt data-t="year">3- Year:</dt><dd class="hw" id="h-year"></dd></div>
+                <div><dt data-t="printed">4- Print date:</dt><dd class="hw" id="h-date"></dd></div>
+                <div><dt data-t="paper">5- Paper:</dt><dd class="hw" id="h-paper">Photo Rag Hahnemühle</dd></div>
+              </dl>
+            </div>
             <img class="firma" src="assets/firma.png" alt="Signature of Iyán Rojo">
           </div>
           <div class="mock-sleeve" aria-hidden="true"><span class="mock-flap"></span><span class="mock-glare"></span></div>
@@ -131,6 +141,11 @@
   function open(p){
     cur=p; size=S.sizes[0]||null;
     img.src=R+'photos/'+p.f; img.alt='IR-'+p.f.replace('.jpg','');
+    var es2=document.documentElement.lang==='es', place=es2?p.l:(p.le||p.l);
+    document.getElementById('h-title').textContent=place?('‘'+place+'’'):(es2?'‘Sin título’':'‘Untitled’');
+    document.getElementById('h-ed').textContent='1 / 10';
+    document.getElementById('h-year').textContent=p.y||'—';
+    document.getElementById('h-date').textContent='02-07-2026';
     var mock=document.getElementById('mock'); mock.style.setProperty('--ar', p.w/p.h); side('front');
     refEl.textContent='Ref. IR-'+p.f.replace('.jpg','');
     var place=es?p.l:(p.le||p.l); placeEl.textContent=place?(place+(p.y?', '+p.y:'')):(p.y||'');
@@ -141,6 +156,8 @@
   function side(v){ document.getElementById('mock').classList.toggle('flip', v==='back');
     [].forEach.call(document.querySelectorAll('.mock-toggle button'),function(b){ b.classList.toggle('on', b.getAttribute('data-side')===v); }); }
   [].forEach.call(document.querySelectorAll('.mock-toggle button'),function(b){ b.addEventListener('click',function(){ side(b.getAttribute('data-side')); }); });
+  if(es){ var T={head:'Certificado de autenticidad',sub:'Copia de autor · Fine art print',title:'1- Título:',ed:'2- Serie:',year:'3- Año:',printed:'4- Fecha impresión:',paper:'5- Papel:'};
+    [].forEach.call(document.querySelectorAll('.cert [data-t]'),function(x){ x.textContent=T[x.getAttribute('data-t')]; }); }
   if(es){ var tb=document.querySelectorAll('.mock-toggle button'); tb[0].textContent='Frente'; tb[1].textContent='Dorso'; }
   document.getElementById('shop-close').addEventListener('click',close);
   panel.addEventListener('click',function(e){ if(e.target===panel) close(); });
