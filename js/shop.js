@@ -11,5 +11,7 @@ window.SHOP = {
     { id: "large", en: "Large", es: "Grande",  dims: "40 × 60 cm", price: null, link: "" }
   ],
   // Leave empty to offer every photo in the gallery; or list the references on sale, e.g. ["02","19","53"].
-  only: []
+  only: [],
+  // Gallery photos NOT offered as prints.
+  exclude: ["44", "72", "68", "48", "70", "75", "49", "09", "11", "46", "67", "45", "62", "47", "28", "19", "53", "34"]
 };

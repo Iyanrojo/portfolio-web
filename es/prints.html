@@ -96,13 +96,14 @@
 <footer>
 <div class="wrap small"><span>© 2026 Iyán Rojo Greciet · Fotógrafo y realizador audiovisual · Cantabria</span><a href="#top" style="text-decoration:none">Volver arriba ↑</a></div>
 </footer>
-<script src="../js/photos.js?v=b75bf368"></script>
-<script src="../js/shop.js?v=e007a749"></script>
+<script src="../js/photos.js?v=e0a7ecc7"></script>
+<script src="../js/shop.js?v=9436e0f0"></script>
 <script>
 (function(){
   var es=document.documentElement.lang==='es', S=window.SHOP||{sizes:[]}, R=window.ROOT||'';
   var only=(S.only||[]).map(String);
-  var list=(window.PHOTOS||[]).filter(function(p){ return !only.length || only.indexOf(p.f.replace('.jpg',''))>-1; });
+  var ex=(S.exclude||[]).map(String);
+  var list=(window.PHOTOS||[]).filter(function(p){ var r=p.f.replace('.jpg',''); return (!only.length || only.indexOf(r)>-1) && ex.indexOf(r)<0; });
   var grid=document.getElementById('shop-grid');
   list.forEach(function(p){
     var b=document.createElement('button'); b.type='button'; b.className='shop-item';
