@@ -16,7 +16,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 
 # page: (EN title, EN description, ES title, ES description, share image)
-HIDDEN = {"prints.html"}  # built in both languages but kept out of the sitemap (and noindex in the page)
+HIDDEN = set()  # built in both languages but kept out of the sitemap (and noindex in the page)
 
 SEO = {
  "index.html": ("Iyán Rojo · Photographer and filmmaker in Cantabria, Spain",
