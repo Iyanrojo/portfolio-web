@@ -412,3 +412,7 @@ a.lang{text-decoration:none;display:inline-block}
 
 /* Films: narrower content column (header keeps the site-wide width) */
 .films-page main .wrap{max-width:1240px;padding:0 clamp(18px,3.4vw,40px)}
+
+/* Films: show a still whole (e.g. a film strip) inside the 16:9 frame */
+.ph-contain{background:transparent}
+.ph-contain img{object-fit:contain}

@@ -341,6 +341,11 @@ var ES = {
   "17 Oct 2019": "17 oct. 2019",
   "28 June 2025": "28 jun. 2025",
   "Read the news ↗": "Leer la noticia ↗",
+  // Films: Vrësno
+  "Book trailer · Analogue photography": "Book trailer · Fotografía analógica",
+  "Book trailer for Vrësno, the novel by the Asturian writer Carolina Sarmiento (Pez de Plata). The trailer looks for the essence of the book through analogue photography: black and white, and images in negative. It is my second book trailer for Carolina, after the one for her previous novel, Tarada.": "Book trailer de Vrësno, la novela de la escritora asturiana Carolina Sarmiento (Pez de Plata). El tráiler busca la esencia del libro a través de la fotografía analógica: blanco y negro e imágenes en negativo. Es mi segundo book trailer para Carolina, tras el de su novela anterior, Tarada.",
+  "Play the trailer": "Ver el tráiler",
+  "Tarada trailer": "Tráiler de Tarada",
   "← Back to home": "← Volver al inicio"
 };
 
