@@ -28,7 +28,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&amp;family=Hanken+Grotesk:wght@500;600&amp;family=Cormorant+Garamond:ital,wght@1,400;1,500&amp;display=swap" rel="stylesheet"/>
-<link href="../css/site.css?v=c7459940" rel="stylesheet"/>
+<link href="../css/site.css?v=865d2ed3" rel="stylesheet"/>
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
 <script>window.ROOT='../';</script></head>
 <body class="prints-page">
@@ -83,6 +83,7 @@
 <h3 class="shop-ref" id="shop-ref"></h3>
 <div class="shop-sizes" id="shop-sizes"></div>
 <div class="shop-buy"><a class="shop-btn" href="#" id="shop-btn" rel="noopener">Buy</a><span class="shop-soon small" id="shop-soon">Coming soon</span></div>
+<p class="shop-paying small" id="shop-paying" style="display:none"></p>
 <p class="shop-note small">Copia fine art · Firmada y numerada, edición limitada de 10 · Pago seguro con Stripe · La dirección de envío se pide al pagar</p>
 </div>
 </div>
@@ -91,7 +92,7 @@
 <div class="wrap small"><span>© 2026 Iyán Rojo Greciet · Fotógrafo y realizador audiovisual · Cantabria</span><a href="#top" style="text-decoration:none">Volver arriba ↑</a></div>
 </footer>
 <script src="../js/photos.js?v=e0a7ecc7"></script>
-<script src="../js/shop.js?v=a936f3b4"></script>
+<script src="../js/shop.js?v=7d356086"></script>
 <script>
 (function(){
   var es=document.documentElement.lang==='es', S=window.SHOP||{sizes:[]}, R=window.ROOT||'';
@@ -110,6 +111,7 @@
       placeEl=document.getElementById('shop-place'), sizesEl=document.getElementById('shop-sizes'), btn=document.getElementById('shop-btn'), soon=document.getElementById('shop-soon');
   var cur=null, size=null;
   function price(s){ return s.price==null ? '' : s.price+' '+(S.currency||'€'); }
+  function ship(){ return S.shipping ? ' + '+S.shipping+' '+(S.currency||'€')+(es?' envío':' shipping') : ''; }
   function render(){
     sizesEl.innerHTML='';
     S.sizes.forEach(function(s){
@@ -121,7 +123,7 @@
     var ok=size && size.link;
     btn.style.display=ok?'':'none'; soon.style.display=ok?'none':'';
     if(ok){ var ref='IR-'+cur.f.replace('.jpg',''); btn.href=size.link+(size.link.indexOf('?')>-1?'&':'?')+'client_reference_id='+encodeURIComponent(ref+'_'+size.id);
-      btn.textContent=(es?'Comprar':'Buy')+(size.price!=null?' · '+price(size):''); }
+      btn.textContent=(es?'Comprar':'Buy')+(size.price!=null?' · '+price(size)+ship():''); }
   }
   function open(p){
     cur=p; size=S.sizes[0]||null;
@@ -138,9 +140,20 @@
   [].forEach.call(document.querySelectorAll('.mock-toggle button'),function(b){ b.addEventListener('click',function(){ side(b.getAttribute('data-side')); }); });
   if(es){ document.getElementById('cert-img').src=R+'assets/cert-es.png'; }
   if(es){ var tb=document.querySelectorAll('.mock-toggle button'); tb[0].textContent='Frente'; tb[1].textContent='Dorso'; }
+  // Checkout opens in a window over the site, so the shop (and the chosen photo) stays open behind it.
+  btn.addEventListener('click',function(e){
+    if(window.innerWidth<760) return;           // phones: normal tab
+    var w=500,h=760,l=window.screenX+(window.outerWidth-w)/2,t=window.screenY+(window.outerHeight-h)/2;
+    var pop=window.open(btn.href,'stripe_checkout','popup=yes,width='+w+',height='+h+',left='+l+',top='+t);
+    if(!pop) return;                             // popup blocked: follow the link
+    e.preventDefault(); pop.focus();
+    var note=document.getElementById('shop-paying'); note.style.display='';
+    var timer=setInterval(function(){ if(pop.closed){ clearInterval(timer); note.style.display='none'; } },800);
+  });
   document.getElementById('shop-close').addEventListener('click',close);
   panel.addEventListener('click',function(e){ if(e.target===panel) close(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
+  document.getElementById('shop-paying').textContent=es?'Completa el pago en la ventana de Stripe. Esta página sigue abierta.':'Complete the payment in the Stripe window. This page stays open.';
   if(es){ document.getElementById('shop-close').textContent='Cerrar'; soon.textContent='Próximamente'; }
 })();
 </script>
