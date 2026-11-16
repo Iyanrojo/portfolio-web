@@ -544,3 +544,4 @@ html[data-theme="dark"] .shop-photo{background:#2b2a27}
 .hand li{counter-increment:h}
 .hand li::before{content:counter(h) "- ";display:inline-block;width:1.6em}
 .mock-paper img.firma{width:clamp(60px,9vw,120px);height:auto;margin:2% 0 0 6%;transform:rotate(-3deg);opacity:.92}
+.mock-paper img.datos{width:62%;height:auto;margin:0;opacity:.95}
