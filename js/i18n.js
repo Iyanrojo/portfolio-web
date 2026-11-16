@@ -348,6 +348,7 @@ var ES = {
   "Tarada trailer": "Tráiler de Tarada",
   "2023 · Book trailer · Analogue photography": "2023 · Book trailer · Fotografía analógica",
   "Tarada trailer (2021)": "Tráiler de Tarada (2021)",
+  "Short version": "Versión corta",
   "← Back to home": "← Volver al inicio"
 };
 
