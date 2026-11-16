@@ -514,11 +514,11 @@ html[data-theme="dark"] body.calima-page{--rule:rgba(0,0,0,.3);--slot:transparen
 .mock-back{position:absolute;inset:0;transform:rotateY(180deg)}
 .mock.flip .mock-front{transform:rotateY(-180deg)}
 .mock.flip .mock-back{transform:rotateY(0)}
-.mock-paper{position:relative;background-color:#efe9dc;padding:var(--m);
+.mock-paper{position:relative;background:#fbfaf6;padding:var(--m);
   box-shadow:0 1px 1px rgba(0,0,0,.08),0 10px 24px -8px rgba(0,0,0,.28),0 34px 60px -30px rgba(0,0,0,.35);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='k'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.42' numOctaves='2' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.2  0 0 0 0 0.16  0 0 0 0 0.1  -50 0 0 0 11.2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23k)' opacity='1'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='turbulence' baseFrequency='.09 .2' numOctaves='2' seed='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.42  0 0 0 0 0.36  0 0 0 0 0.27  -16 0 0 0 1.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='0.5'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' seed='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.3  0 0 0 0 0.26  0 0 0 0 0.2  0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.01' numOctaves='4' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.43  0 0 0 0 0.32  1.1 0 0 0 -.47'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)' opacity='1'/%3E%3C/svg%3E");background-size:260px,400px,180px,600px}
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 .mock-paper img{display:block;width:100%;height:auto;max-height:none;margin:0}
-.mock-paper-back{height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;gap:6%}
+.mock-paper-back{height:100%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:2%;padding-left:16%}
 .mock-sleeve{position:absolute;inset:-2.4% -2.4% -1.4%;pointer-events:none;border-radius:2px;
   border:1px solid rgba(255,255,255,.75);outline:1px solid rgba(0,0,0,.10);
   background:linear-gradient(112deg,rgba(255,255,255,0) 14%,rgba(255,255,255,.42) 22%,rgba(255,255,255,.10) 29%,rgba(255,255,255,0) 48%,rgba(255,255,255,0) 64%,rgba(255,255,255,.26) 72%,rgba(255,255,255,0) 80%),rgba(235,240,245,.10);
@@ -540,24 +540,7 @@ html[data-theme="dark"] body.calima-page{--rule:rgba(0,0,0,.3);--slot:transparen
 html[data-theme="dark"] .shop-photo{background:#2b2a27}
 .shop-frame,.shop-frame a{color:#c8281c}
 .shop-frame a{text-decoration:underline;text-underline-offset:4px}
-/* "In place" view: the print leaning on a shelf, to scale */
-.scene{position:relative;width:min(100%,calc(70vh * 4 / 3));aspect-ratio:4/3;margin:0 auto;overflow:hidden;
-  background-color:#e7e1d6;
-  background-image:radial-gradient(ellipse at 18% 8%,rgba(255,250,238,.75),rgba(255,250,238,0) 60%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.02' numOctaves='5' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .45  0 0 0 0 .4  0 0 0 0 .32  0.55 0 0 0 -.26'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23w)'/%3E%3C/svg%3E")}
-.scene[hidden]{display:none}
-.scene-light{position:absolute;inset:0;background:linear-gradient(100deg,rgba(255,255,255,.18) 0 30%,rgba(0,0,0,0) 30% 38%,rgba(255,255,255,.12) 38% 52%,rgba(0,0,0,.05) 60%,rgba(0,0,0,.12));pointer-events:none}
-.scene-shelf{position:absolute;left:4%;right:4%;top:72%;height:4.2%;background:linear-gradient(#b48c62,#9a7450 55%,#7d5c3e);
-  box-shadow:0 18px 26px -10px rgba(40,25,10,.45),0 2px 0 rgba(255,255,255,.18) inset}
-.scene-shelf::after{content:"";position:absolute;left:0;right:0;top:100%;height:9%;background:rgba(0,0,0,.12)}
-.scene-print{position:absolute;left:34%;bottom:28%;transform-origin:bottom center;transform:rotate(-1.2deg);
-  filter:drop-shadow(10px 6px 9px rgba(40,28,15,.35))}
-.scene-print .mock-paper{width:100%;height:100%;box-sizing:border-box;padding:7%;box-shadow:none;display:flex;align-items:center;justify-content:center}
-.scene-print .mock-paper img{width:100%;height:100%;object-fit:contain}
-.scene-books{position:absolute;right:6%;bottom:28%;width:14%;display:flex;flex-direction:column;align-items:flex-end}
-.scene-books i{display:block;height:1.9vh;max-height:16px;min-height:8px;border-radius:1px;box-shadow:0 1px 0 rgba(0,0,0,.15)}
-.scene-books i:nth-child(1){width:84%;background:#3e4a3f}
-.scene-books i:nth-child(2){width:100%;background:#d8cdb7}
-.scene-books i:nth-child(3){width:92%;background:#8a3b2a}
-.scene-vase{position:absolute;left:11%;bottom:28%;height:30%;width:auto;filter:drop-shadow(6px 4px 6px rgba(40,28,15,.3))}
-.shop-photo:has(.scene:not([hidden])){padding:0;background:none}
+.hand{list-style:none;counter-reset:h;margin:0;padding:0;font-family:"Caveat","Bradley Hand","Segoe Print",cursive;font-weight:500;color:#1f2a6b;font-size:clamp(12px,1.55vw,22px);line-height:1.25;transform:rotate(-1.5deg)}
+.hand li{counter-increment:h}
+.hand li::before{content:counter(h) "- ";display:inline-block;width:1.6em}
+.mock-paper img.firma{width:clamp(60px,9vw,120px);height:auto;margin:2% 0 0 6%;transform:rotate(-3deg);opacity:.92}

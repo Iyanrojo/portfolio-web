@@ -26,8 +26,8 @@
 <!-- /SEO -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=bc898294">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Caveat:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=107862d4">
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
 </head>
 <body class="prints-page">
@@ -73,30 +73,19 @@
         </div>
         <div class="mock-face mock-back" aria-hidden="true">
           <div class="mock-paper mock-paper-back" id="mock-back">
-            <div class="stamp">
-              <div class="stamp-name">IYÁN ROJO</div>
-              <div class="stamp-line">Copia de autor · Fine art print</div>
-              <div class="stamp-rows"><span>Ref.</span><b id="stamp-ref">IR-00</b><span>Nº</span><b class="stamp-blank">&nbsp;&nbsp;&nbsp;&nbsp;/ 10</b></div>
-              <div class="stamp-line">Cantabria · Analogue photography</div>
-            </div>
-            <div class="sign"><svg viewBox="0 0 260 90" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M14 58c6-22 14-40 18-38 5 3-9 44-6 46 4 2 12-30 19-31 6-1 2 20 7 21 6 1 10-16 15-15 4 1 1 13 6 13 7 0 13-26 21-24 6 2-6 30 0 31 8 1 16-36 24-34 7 2-4 32 3 33 6 1 9-12 14-11" stroke-width="2.6"/>
-              <path d="M150 52c10-14 22-30 28-27 6 4-14 34-8 37 7 3 20-28 28-26 7 2-5 22 2 23 9 1 18-12 30-14" stroke-width="2.4"/>
-              <path d="M22 72c40-10 104-14 170-8 22 2 40 6 52 10" stroke-width="1.8"/>
-              <path d="M96 30c3-2 6-3 8-2" stroke-width="2.2"/>
-            </svg></div>
+            <ol class="hand" id="hand">
+              <li><span data-l="title">Title</span>: <span id="h-title"></span></li>
+              <li><span data-l="ed">Edition</span>: 2/10</li>
+              <li><span data-l="year">Year</span>: <span id="h-year"></span></li>
+              <li><span data-l="printed">Printed</span>: 02-07-2026</li>
+              <li><span data-l="paper">Paper</span>: Photo Rag Hahnemühle</li>
+            </ol>
+            <img class="firma" src="assets/firma.png" alt="Signature of Iyán Rojo">
           </div>
           <div class="mock-sleeve" aria-hidden="true"><span class="mock-flap"></span><span class="mock-glare"></span></div>
         </div>
       </div>
-      <div class="scene" id="scene" hidden>
-        <div class="scene-light"></div>
-        <svg class="scene-vase" viewBox="0 0 60 150" aria-hidden="true"><path d="M30 60 C29 40 22 20 12 6 M30 62 C33 38 40 22 52 10 M30 64 C31 46 30 26 34 2 M24 40 l-8-4 M36 36 l8-6 M29 24 l-6-6" stroke="#5b4a36" stroke-width="1.3" fill="none" stroke-linecap="round"/><path d="M20 66 h20 c2 6 9 14 9 34 c0 26-10 44-19 44 s-19-18-19-44 c0-20 7-28 9-34 z" fill="#c4b29a"/><path d="M22 70 c-4 8-7 18-7 30 c0 18 5 32 11 38" stroke="rgba(255,255,255,.35)" stroke-width="3" fill="none"/></svg>
-        <div class="scene-print" id="scene-print"><div class="mock-paper"><img id="scene-img" alt=""></div></div>
-        <div class="scene-books"><i></i><i></i><i></i></div>
-        <div class="scene-shelf"></div>
-      </div>
-      <div class="mock-toggle"><button type="button" class="on" data-side="front">Front</button><button type="button" data-side="back">Back</button><button type="button" data-side="scene">In place</button></div>
+      <div class="mock-toggle"><button type="button" class="on" data-side="front">Front</button><button type="button" data-side="back">Back</button></div>
     </div>
     <div class="shop-side">
       <div class="small meta" id="shop-place"></div>
@@ -137,7 +126,7 @@
     S.sizes.forEach(function(s){
       var l=document.createElement('label'); l.className='shop-size'+(size===s?' on':'');
       l.innerHTML='<input type="radio" name="size"'+(size===s?' checked':'')+'><span class="nm">'+(es?s.es:s.en)+'</span><span class="dm">'+(es&&s.dims_es?s.dims_es:s.dims)+'</span><span class="pr">'+price(s)+'</span>';
-      l.querySelector('input').addEventListener('change',function(){ size=s; render(); if(!document.getElementById('scene').hidden) scene(); });
+      l.querySelector('input').addEventListener('change',function(){ size=s; render(); });
       sizesEl.appendChild(l);
     });
     var ok=size && size.link;
@@ -145,19 +134,11 @@
     if(ok){ var ref='IR-'+cur.f.replace('.jpg',''); btn.href=size.link+(size.link.indexOf('?')>-1?'&':'?')+'client_reference_id='+encodeURIComponent(ref+'_'+size.id);
       btn.textContent=(es?'Comprar':'Buy')+(size.price!=null?' · '+price(size):''); }
   }
-  // "In place": the print on a shelf, drawn to scale for the chosen size (the scene is about 70 cm wide).
-  function scene(){
-    if(!cur) return;
-    var sz=size||S.sizes[0], land=cur.w>=cur.h, w=10, h=10;
-    if(sz && sz.id==='medium'){ w=land?29.7:21; h=land?21:29.7; }
-    var pr=document.getElementById('scene-print');
-    pr.style.width=(w/70*100)+'%'; pr.style.height=(h/52.5*100)+'%';
-    document.getElementById('scene-img').src=img.src;
-  }
   function open(p){
     cur=p; size=S.sizes[0]||null;
     img.src=R+'photos/'+p.f; img.alt='IR-'+p.f.replace('.jpg','');
-    document.getElementById('stamp-ref').textContent='IR-'+p.f.replace('.jpg','');
+    document.getElementById('h-title').textContent='‘IR-'+p.f.replace('.jpg','')+'’';
+    document.getElementById('h-year').textContent=p.y||'2020';
     var mock=document.getElementById('mock'); mock.style.setProperty('--ar', p.w/p.h); side('front');
     refEl.textContent='Ref. IR-'+p.f.replace('.jpg','');
     var place=es?p.l:(p.le||p.l); placeEl.textContent=place?(place+(p.y?', '+p.y:'')):(p.y||'');
@@ -165,12 +146,12 @@
     document.getElementById('shop-close').focus();
   }
   function close(){ panel.classList.remove('open'); document.documentElement.style.overflow=''; }
-  function side(v){ var m=document.getElementById('mock'), sc=document.getElementById('scene');
-    m.hidden = v==='scene'; sc.hidden = v!=='scene'; if(v==='scene') scene();
-    m.classList.toggle('flip', v==='back');
+  function side(v){ document.getElementById('mock').classList.toggle('flip', v==='back');
     [].forEach.call(document.querySelectorAll('.mock-toggle button'),function(b){ b.classList.toggle('on', b.getAttribute('data-side')===v); }); }
   [].forEach.call(document.querySelectorAll('.mock-toggle button'),function(b){ b.addEventListener('click',function(){ side(b.getAttribute('data-side')); }); });
-  if(es){ var tb=document.querySelectorAll('.mock-toggle button'); tb[0].textContent='Frente'; tb[1].textContent='Dorso'; tb[2].textContent='En su sitio'; }
+  if(es){ var L={title:'Título',ed:'Serie',year:'Año',printed:'Fecha impresión',paper:'Papel'};
+    [].forEach.call(document.querySelectorAll('#hand [data-l]'),function(x){ x.textContent=L[x.getAttribute('data-l')]; }); }
+  if(es){ var tb=document.querySelectorAll('.mock-toggle button'); tb[0].textContent='Frente'; tb[1].textContent='Dorso'; }
   document.getElementById('shop-close').addEventListener('click',close);
   panel.addEventListener('click',function(e){ if(e.target===panel) close(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
