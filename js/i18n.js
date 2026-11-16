@@ -388,6 +388,7 @@ var ES = {
   "Five women, five portraits · Nueva Vida": "Cinco mujeres, cinco retratos · Nueva Vida",
   "2026 · Video portraits · 8M": "2026 · Videorretratos · 8M",
   "For International Women’s Day, a commission for Asociación Nueva Vida: five women, five portraits.": "Para el Día Internacional de la Mujer, un encargo de la Asociación Nueva Vida: cinco mujeres, cinco retratos.",
+  "Watch the original video on Instagram ↗": "Ver el vídeo original en Instagram ↗",
   "← Back to home": "← Volver al inicio"
 };
 

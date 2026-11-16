@@ -448,3 +448,4 @@ html.theme-anim body,html.theme-anim header,html.theme-anim footer{transition:ba
 html[data-theme="dark"] .theme-t svg{transform:rotate(180deg)}
 .theme-t svg{transition:transform .45s cubic-bezier(.2,.7,.2,1)}
 .vp-frame.v{width:min(100%,calc((100vh - 120px) * 9 / 16));aspect-ratio:9/16}
+.case-watch{margin:-14px 0 24px}
