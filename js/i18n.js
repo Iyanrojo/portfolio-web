@@ -404,6 +404,12 @@ var ES = {
   "get on your jet ski and leave the archipelago.": "sube a tu moto de agua y abandona el archipiélago.",
   "the calima will disappear after a few days.": "la calima desaparecerá después de varios días.",
   "by then, everything will have changed.": "para entonces, todo habrá cambiado.",
+  "Audiovisual Communication, Universidad Carlos III de Madrid": "Comunicación Audiovisual, Universidad Carlos III de Madrid",
+  "Master’s in Documentary Filmmaking, ESCAC, Barcelona": "Máster en Realización de Cine Documental, ESCAC, Barcelona",
+  "Master’s in Teacher Training, Universidad de Cantabria": "Máster en Formación del Profesorado, Universidad de Cantabria",
+  "Diploma in International Development Cooperation, OEI": "Diploma en Cooperación Internacional para el Desarrollo, OEI",
+  "Spanish · English C1 · French C1 · Portuguese B2": "Español · Inglés C1 · Francés C1 · Portugués B2",
+  "Photographer, filmmaker and communications professional.": "Fotógrafo, cineasta y profesional de la comunicación.",
   "← Back to home": "← Volver al inicio"
 };
 

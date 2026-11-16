@@ -475,3 +475,6 @@ html[data-theme="dark"] body.calima-page{--rule:rgba(0,0,0,.3);--slot:transparen
   0%{background-color:#ff1f8f}16.66%{background-color:#00e1ff}33.33%{background-color:#c6ff00}
   50%{background-color:#ff6a00}66.66%{background-color:#b04dff}83.33%{background-color:#ffe600}}
 @media (prefers-reduced-motion:reduce){html[data-theme="dark"]:has(body.calima-page),html[data-theme="dark"] body.calima-page{animation:none;background:#b04dff}}
+.bio-cv{list-style:none;padding:0;margin:0 0 18px;max-width:58ch;font-size:16px}
+.bio-cv li{padding:7px 0;border-bottom:1px solid var(--rule)}
+.bio-cv li:first-child{border-top:1px solid var(--rule)}
