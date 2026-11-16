@@ -361,8 +361,10 @@ var ES = {
   "Two pieces built around a conversation between two of the programme’s consultants: <em>En materia: Guatemala y Honduras</em>, on the work done in both countries, and <em>Visiones de futuro</em>, on the challenges ahead. A warm set with crafts from the region, natural light and an unhurried rhythm, to make a technical subject feel close.": "Dos piezas construidas en torno a una conversación entre dos consultoras del programa: <em>En materia: Guatemala y Honduras</em>, sobre el trabajo realizado en ambos países, y <em>Visiones de futuro</em>, sobre los retos que vienen. Un plató cálido con artesanía de la región, luz natural y un ritmo sin prisa, para acercar un tema técnico.",
   "Direction: Iyán Rojo": "Dirección: Iyán Rojo",
   "Art direction: Gino Pavona García": "Dirección de arte: Gino Pavona García",
-  "Director of photography: Julian Azcutia": "Dirección de fotografía: Julian Azcutia",
+  "Director of photography: Julián Azcutia": "Dirección de fotografía: Julián Azcutia",
   "Editing: Ângela Ramos": "Montaje: Ângela Ramos",
+  "On film": "En vídeo",
+  "8M · International Women’s Day": "8M · Día Internacional de la Mujer",
   "← Back to home": "← Volver al inicio"
 };
 
