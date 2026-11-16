@@ -380,6 +380,11 @@ var ES = {
   "Football as a safe space for women in vulnerable situations.": "El fútbol como espacio seguro para mujeres en situación de vulnerabilidad.",
   "David’s story": "La historia de David",
   "Prison programme: a life rebuilt with the support of Nueva Vida.": "Medio penitenciario: una vida que se reconstruye con el acompañamiento de Nueva Vida.",
+  "More than 150 places in Cantabria where prostitution takes place. Behind them, trafficking goes on. Digital billboards in Santander, a boat through the bay and a film of the field research.": "Más de 150 lugares de prostitución en Cantabria. Detrás, continúa la trata. Pantallas en Santander, un barco por la bahía y una pieza sobre la investigación de campo.",
+  "For World Refugee Day: three films in which refugees play Spanish exiles, Picasso, Clara Campoamor and Matilde de la Torre.": "Para el Día Mundial de las Personas Refugiadas: tres piezas en las que personas refugiadas encarnan a exiliados españoles, Picasso, Clara Campoamor y Matilde de la Torre.",
+  "For World Homeless Day: personal stories that show anyone can end up on the street.": "Para el Día de las Personas Sin Hogar: historias personales que muestran que cualquiera puede acabar en la calle.",
+  "The housing search migrants face, and the one they should have: films and posters in Santander and Bilbao.": "La búsqueda de vivienda que vive la población migrante, y la que debería vivir: vídeos y carteles en Santander y Bilbao.",
+  "A three-part documentary series on the educator who opened schools for women in Santander in 1871, and on the right to education.": "Miniserie documental en tres capítulos sobre la educadora que abrió escuelas para mujeres en Santander en 1871, y sobre el derecho a la educación.",
   "← Back to home": "← Volver al inicio"
 };
 
