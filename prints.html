@@ -126,7 +126,7 @@
     var ok=size && size.link;
     btn.style.display=ok?'':'none'; soon.style.display=ok?'none':'';
     if(ok){ var ref='IR-'+cur.f.replace('.jpg',''); btn.href=size.link+(size.link.indexOf('?')>-1?'&':'?')+'client_reference_id='+encodeURIComponent(ref+'_'+size.id);
-      btn.textContent=(es?'Comprar':'Buy')+(size.price!=null?' · '+price(size)+ship():''); }
+      btn.textContent=(es?'Comprar':'Buy')+(size.price!=null?' · '+price(size):''); }
   }
   function open(p){
     cur=p; size=S.sizes[0]||null;
