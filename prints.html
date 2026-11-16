@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=20a474ea">
+<link rel="stylesheet" href="css/site.css?v=81656618">
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
 </head>
 <body class="prints-page">
@@ -144,15 +144,34 @@
   if(es){ document.getElementById('cert-img').src=R+'assets/cert-es.png'; }
   if(es){ var tb=document.querySelectorAll('.mock-toggle button'); tb[0].textContent='Frente'; tb[1].textContent='Dorso'; }
   // Checkout opens in a window over the site, so the shop (and the chosen photo) stays open behind it.
+  // Messages over the page: before going to Stripe, and after a completed purchase.
+  var msg=document.createElement('div'); msg.className='shop-msg'; msg.setAttribute('role','status'); document.body.appendChild(msg);
+  function say(t,ms){ msg.textContent=t; msg.classList.add('on'); clearTimeout(say.t); if(ms) say.t=setTimeout(function(){ msg.classList.remove('on'); },ms); }
+  var TXT_GO=es?'Se te redirige a Stripe para realizar una compra segura. Gracias.':'You are being redirected to Stripe for a secure purchase. Thank you.';
+  var TXT_OK=es?'Gracias por llenar el mundo de fotografías :)':'Thank you for filling the world with photographs :)';
+  window.shopThanks=function(){ close(); say(TXT_OK,6000); };
   btn.addEventListener('click',function(e){
-    if(window.innerWidth<760) return;           // phones: normal tab
-    var w=500,h=760,l=window.screenX+(window.outerWidth-w)/2,t=window.screenY+(window.outerHeight-h)/2;
-    var pop=window.open(btn.href,'stripe_checkout','popup=yes,width='+w+',height='+h+',left='+l+',top='+t);
-    if(!pop) return;                             // popup blocked: follow the link
-    e.preventDefault(); pop.focus();
-    var note=document.getElementById('shop-paying'); note.style.display='';
-    var timer=setInterval(function(){ if(pop.closed){ clearInterval(timer); note.style.display='none'; } },800);
+    e.preventDefault(); var url=btn.href;
+    say(TXT_GO, 0);
+    if(window.innerWidth>=760){
+      var w=500,h=760,l=window.screenX+(window.outerWidth-w)/2,t=window.screenY+(window.outerHeight-h)/2;
+      var pop=window.open('about:blank','stripe_checkout','popup=yes,width='+w+',height='+h+',left='+l+',top='+t);
+      if(pop){
+        setTimeout(function(){ pop.location.href=url; pop.focus(); },1200);
+        var note=document.getElementById('shop-paying');
+        setTimeout(function(){ msg.classList.remove('on'); note.style.display=''; },2200);
+        var timer=setInterval(function(){ if(pop.closed){ clearInterval(timer); note.style.display='none'; } },800);
+        return;
+      }
+    }
+    setTimeout(function(){ location.href=url; },1400);   // phones, or popup blocked
   });
+  // Stripe sends buyers back to prints.html?gracias (set as "After payment" redirect in each payment link).
+  if(/[?&](gracias|thanks)\b/.test(location.search)){
+    history.replaceState(null,'',location.pathname);
+    if(window.opener && !window.opener.closed){ try{ window.opener.shopThanks(); window.close(); }catch(err){} }
+    setTimeout(function(){ say(TXT_OK,7000); },300);
+  }
   document.getElementById('shop-close').addEventListener('click',close);
   // prints.html#IR-05 opens that photo directly (link from the gallery)
   function fromHash(){ var h=decodeURIComponent(location.hash.replace('#','')); if(!h) return; var m=list.filter(function(p){ return 'IR-'+p.f.replace('.jpg','')===h; })[0]; if(m) open(m); }
