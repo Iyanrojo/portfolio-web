@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=3c8d8662">
+<link rel="stylesheet" href="css/site.css?v=c7459940">
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
 </head>
 <body class="prints-page">
@@ -106,7 +106,7 @@
   list.forEach(function(p){
     var b=document.createElement('button'); b.type='button'; b.className='shop-item';
     var ref='IR-'+p.f.replace('.jpg','');
-    b.innerHTML='<span class="shop-thumb" style="aspect-ratio:'+p.w+' / '+p.h+'"><img loading="lazy" alt="'+ref+'" src="'+R+'photos/'+p.f+'"></span><span class="shop-cap small">'+ref+'</span>';
+    b.innerHTML='<span class="shop-thumb"><img loading="lazy" alt="'+ref+'" src="'+R+'photos/print/'+p.f+'"></span><span class="shop-cap small">'+ref+'</span>';
     b.addEventListener('click',function(){ open(p); });
     grid.appendChild(b);
   });
@@ -129,8 +129,8 @@
   }
   function open(p){
     cur=p; size=S.sizes[0]||null;
-    img.src=R+'photos/'+p.f; img.alt='IR-'+p.f.replace('.jpg','');
-    var mock=document.getElementById('mock'); mock.style.setProperty('--ar', p.w/p.h); side('front');
+    img.src=R+'photos/print/'+p.f; img.alt='IR-'+p.f.replace('.jpg','');
+    var mock=document.getElementById('mock'); mock.style.setProperty('--ar', p.w/p.h); img.onload=function(){ if(img.naturalWidth) mock.style.setProperty('--ar', img.naturalWidth/img.naturalHeight); }; side('front');
     refEl.textContent='Ref. IR-'+p.f.replace('.jpg','');
     var place=es?p.l:(p.le||p.l); placeEl.textContent=place?(place+(p.y?', '+p.y:'')):(p.y||'');
     render(); panel.classList.add('open'); document.documentElement.style.overflow='hidden';
