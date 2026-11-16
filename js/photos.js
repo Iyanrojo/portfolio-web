@@ -6,7 +6,6 @@ window.PHOTOS = [
   {"f": "02.jpg", "w": 649, "h": 655, "l": "Bilbao", "le": "Bilbao", "y": 2023},
   {"f": "28.jpg", "w": 1994, "h": 1634, "l": "Liencres", "le": "Liencres", "y": 2024},
   {"f": "42.jpg", "w": 1085, "h": 729, "l": "Islas Canarias", "le": "Canary Islands", "y": 2022},
-  {"f": "24.jpg", "w": 1930, "h": 1285, "l": "Gran Canaria", "le": "Gran Canaria", "y": 2022},
   {"f": "20.jpg", "w": 1930, "h": 1272, "l": "Gran Canaria", "le": "Gran Canaria", "y": 2022},
   {"f": "19.jpg", "w": 1041, "h": 1292, "l": "Proyecto 2 amigos", "le": "2 amigos project", "y": 2026},
   {"f": "05.jpg", "w": 1140, "h": 1234, "l": "Asturias", "le": "Asturias", "y": 2020},
