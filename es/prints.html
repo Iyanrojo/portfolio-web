@@ -27,7 +27,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&amp;family=Hanken+Grotesk:wght@500;600&amp;family=Cormorant+Garamond:ital,wght@1,400;1,500&amp;display=swap" rel="stylesheet"/>
-<link href="../css/site.css?v=81656618" rel="stylesheet"/>
+<link href="../css/site.css?v=209b633d" rel="stylesheet"/>
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
 <script>window.ROOT='../';</script></head>
 <body class="prints-page">
@@ -52,7 +52,7 @@
 <section style="padding-top:0">
 <div class="wrap">
 <div class="sec-top"><h2>Copias</h2><p>Copias fine art firmadas y numeradas · Ediciones de 15</p></div>
-<p class="shop-intro">Todas las fotografías de esta página están disponibles como copia fine art: una copia de autor, firmada y numerada, en dos tamaños, pequeño y mediano. Cada fotografía es una edición limitada de 15 copias.</p>
+<p class="shop-intro">Las fotografías de esta página están disponibles como copia fine art: una copia de autor, firmada y numerada, en dos tamaños, pequeño y mediano. Cada fotografía es una edición limitada de 15 copias.</p>
 <p class="shop-intro shop-frame">¿Buscas una copia para enmarcar? Escríbeme a <a href="mailto:iyanrojo@gmail.com">iyanrojo@gmail.com</a> y hablamos de tamaños y precios.</p>
 <div class="shop-grid" id="shop-grid"></div>
 </div>
@@ -145,7 +145,8 @@
   function say(t,ms){ msg.textContent=t; msg.classList.add('on'); clearTimeout(say.t); if(ms) say.t=setTimeout(function(){ msg.classList.remove('on'); },ms); }
   var TXT_GO=es?'Se te redirige a Stripe para realizar una compra segura. Gracias.':'You are being redirected to Stripe for a secure purchase. Thank you.';
   var TXT_OK=es?'Gracias por llenar el mundo de fotografías :)':'Thank you for filling the world with photographs :)';
-  window.shopThanks=function(){ close(); say(TXT_OK,6000); };
+  window.shopThanks=function(){ close(); say(TXT_OK,12000); };
+  msg.addEventListener('click',function(){ msg.classList.remove('on'); });
   btn.addEventListener('click',function(e){
     e.preventDefault(); var url=btn.href;
     say(TXT_GO, 0);
@@ -166,7 +167,7 @@
   if(/[?&](gracias|thanks)\b/.test(location.search)){
     history.replaceState(null,'',location.pathname);
     if(window.opener && !window.opener.closed){ try{ window.opener.shopThanks(); window.close(); }catch(err){} }
-    setTimeout(function(){ say(TXT_OK,7000); },300);
+    setTimeout(function(){ say(TXT_OK,12000); },400);
   }
   document.getElementById('shop-close').addEventListener('click',close);
   // prints.html#IR-05 opens that photo directly (link from the gallery)

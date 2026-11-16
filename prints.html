@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=81656618">
+<link rel="stylesheet" href="css/site.css?v=209b633d">
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
 </head>
 <body class="prints-page">
@@ -53,7 +53,7 @@
   <section style="padding-top:0">
     <div class="wrap">
       <div class="sec-top"><h2>Prints</h2><p>Signed and numbered fine art prints · Editions of 15</p></div>
-      <p class="shop-intro">Every photograph on this page is available as a fine art print: an author’s copy, signed and numbered, in two sizes, small and medium. Each photograph is a limited edition of 15 prints.</p>
+      <p class="shop-intro">The photographs on this page are available as fine art prints: an author’s copy, signed and numbered, in two sizes, small and medium. Each photograph is a limited edition of 15 prints.</p>
       <p class="shop-intro shop-frame">Looking for a print to frame? Write to me at <a href="mailto:iyanrojo@gmail.com">iyanrojo@gmail.com</a> and we can talk about sizes and prices.</p>
       <div class="shop-grid" id="shop-grid"></div>
     </div>
@@ -149,7 +149,8 @@
   function say(t,ms){ msg.textContent=t; msg.classList.add('on'); clearTimeout(say.t); if(ms) say.t=setTimeout(function(){ msg.classList.remove('on'); },ms); }
   var TXT_GO=es?'Se te redirige a Stripe para realizar una compra segura. Gracias.':'You are being redirected to Stripe for a secure purchase. Thank you.';
   var TXT_OK=es?'Gracias por llenar el mundo de fotografías :)':'Thank you for filling the world with photographs :)';
-  window.shopThanks=function(){ close(); say(TXT_OK,6000); };
+  window.shopThanks=function(){ close(); say(TXT_OK,12000); };
+  msg.addEventListener('click',function(){ msg.classList.remove('on'); });
   btn.addEventListener('click',function(e){
     e.preventDefault(); var url=btn.href;
     say(TXT_GO, 0);
@@ -170,7 +171,7 @@
   if(/[?&](gracias|thanks)\b/.test(location.search)){
     history.replaceState(null,'',location.pathname);
     if(window.opener && !window.opener.closed){ try{ window.opener.shopThanks(); window.close(); }catch(err){} }
-    setTimeout(function(){ say(TXT_OK,7000); },300);
+    setTimeout(function(){ say(TXT_OK,12000); },400);
   }
   document.getElementById('shop-close').addEventListener('click',close);
   // prints.html#IR-05 opens that photo directly (link from the gallery)
