@@ -435,3 +435,14 @@ a.lang{text-decoration:none;display:inline-block}
 .nv-index a:hover .nv-name{text-decoration:underline;text-underline-offset:3px}
 .nv-index .nv-year{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
 @media (max-width:620px){.nv-index{columns:1}}
+
+/* Dark mode: same layout, darkroom palette. Set by js/theme.js on <html data-theme="dark">. */
+html[data-theme="dark"]{
+  --bg:#121211; --ink:#ecebe6; --muted:#8e8c86; --slot:#252421; --rule:#33322e;
+  --ink-2:#d2d0ca; --ink-3:#b4b2ac; color-scheme:dark;
+}
+html.theme-anim body,html.theme-anim header,html.theme-anim footer{transition:background-color .4s ease,color .4s ease}
+.theme-t{background:none;border:0;padding:0;margin:0;cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;position:relative;top:1px}
+.theme-t:hover{color:var(--muted)}
+html[data-theme="dark"] .theme-t svg{transform:rotate(180deg)}
+.theme-t svg{transition:transform .45s cubic-bezier(.2,.7,.2,1)}
