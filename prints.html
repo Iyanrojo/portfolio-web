@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=ef2be9fb">
+<link rel="stylesheet" href="css/site.css?v=84b88e05">
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
 </head>
 <body class="prints-page">
@@ -146,14 +146,14 @@
   // Checkout opens in a window over the site, so the shop (and the chosen photo) stays open behind it.
   // Messages over the page: before going to Stripe, and after a completed purchase.
   var msg=document.createElement('div'); msg.className='shop-msg'; msg.setAttribute('role','status'); document.body.appendChild(msg);
-  function say(t,ms){ msg.textContent=t; msg.classList.add('on'); clearTimeout(say.t); if(ms) say.t=setTimeout(function(){ msg.classList.remove('on'); },ms); }
+  function say(t,ms,mini){ msg.textContent=t; msg.classList.toggle('mini',!!mini); msg.classList.add('on'); clearTimeout(say.t); if(ms) say.t=setTimeout(function(){ msg.classList.remove('on'); },ms); }
   var TXT_GO=es?'Se te redirige a Stripe para realizar una compra segura. Gracias.':'You are being redirected to Stripe for a secure purchase. Thank you.';
   var TXT_OK=es?'Gracias por llenar el mundo de fotografías :)':'Thank you for filling the world with photographs :)';
   window.shopThanks=function(){ close(); say(TXT_OK,12000); };
   msg.addEventListener('click',function(){ msg.classList.remove('on'); });
   btn.addEventListener('click',function(e){
     e.preventDefault(); var url=btn.href;
-    say(TXT_GO, 0);
+    say(TXT_GO, 0, true);
     if(window.innerWidth>=760){
       var w=500,h=760,l=window.screenX+(window.outerWidth-w)/2,t=window.screenY+(window.outerHeight-h)/2;
       var pop=window.open('about:blank','stripe_checkout','popup=yes,width='+w+',height='+h+',left='+l+',top='+t);
