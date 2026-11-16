@@ -478,3 +478,4 @@ html[data-theme="dark"] body.calima-page{--rule:rgba(0,0,0,.3);--slot:transparen
 .bio-cv{list-style:none;padding:0;margin:0 0 18px;max-width:58ch;font-size:16px}
 .bio-cv li{padding:7px 0;border-bottom:1px solid var(--rule)}
 .bio-cv li:first-child{border-top:1px solid var(--rule)}
+.about:not(:has(.side)){grid-template-columns:minmax(0,1fr) minmax(0,2.4fr)}
