@@ -129,6 +129,9 @@ nav ul{align-items:center}
 
 /* Gallery page: larger photos, fade in on load, gentle zoom on hover */
 .gallery{columns:3 340px;column-gap:24px}
+.masonry.gallery:has(.gcol){columns:auto;display:flex;gap:24px;align-items:flex-start}
+.photo-page .masonry.gallery:has(.gcol){gap:16px}
+.gallery .gcol{flex:1 1 0;min-width:0}
 .gallery .ph{margin-bottom:24px;break-inside:avoid;overflow:hidden;background:transparent}
 .gallery .ph{background:var(--slot)}
 .gallery .ph.has-img{background:transparent}
@@ -449,3 +452,4 @@ html[data-theme="dark"] .theme-t svg{transform:rotate(180deg)}
 .theme-t svg{transition:transform .45s cubic-bezier(.2,.7,.2,1)}
 .vp-frame.v{width:min(100%,calc((100vh - 120px) * 9 / 16));aspect-ratio:9/16}
 .case-watch{margin:-14px 0 24px}
+@media (max-width:760px){.masonry.gallery:has(.gcol){gap:0}}

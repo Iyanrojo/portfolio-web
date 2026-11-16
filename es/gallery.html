@@ -27,7 +27,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&amp;family=Hanken+Grotesk:wght@500;600&amp;family=Cormorant+Garamond:ital,wght@1,400;1,500&amp;display=swap" rel="stylesheet"/>
-<link href="../css/site.css?v=8069475c" rel="stylesheet"/>
+<link href="../css/site.css?v=53ef92c1" rel="stylesheet"/>
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
 <script>window.ROOT='../';</script></head>
 <body class="photo-page">
@@ -80,12 +80,12 @@
 <img alt="" id="lb-img"/>
 <span class="lb-ref small" id="lb-count"></span>
 </div>
-<script src="../js/photos.js?v=a86c9f34"></script>
+<script src="../js/photos.js?v=390e7266"></script>
 <script>
 // Build the mosaic from the photo list. Each frame gets its final proportions up front,
 // so the layout never jumps while images load; each photo then fades in.
 (function(){
-  var box=document.querySelector('.masonry.gallery');
+  var box=document.querySelector('.masonry.gallery'), items=[];
   (window.PHOTOS||[]).forEach(function(p, n){
     var b=document.createElement('button'); b.type='button'; b.className='ph';
     b.style.aspectRatio=p.w+' / '+p.h;
@@ -96,11 +96,22 @@
     img.src=(window.ROOT||'')+'photos/'+p.f; b.appendChild(img);
     var es=document.documentElement.lang==='es', place=es?p.l:(p.le||p.l);
     if(place) img.alt=img.alt+(es?' · ':', ')+place+(p.y?', '+p.y:'');
-    box.appendChild(b);
+    b.setAttribute('data-i', n);
+    items.push({el:b, r:p.h/p.w});
   });
+  // Masonry by columns: each photo goes to the shortest column, so the list order is the reading order.
+  var cols=0;
+  function layout(){
+    var w=box.clientWidth, gap=document.body.classList.contains('photo-page')?16:24, n=window.innerWidth<=760?1:Math.max(1,Math.min(3,Math.floor((w+gap)/(340+gap))));
+    if(n===cols) return; cols=n; box.innerHTML='';
+    var C=[],H=[];
+    for(var i=0;i<n;i++){ var d=document.createElement('div'); d.className='gcol'; box.appendChild(d); C.push(d); H.push(0); }
+    items.forEach(function(it){ var c=H.indexOf(Math.min.apply(null,H)); C[c].appendChild(it.el); H[c]+=it.r+0.06; });
+  }
+  layout(); window.addEventListener('resize',layout);
 })();
 var lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img'), lbCount = document.getElementById('lb-count'), cur = 0;
-function list(){ return [].slice.call(document.querySelectorAll('.ph.has-img img')); }
+function list(){ return [].slice.call(document.querySelectorAll('.gallery .ph.has-img')).sort(function(a,b){ return a.getAttribute('data-i')-b.getAttribute('data-i'); }).map(function(b){ return b.querySelector('img'); }); }
 function openAt(n){ var L = list(); if (!L.length) return; cur = (n + L.length) % L.length;
   var src = L[cur].src, wasOpen = lb.classList.contains('open');
   window.currentPhoto = 'IR-' + ((L[cur].getAttribute('src').match(/(\d+)\.jpg/) || [,''])[1]);
