@@ -7,8 +7,8 @@
 window.SHOP = {
   currency: "€",
   sizes: [
-    { id: "small",  en: "Small",  es: "Pequeña", dims: "10 × 10 cm", price: null, link: "" },
-    { id: "medium", en: "Medium", es: "Mediana", dims: "21 × 29.7 cm (A4)", dims_es: "21 × 29,7 cm (A4)", price: null, link: "" }
+    { id: "small",  en: "Small",  es: "Pequeña", dims: "10 × 10 cm", price: null, link: "https://buy.stripe.com/test_00w00c5z26WCaoN90tdQQ00" },
+    { id: "medium", en: "Medium", es: "Mediana", dims: "21 × 29.7 cm (A4)", dims_es: "21 × 29,7 cm (A4)", price: null, link: "https://buy.stripe.com/test_bJe14g1iMdl07cB7WpdQQ01" }
   ],
   // Leave empty to offer every photo in the gallery; or list the references on sale, e.g. ["02","19","53"].
   only: [],
