@@ -553,3 +553,4 @@ html[data-theme="dark"] .shop-photo{background:#2b2a27}
 .cert-form dt{white-space:nowrap}
 .cert-form dd{margin:0;flex:1;border-bottom:1px dotted rgba(43,42,39,.55);min-height:1.2em}
 .hw{font-family:"Nanum Pen Script","Bradley Hand","Segoe Print",cursive;color:#1f2a6b;font-size:1.75em;line-height:.9;padding-left:.2em;transform:rotate(-1deg)}
+.mock-paper img.cert-img{width:100%;height:auto;margin:0}
