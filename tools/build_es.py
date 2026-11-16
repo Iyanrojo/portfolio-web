@@ -31,7 +31,7 @@ SEO = {
    "CALIMA: a 35 mm colour film series by Iyán Rojo shot in Gran Canaria in 2022, when Saharan dust tints the most touristic coast of the Canary Islands orange.",
    "CALIMA · Serie de fotografía analógica · Iyán Rojo",
    "CALIMA: serie en película de color de 35 mm de Iyán Rojo, fotografiada en Gran Canaria en 2022, cuando el polvo del Sáhara tiñe de naranja la costa más turística de Canarias.",
-   "photos/cal-06.jpg"),
+   "photos/cal-cover.jpg"),
  "dos-amigos.html": ("2 amigos · Analogue photography series · Iyán Rojo",
    "2 amigos: a medium-format film series by Iyán Rojo about Pedro and Tino ‘el Tigre’. Exhibited at the Centro Nacional de Fotografía, Torrelavega (Cantabria).",
    "2 amigos · Serie de fotografía analógica · Iyán Rojo",
