@@ -467,3 +467,9 @@ body.calima-page{--bg:#fa803d;--ink:#1d1109;--ink-2:#2a170b;--ink-3:#3a210f;--mu
 .cal-end .cal-txt{margin-bottom:14px}
 .cal-end .cal-txt:nth-child(2){margin-bottom:34px}
 @media (max-width:760px){.cal-pair{grid-template-columns:1fr}}
+.calima-fx{position:fixed;inset:-25%;z-index:300;pointer-events:none;mix-blend-mode:difference;
+  background:conic-gradient(from 0deg,#ff004c,#ffb800,#3dff00,#00e5ff,#7a00ff,#ff00d4,#ff004c);
+  animation:calimaFx 2.2s ease-in-out forwards}
+@keyframes calimaFx{0%{opacity:0;transform:rotate(0) scale(1);filter:hue-rotate(0) saturate(1.6)}
+  15%{opacity:.85}70%{opacity:.85}
+  100%{opacity:0;transform:rotate(540deg) scale(1.3);filter:hue-rotate(720deg) saturate(1.6)}}
