@@ -373,6 +373,8 @@ var ES = {
   "<b>4,000+</b>people supported by the organisation in 2024": "<b>4.000+</b>personas atendidas por la entidad en 2024",
   "Documenting the daily work of an organisation with people on the margins, and turning it into campaigns people stop to watch.": "Documentar el trabajo diario de una entidad con personas en los márgenes y convertirlo en campañas que la gente se para a ver.",
   "Documentary filmmaker: recording the stories of service users and programmes. Also campaigns, from script to edit.": "Realizador documental: registrar las historias de las personas usuarias y de los programas. También campañas, del guion al montaje.",
+  "Day against the trafficking of women and girls": "Día contra la trata de mujeres y niñas",
+  "A summary of the rally called by Nueva Vida.": "Resumen de la concentración convocada por Nueva Vida.",
   "← Back to home": "← Volver al inicio"
 };
 
