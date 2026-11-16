@@ -365,6 +365,7 @@ var ES = {
   "Editing: Ângela Ramos": "Montaje: Ângela Ramos",
   "On film": "En vídeo",
   "8M · International Women’s Day": "8M · Día Internacional de la Mujer",
+  "Testimonies of women from Nueva Vida, in their own words.": "Testimonios de mujeres de Nueva Vida, en primera persona.",
   "← Back to home": "← Volver al inicio"
 };
 
