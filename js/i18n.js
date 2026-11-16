@@ -391,6 +391,7 @@ var ES = {
   "Watch the original video on Instagram ↗": "Ver el vídeo original en Instagram ↗",
   "Awareness campaign · NO.MAS.TRATA · 2025": "Campaña de sensibilización · NO.MAS.TRATA · 2025",
   "Client: NO.MAS.TRATA": "Cliente: NO.MAS.TRATA",
+  "The photographs in this gallery are available as prints. Write me an email at <a class=\"u\" href=\"mailto:iyanrojo@gmail.com\">iyanrojo@gmail.com</a>.": "Las fotografías de esta galería están disponibles en copia. Escríbeme un email a <a class=\"u\" href=\"mailto:iyanrojo@gmail.com\">iyanrojo@gmail.com</a>.",
   "← Back to home": "← Volver al inicio"
 };
 
