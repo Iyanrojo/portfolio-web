@@ -538,3 +538,5 @@ html[data-theme="dark"] body.calima-page{--rule:rgba(0,0,0,.3);--slot:transparen
 .mock-toggle button.on{color:var(--ink);border-bottom-color:var(--ink)}
 .shop-photo{padding:clamp(22px,3.4vw,52px);background:#d9d5ce;background-image:radial-gradient(ellipse at 35% 30%,rgba(255,255,255,.35),rgba(0,0,0,0) 70%)}
 html[data-theme="dark"] .shop-photo{background:#2b2a27}
+.shop-frame,.shop-frame a{color:#c8281c}
+.shop-frame a{text-decoration:underline;text-underline-offset:4px}

@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>Prints · Iyán Rojo</title>
-<meta content="Small fine art prints of analogue photographs by Iyán Rojo, signed and numbered, in two sizes." name="description"/>
+<meta content="Fine art prints of analogue photographs by Iyán Rojo on professional paper, signed and numbered, limited editions of 10." name="description"/>
 <meta content="noindex, nofollow" name="robots"/>
 <!-- SEO -->
 <link href="https://iyanrojo.com/prints.html" rel="canonical"/>
@@ -20,7 +20,7 @@
 <meta content="Iyán Rojo" property="og:site_name"/>
 <meta content="en_GB" property="og:locale"/>
 <meta content="Prints · Iyán Rojo" property="og:title"/>
-<meta content="Small fine art prints of analogue photographs by Iyán Rojo, signed and numbered, in two sizes." property="og:description"/>
+<meta content="Fine art prints of analogue photographs by Iyán Rojo on professional paper, signed and numbered, limited editions of 10." property="og:description"/>
 <meta content="https://iyanrojo.com/prints.html" property="og:url"/>
 <meta content="https://iyanrojo.com/photos/02.jpg" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
@@ -28,7 +28,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&amp;family=Hanken+Grotesk:wght@500;600&amp;family=Cormorant+Garamond:ital,wght@1,400;1,500&amp;display=swap" rel="stylesheet"/>
-<link href="../css/site.css?v=9a184b4b" rel="stylesheet"/>
+<link href="../css/site.css?v=53a8ca6c" rel="stylesheet"/>
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
 <script>window.ROOT='../';</script></head>
 <body class="prints-page">
@@ -52,9 +52,9 @@
        Settings, sizes, prices and Stripe links: js/shop.js -->
 <section style="padding-top:0">
 <div class="wrap">
-<div class="sec-top"><h2>Copias</h2><p>Copias fine art firmadas y numeradas</p></div>
-<p class="shop-intro">Todas las fotografías de la galería están disponibles como pequeña copia fine art en papel: una copia de autor, firmada y numerada, en dos tamaños, pequeño y grande. Elige la foto, elige el tamaño y paga de forma segura; te la envío a tu dirección desde Cantabria.</p>
-<p class="shop-intro">¿Buscas una copia para enmarcar? Escríbeme a <a class="u" href="mailto:iyanrojo@gmail.com">iyanrojo@gmail.com</a> y te paso tamaños y precios.</p>
+<div class="sec-top"><h2>Copias</h2><p>Copias fine art firmadas y numeradas · Ediciones de 10</p></div>
+<p class="shop-intro">Todas las fotografías de esta página están disponibles como copia fine art en papel profesional: una copia de autor, firmada y numerada, en dos tamaños, pequeño y mediano. Cada fotografía es una edición limitada de 10 copias.</p>
+<p class="shop-intro shop-frame">¿Buscas una copia para enmarcar? Escríbeme a <a href="mailto:iyanrojo@gmail.com">iyanrojo@gmail.com</a> y hablamos de tamaños y precios.</p>
 <div class="shop-grid" id="shop-grid"></div>
 </div>
 </section>
@@ -74,7 +74,7 @@
 <div class="stamp">
 <div class="stamp-name">IYÁN ROJO</div>
 <div class="stamp-line">Copia de autor · Fine art print</div>
-<div class="stamp-rows"><span>Ref.</span><b id="stamp-ref">IR-00</b><span>Nº</span><b class="stamp-blank">   /   </b></div>
+<div class="stamp-rows"><span>Ref.</span><b id="stamp-ref">IR-00</b><span>Nº</span><b class="stamp-blank">    / 10</b></div>
 <div class="stamp-line">Cantabria · Analogue photography</div>
 </div>
 <div class="sign"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" viewbox="0 0 260 90">
@@ -94,7 +94,7 @@
 <h3 class="shop-ref" id="shop-ref"></h3>
 <div class="shop-sizes" id="shop-sizes"></div>
 <div class="shop-buy"><a class="shop-btn" href="#" id="shop-btn" rel="noopener">Buy</a><span class="shop-soon small" id="shop-soon">Coming soon</span></div>
-<p class="shop-note small">Copia fine art · Firmada y numerada por el autor · Pago seguro con Stripe · La dirección de envío se pide al pagar</p>
+<p class="shop-note small">Copia fine art en papel profesional · Firmada y numerada, edición limitada de 10 · Pago seguro con Stripe · La dirección de envío se pide al pagar</p>
 </div>
 </div>
 </div>
@@ -102,7 +102,7 @@
 <div class="wrap small"><span>© 2026 Iyán Rojo Greciet · Fotógrafo y realizador audiovisual · Cantabria</span><a href="#top" style="text-decoration:none">Volver arriba ↑</a></div>
 </footer>
 <script src="../js/photos.js?v=e0a7ecc7"></script>
-<script src="../js/shop.js?v=9436e0f0"></script>
+<script src="../js/shop.js?v=571cc0b5"></script>
 <script>
 (function(){
   var es=document.documentElement.lang==='es', S=window.SHOP||{sizes:[]}, R=window.ROOT||'';
@@ -125,7 +125,7 @@
     sizesEl.innerHTML='';
     S.sizes.forEach(function(s){
       var l=document.createElement('label'); l.className='shop-size'+(size===s?' on':'');
-      l.innerHTML='<input type="radio" name="size"'+(size===s?' checked':'')+'><span class="nm">'+(es?s.es:s.en)+'</span><span class="dm">'+s.dims+'</span><span class="pr">'+price(s)+'</span>';
+      l.innerHTML='<input type="radio" name="size"'+(size===s?' checked':'')+'><span class="nm">'+(es?s.es:s.en)+'</span><span class="dm">'+(es&&s.dims_es?s.dims_es:s.dims)+'</span><span class="pr">'+price(s)+'</span>';
       l.querySelector('input').addEventListener('change',function(){ size=s; render(); });
       sizesEl.appendChild(l);
     });
