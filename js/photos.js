@@ -4,7 +4,7 @@
    The order below is the gallery reading order, left to right (mixed on purpose so portraits are not grouped); the home slideshow shuffles. */
 window.PHOTOS = [
   {"f": "50.jpg", "w": 924, "h": 924},
-  {"f": "65.jpg", "w": 1176, "h": 946},
+  {"f": "65.jpg", "w": 1172, "h": 946},
   {"f": "03.jpg", "w": 883, "h": 890, "l": "Madrid", "le": "Madrid", "y": 2024},
   {"f": "29.jpg", "w": 750, "h": 738},
   {"f": "44.jpg", "w": 1069, "h": 702},

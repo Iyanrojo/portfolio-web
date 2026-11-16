@@ -467,9 +467,11 @@ body.calima-page{--bg:#fa803d;--ink:#1d1109;--ink-2:#2a170b;--ink-3:#3a210f;--mu
 .cal-end .cal-txt{margin-bottom:14px}
 .cal-end .cal-txt:nth-child(2){margin-bottom:34px}
 @media (max-width:760px){.cal-pair{grid-template-columns:1fr}}
-.calima-fx{position:fixed;inset:-25%;z-index:300;pointer-events:none;mix-blend-mode:difference;
-  background:conic-gradient(from 0deg,#ff004c,#ffb800,#3dff00,#00e5ff,#7a00ff,#ff00d4,#ff004c);
-  animation:calimaFx 2.2s ease-in-out forwards}
-@keyframes calimaFx{0%{opacity:0;transform:rotate(0) scale(1);filter:hue-rotate(0) saturate(1.6)}
-  15%{opacity:.85}70%{opacity:.85}
-  100%{opacity:0;transform:rotate(540deg) scale(1.3);filter:hue-rotate(720deg) saturate(1.6)}}
+/* CALIMA in dark mode: the orange gives way to a colour strobe on the background, until the switch is pressed again.
+   Kept at 3 changes per second (the safe limit for photosensitive visitors) and off with reduced motion. */
+html[data-theme="dark"]:has(body.calima-page),html[data-theme="dark"] body.calima-page{animation:calimaStrobe 2s steps(1,end) infinite}
+html[data-theme="dark"] body.calima-page{--rule:rgba(0,0,0,.3);--slot:transparent}
+@keyframes calimaStrobe{
+  0%{background-color:#ff1f8f}16.66%{background-color:#00e1ff}33.33%{background-color:#c6ff00}
+  50%{background-color:#ff6a00}66.66%{background-color:#b04dff}83.33%{background-color:#ffe600}}
+@media (prefers-reduced-motion:reduce){html[data-theme="dark"]:has(body.calima-page),html[data-theme="dark"] body.calima-page{animation:none;background:#b04dff}}

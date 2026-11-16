@@ -21,12 +21,6 @@
     try { localStorage.setItem('site-theme', dark ? 'dark' : 'light'); } catch (e) {}
     sync();
     setTimeout(function () { root.classList.remove('theme-anim'); }, 450);
-    // CALIMA wink: a short psychedelic colour burst. Colours glide (no hard flashing) and it is skipped with reduced motion.
-    if (document.body.classList.contains('calima-page') && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
-      var fx = document.createElement('div'); fx.className = 'calima-fx'; fx.setAttribute('aria-hidden', 'true');
-      document.body.appendChild(fx);
-      setTimeout(function () { fx.remove(); }, 2200);
-    }
   });
   li.appendChild(b); ul.appendChild(li); sync();
 })();
