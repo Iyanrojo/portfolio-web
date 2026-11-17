@@ -27,7 +27,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&amp;family=Hanken+Grotesk:wght@500;600&amp;family=Cormorant+Garamond:ital,wght@1,400;1,500&amp;display=swap" rel="stylesheet"/>
-<link href="../css/site.css?v=8bf01a50" rel="stylesheet"/>
+<link href="../css/site.css?v=a0c9f243" rel="stylesheet"/>
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
 <script>window.ROOT='../';</script></head>
 <body class="prints-page">
@@ -63,6 +63,7 @@
 <div class="shop-inner">
 <div class="shop-photo">
 <!-- Mockup: the photo shown as a fine art print in its plastic sleeve; "Back" shows the authenticity stamp and signature -->
+<img alt="" class="scene-img" id="scene-img"/>
 <div class="mock" id="mock">
 <div class="mock-face mock-front">
 <div class="mock-paper"><img alt="" id="shop-img"/><img alt="Initials i.r and edition number 2/15, in pencil" class="mock-num" src="../assets/numeracion.png"/></div>
@@ -75,7 +76,7 @@
 <div aria-hidden="true" class="mock-sleeve"><span class="mock-flap"></span><span class="mock-glare"></span></div>
 </div>
 </div>
-<div class="mock-toggle"><button class="on" data-side="front" type="button">Front</button><button data-side="back" type="button">Back</button></div>
+<div class="mock-toggle"><button class="on" data-side="scene" type="button">In place</button><button data-side="front" type="button">Front</button><button data-side="back" type="button">Back</button></div>
 </div>
 <div class="shop-side">
 <div class="small meta" id="shop-place"></div>
@@ -128,18 +129,20 @@
   function open(p){
     cur=p; size=S.sizes[0]||null;
     img.src=R+'photos/print/'+p.f; img.alt='IR-'+p.f.replace('.jpg','');
-    var mock=document.getElementById('mock'); mock.style.setProperty('--ar', p.w/p.h); img.onload=function(){ if(img.naturalWidth) mock.style.setProperty('--ar', img.naturalWidth/img.naturalHeight); }; side('front');
+    document.getElementById('scene-img').onerror=function(){ side('front'); }; document.getElementById('scene-img').src=R+'photos/mock/'+p.f; document.getElementById('scene-img').alt='IR-'+p.f.replace('.jpg','')+(es?' como copia fine art en su funda':' as a fine art print in its sleeve');
+    var mock=document.getElementById('mock'); mock.style.setProperty('--ar', p.w/p.h); img.onload=function(){ if(img.naturalWidth) mock.style.setProperty('--ar', img.naturalWidth/img.naturalHeight); }; side('scene');
     refEl.textContent='Ref. IR-'+p.f.replace('.jpg','');
     var place=es?p.l:(p.le||p.l); placeEl.textContent=place?(place+(p.y?', '+p.y:'')):(p.y||'');
     render(); panel.classList.add('open'); document.documentElement.style.overflow='hidden';
     document.getElementById('shop-close').focus();
   }
   function close(){ panel.classList.remove('open'); document.documentElement.style.overflow=''; }
-  function side(v){ document.getElementById('mock').classList.toggle('flip', v==='back');
+  function side(v){ var m=document.getElementById('mock'), sc=document.getElementById('scene-img'); m.style.display = v==='scene' ? 'none' : ''; sc.style.display = v==='scene' ? '' : 'none';
+    m.classList.toggle('flip', v==='back');
     [].forEach.call(document.querySelectorAll('.mock-toggle button'),function(b){ b.classList.toggle('on', b.getAttribute('data-side')===v); }); }
   [].forEach.call(document.querySelectorAll('.mock-toggle button'),function(b){ b.addEventListener('click',function(){ side(b.getAttribute('data-side')); }); });
   if(es){ document.getElementById('cert-img').src=R+'assets/cert-es.png'; }
-  if(es){ var tb=document.querySelectorAll('.mock-toggle button'); tb[0].textContent='Frente'; tb[1].textContent='Dorso'; }
+  if(es){ var tb=document.querySelectorAll('.mock-toggle button'); tb[0].textContent='En su sitio'; tb[1].textContent='Frente'; tb[2].textContent='Dorso'; }
   // Checkout opens in a window over the site, so the shop (and the chosen photo) stays open behind it.
   // Messages over the page: before going to Stripe, and after a completed purchase.
   var msg=document.createElement('div'); msg.className='shop-msg'; msg.setAttribute('role','status'); document.body.appendChild(msg);

@@ -602,3 +602,5 @@ html[data-theme="dark"] .shop-photo{background:#2b2a27}
 }
 .lb .share-btn{position:static;top:auto;right:auto;border:1px solid currentColor;padding:10px 14px;display:inline-flex}
 @media (max-width:620px){.lb .lb-actions .share-btn{padding:13px 10px}}
+.scene-img{display:block;width:100%;height:auto;max-height:72vh;object-fit:cover;margin:0 auto}
+.shop-photo:has(.scene-img:not([style*="none"])){padding:0;background:none}
