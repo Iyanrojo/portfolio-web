@@ -576,3 +576,4 @@ html[data-theme="dark"] .shop-photo{background:#2b2a27}
 .shop-msg.on{opacity:1;pointer-events:auto}
 .shop-msg.mini{inset:auto auto 9vh 50%;transform:translateX(-50%);padding:16px 24px;max-width:min(90vw,520px);background:var(--ink);color:var(--bg);
   -webkit-backdrop-filter:none;backdrop-filter:none;font-size:clamp(17px,1.7vw,21px);line-height:1.3;box-shadow:0 14px 34px -14px rgba(0,0,0,.35)}
+.mock-paper img.mock-num{position:absolute;right:var(--m);bottom:calc(var(--m) * .22);width:auto;height:calc(var(--m) * .5);max-height:none;margin:0;opacity:.9}
