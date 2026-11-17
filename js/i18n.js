@@ -428,6 +428,7 @@ var ES = {
   "Fine art prints": "Copias fine art",
   "Author’s prints": "Copias de autor",
   "Shop": "Tienda",
+  "Share": "Compartir",
   "← Back to home": "← Volver al inicio"
 };
 

@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=29c03aad">
+<link rel="stylesheet" href="css/site.css?v=18edba5a">
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
 </head>
 <body class="prints-page">
@@ -83,7 +83,7 @@
       <div class="small meta" id="shop-place"></div>
       <h3 class="shop-ref" id="shop-ref"></h3>
       <div class="shop-sizes" id="shop-sizes"></div>
-      <div class="shop-buy"><a class="shop-btn" id="shop-btn" href="#" rel="noopener">Buy</a><span class="shop-soon small" id="shop-soon">Coming soon</span></div>
+      <div class="shop-buy"><a class="shop-btn" id="shop-btn" href="#" rel="noopener">Buy</a><span class="shop-soon small" id="shop-soon">Coming soon</span><button type="button" class="share-btn" id="shop-share"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7.5 7.5 12 3l4.5 4.5"/><path d="M5 12v7.5h14V12"/></svg><span>Share</span></button></div>
       <p class="shop-paying small" id="shop-paying" style="display:none"></p>
       <p class="shop-note small">Fine art print · Signed and numbered, limited edition of 15 · Secure payment with Stripe · Shipping address requested at checkout</p>
     </div>
@@ -96,6 +96,7 @@
 
 <script src="js/photos.js?v=e0a7ecc7"></script>
 <script src="js/shop.js?v=de118303"></script>
+<script src="js/share.js?v=aa2c4c34"></script>
 <script>
 (function(){
   var es=document.documentElement.lang==='es', S=window.SHOP||{sizes:[]}, R=window.ROOT||'';
@@ -173,6 +174,9 @@
     if(window.opener && !window.opener.closed){ try{ window.opener.shopThanks(); window.close(); }catch(err){} }
     setTimeout(function(){ say(TXT_OK,12000); },400);
   }
+  document.getElementById('shop-share').addEventListener('click',function(e){ e.stopPropagation(); if(!cur) return; var ref='IR-'+cur.f.replace('.jpg','');
+    SHARE.open(this,{img:R+'photos/print/'+cur.f, ref:ref, line:(es?'Copia fine art · Edición de 15 · ':'Fine art print · Edition of 15 · ')+'Ref. '+ref,
+      url:location.origin+location.pathname+'#'+ref}); });
   document.getElementById('shop-close').addEventListener('click',close);
   // prints.html#IR-05 opens that photo directly (link from the gallery)
   function fromHash(){ var h=decodeURIComponent(location.hash.replace('#','')); if(!h) return; var m=list.filter(function(p){ return 'IR-'+p.f.replace('.jpg','')===h; })[0]; if(m) open(m); }

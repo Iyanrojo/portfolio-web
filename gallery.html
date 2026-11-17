@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=29c03aad">
+<link rel="stylesheet" href="css/site.css?v=18edba5a">
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
 </head>
 <body class="photo-page">
@@ -88,10 +88,11 @@
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged photo">
   <button type="button" id="lb-close">Close</button>
   <img id="lb-img" alt="">
-  <div class="lb-foot"><span class="lb-ref small" id="lb-count"></span><a class="lb-cta" id="lb-cta" href="prints.html">Want this photograph?</a></div>
+  <div class="lb-foot"><span class="lb-ref small" id="lb-count"></span><span class="lb-actions"><button type="button" class="share-btn" id="lb-share"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7.5 7.5 12 3l4.5 4.5"/><path d="M5 12v7.5h14V12"/></svg><span>Share</span></button><a class="lb-cta" id="lb-cta" href="prints.html">Want this photograph?</a></span></div>
 </div>
 
 <script src="js/shop.js?v=de118303"></script>
+<script src="js/share.js?v=aa2c4c34"></script>
 <script src="js/photos.js?v=e0a7ecc7"></script>
 <script>
 // Build the mosaic from the photo list. Each frame gets its final proportions up front,
@@ -132,6 +133,7 @@ function openAt(n){ var L = list(); if (!L.length) return; cur = (n + L.length) 
   var ref = window.currentPhoto.replace('IR-',''), cta = document.getElementById('lb-cta'), ex = ((window.SHOP||{}).exclude||[]);
   cta.style.display = ex.indexOf(ref) > -1 ? 'none' : '';
   cta.href = 'prints.html#' + window.currentPhoto;
+  window.currentMeta = {img: L[cur].getAttribute('src'), line: place ? place + (meta.y ? ', ' + meta.y : '') : (meta.y || '')};
   lbCount.textContent = (place ? place + (meta.y ? ', ' + meta.y : '') + ' · ' : (meta.y ? meta.y + ' · ' : '')) + 'Ref. ' + window.currentPhoto;
   if (!wasOpen) { lbImg.src = src; lb.classList.add('open'); return; }
   lbImg.classList.add('swap');
@@ -158,6 +160,15 @@ var sx = null;
 lb.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, {passive:true});
 lb.addEventListener('touchend', function (e) { if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 40) openAt(dx < 0 ? cur + 1 : cur - 1); sx = null; });
 lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
+document.getElementById('lb-share').addEventListener('click', function (e) {
+  e.stopPropagation(); var m = window.currentMeta || {};
+  SHARE.open(this, {img: m.img, ref: window.currentPhoto, line: m.line ? m.line + ' · Ref. ' + window.currentPhoto : 'Ref. ' + window.currentPhoto,
+    url: location.origin + location.pathname + '#' + window.currentPhoto});
+});
+// gallery.html#IR-05 opens that photo (shared links)
+(function(){ var h = decodeURIComponent(location.hash.replace('#','')); if (!/^IR-\d+$/.test(h)) return;
+  var tries = 0; (function go(){ var L = list(), n = -1; L.forEach(function(im, i){ if (('IR-' + ((im.getAttribute('src').match(/(\d+)\.jpg/) || [,''])[1])) === h) n = i; });
+    if (n > -1) openAt(n); else if (tries++ < 40) setTimeout(go, 150); })(); })();
 document.addEventListener('keydown', function (e) {
   if (!lb.classList.contains('open')) return;
   if (e.key === 'Escape') closeLb(); if (e.key === 'ArrowRight') openAt(cur+1); if (e.key === 'ArrowLeft') openAt(cur-1);
