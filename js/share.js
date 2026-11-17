@@ -74,8 +74,7 @@
 
   // WhatsApp: the same image as the story, with the text and the link.
   function shareWhatsApp(d, text) {
-    var msg = text + '
-' + d.url, f = fileOf(d);
+    var msg = text + '\n' + d.url, f = fileOf(d);
     if (touch && f && navigator.canShare && navigator.canShare({ files: [f], text: msg })) {
       copy(d.url).catch(function () {}); say(T.waMob);
       navigator.share({ files: [f], text: msg }).catch(function () {});
