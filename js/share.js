@@ -7,12 +7,16 @@
     story: 'Story para Instagram', wa: 'WhatsApp', mail: 'Email', copy: 'Copiar enlace', more: 'Más opciones…',
     copied: 'Enlace copiado', storyMob: 'Elige Instagram → Historia. El enlace ya está copiado: pégalo con el sticker «Enlace».',
     storyDesk: 'Story descargada y enlace copiado. Súbela a Instagram desde el móvil y pega el enlace con el sticker «Enlace».',
-    subj: 'Una fotografía de Iyán Rojo'
+    subj: 'Una fotografía de Iyán Rojo',
+    waMob: 'Elige WhatsApp: se envía la imagen con el enlace.',
+    waDesk: 'Imagen descargada. Adjúntala en WhatsApp junto al mensaje con el enlace.'
   } : {
     story: 'Instagram Story', wa: 'WhatsApp', mail: 'Email', copy: 'Copy link', more: 'More options…',
     copied: 'Link copied', storyMob: 'Choose Instagram → Story. The link is already copied: paste it with the “Link” sticker.',
     storyDesk: 'Story downloaded and link copied. Post it from your phone and paste the link with the “Link” sticker.',
-    subj: 'A photograph by Iyán Rojo'
+    subj: 'A photograph by Iyán Rojo',
+    waMob: 'Choose WhatsApp: the image is sent with the link.',
+    waDesk: 'Image downloaded. Attach it in WhatsApp next to the message with the link.'
   };
 
   var menu = document.createElement('div'); menu.className = 'share-menu'; menu.setAttribute('role', 'menu');
@@ -66,6 +70,27 @@
     }).catch(function () { say(T.copied); });
   }
 
+  // WhatsApp: the same image as the story, with the text and the link as caption.
+  function shareWhatsApp(d, text) {
+    var msg = text + '\n' + d.url;
+    var wa = window.open('', '_blank');               // open now, while the click still counts (pop-up blockers)
+    story(d).then(function (blob) {
+      var file = new File([blob], 'iyanrojo-' + d.ref + '.jpg', { type: 'image/jpeg' });
+      if (navigator.canShare && navigator.canShare({ files: [file], text: msg })) {
+        if (wa) wa.close();
+        copy(d.url).catch(function () {});
+        say(T.waMob);
+        navigator.share({ files: [file], text: msg }).catch(function () {});
+      } else {
+        var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = file.name;
+        document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
+        var u = 'https://wa.me/?text=' + encodeURIComponent(msg);
+        if (wa) wa.location.href = u; else window.open(u, '_blank', 'noopener');
+        say(T.waDesk);
+      }
+    }).catch(function () { var u = 'https://wa.me/?text=' + encodeURIComponent(msg); if (wa) wa.location.href = u; else window.open(u, '_blank', 'noopener'); });
+  }
+
   function item(label, fn) { var b = document.createElement('button'); b.type = 'button'; b.setAttribute('role', 'menuitem'); b.textContent = label; b.addEventListener('click', function () { close(); fn(); }); return b; }
 
   window.SHARE = {
@@ -74,7 +99,7 @@
       menu.innerHTML = ''; menu._for = btn;
       var text = (d.line ? d.line + ' · ' : '') + 'Iyán Rojo';
       menu.appendChild(item(T.story, function () { shareStory(d); }));
-      menu.appendChild(item(T.wa, function () { window.open('https://wa.me/?text=' + encodeURIComponent(text + ' ' + d.url), '_blank', 'noopener'); }));
+      menu.appendChild(item(T.wa, function () { shareWhatsApp(d, text); }));
       menu.appendChild(item(T.mail, function () { location.href = 'mailto:?subject=' + encodeURIComponent(T.subj) + '&body=' + encodeURIComponent(text + '\n' + d.url); }));
       menu.appendChild(item(T.copy, function () { copy(d.url).then(function () { say(T.copied); }, function () { say(d.url); }); }));
       if (navigator.share) menu.appendChild(item(T.more, function () { navigator.share({ title: T.subj, text: text, url: d.url }).catch(function () {}); }));
