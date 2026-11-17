@@ -35,7 +35,10 @@
   // 1080×1920 story: name, the photo on white paper, a line of text and the link.
   function story(d) {
     var W = 1080, H = 1920, c = document.createElement('canvas'); c.width = W; c.height = H; var g = c.getContext('2d');
-    return (document.fonts ? document.fonts.ready : Promise.resolve()).then(function () { return loadImg(d.img); }).then(function (im) {
+    var numImg = null;
+    return (document.fonts ? document.fonts.ready : Promise.resolve())
+      .then(function () { return d.num ? loadImg(d.num).then(function (n) { numImg = n; }, function () {}) : null; })
+      .then(function () { return loadImg(d.img); }).then(function (im) {
       g.fillStyle = '#f1eee8'; g.fillRect(0, 0, W, H);
       g.fillStyle = '#16140f'; g.textAlign = 'center'; g.textBaseline = 'alphabetic';
       g.font = '700 40px Archivo, Helvetica, Arial, sans-serif'; try { g.letterSpacing = '8px'; } catch (e) {}
@@ -43,9 +46,12 @@
       var maxW = 860, maxH = 1160, r = im.width / im.height, w = maxW, h = w / r; if (h > maxH) { h = maxH; w = h * r; }
       var x = (W - w) / 2, y = 300 + (maxH - h) / 2, m = Math.round(Math.min(w, h) * 0.035);
       g.save(); g.shadowColor = 'rgba(0,0,0,.28)'; g.shadowBlur = 50; g.shadowOffsetY = 22;
-      g.fillStyle = '#fbfaf6'; g.fillRect(x - m, y - m, w + 2 * m, h + 2 * m); g.restore();
+      var mb = numImg ? Math.round(m * 2.2) : m;          // prints: deeper bottom margin for initials and number
+      g.fillStyle = '#fbfaf6'; g.fillRect(x - m, y - m, w + 2 * m, h + m + mb); g.restore();
       g.drawImage(im, x, y, w, h);
-      var ty = y + h + m + 110;
+      if (numImg) { var nh = Math.round(mb * 0.5), nw = nh * numImg.width / numImg.height;
+        g.globalAlpha = .9; g.drawImage(numImg, x + w - nw, y + h + (mb - nh) / 2, nw, nh); g.globalAlpha = 1; }
+      var ty = y + h + mb + 110;
       try { g.letterSpacing = '0px'; } catch (e) {}
       g.fillStyle = '#16140f'; g.font = 'italic 500 50px "Cormorant Garamond", Georgia, serif';
       g.fillText(d.line || ('Ref. ' + d.ref), W / 2, ty);

@@ -96,7 +96,7 @@
 
 <script src="js/photos.js?v=e0a7ecc7"></script>
 <script src="js/shop.js?v=de118303"></script>
-<script src="js/share.js?v=86421d32"></script>
+<script src="js/share.js?v=f147b646"></script>
 <script>
 (function(){
   var es=document.documentElement.lang==='es', S=window.SHOP||{sizes:[]}, R=window.ROOT||'';
@@ -175,7 +175,7 @@
     setTimeout(function(){ say(TXT_OK,12000); },400);
   }
   document.getElementById('shop-share').addEventListener('click',function(e){ e.stopPropagation(); if(!cur) return; var ref='IR-'+cur.f.replace('.jpg','');
-    SHARE.open(this,{img:R+'photos/print/'+cur.f, ref:ref, line:(es?'Copia fine art · Edición de 15 · ':'Fine art print · Edition of 15 · ')+'Ref. '+ref,
+    SHARE.open(this,{img:R+'photos/print/'+cur.f, num:R+'assets/numeracion.png', ref:ref, line:(es?'Copia fine art · Edición de 15 · ':'Fine art print · Edition of 15 · ')+'Ref. '+ref,
       url:location.origin+location.pathname+'#'+ref}); });
   document.getElementById('shop-close').addEventListener('click',close);
   // prints.html#IR-05 opens that photo directly (link from the gallery)
