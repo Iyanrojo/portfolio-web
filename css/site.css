@@ -604,3 +604,15 @@ html[data-theme="dark"] .shop-photo{background:#2b2a27}
 @media (max-width:620px){.lb .lb-actions .share-btn{padding:13px 10px}}
 .scene-img{display:block;width:auto;max-width:100%;height:auto;max-height:72vh;object-fit:contain;margin:0 auto}
 .shop-photo:has(.scene-img:not([style*="none"])){padding:0;background:none}
+
+/* Gift option in the print panel */
+.shop-gift{margin:4px 0 16px}
+.gift-toggle{display:inline-flex;align-items:center;gap:10px;cursor:pointer;font:700 12px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.gift-toggle input{position:absolute;opacity:0;pointer-events:none}
+.gift-tick{width:16px;height:16px;border:1.5px solid var(--ink);display:inline-block;position:relative}
+.gift-toggle input:checked+.gift-tick::after{content:"";position:absolute;left:4px;top:0;width:5px;height:10px;border:solid var(--ink);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.gift-toggle input:focus-visible+.gift-tick{outline:2px solid var(--ink);outline-offset:2px}
+.gift-box{margin-top:12px}
+.gift-box textarea{width:100%;box-sizing:border-box;resize:vertical;min-height:84px;padding:12px 14px;border:1px solid var(--rule);background:transparent;color:var(--ink);font-family:var(--serif);font-style:italic;font-size:18px;line-height:1.35}
+.gift-box textarea:focus{outline:none;border-color:var(--ink)}
+.gift-meta{display:flex;justify-content:space-between;margin-top:6px;color:var(--muted);letter-spacing:.04em;text-transform:none}

@@ -97,7 +97,7 @@
     open: function (btn, d) {
       if (menu.classList.contains('open') && menu._for === btn) { close(); return; }
       menu.innerHTML = ''; menu._for = btn; prepare(d);
-      var text = (d.line ? d.line + ' · ' : '') + 'Iyán Rojo';
+      var text = (d.note ? '«' + d.note + '»\n\n' : '') + (d.line ? d.line + ' · ' : '') + 'Iyán Rojo';
       menu.appendChild(item(T.story, function () { shareStory(d); }));
       menu.appendChild(item(T.wa, function () { shareWhatsApp(d, text); }));
       menu.appendChild(item(T.mail, function () { location.href = 'mailto:?subject=' + encodeURIComponent(T.subj) + '&body=' + encodeURIComponent(text + '\n' + d.url); }));

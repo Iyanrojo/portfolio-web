@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=3a1dc88c">
+<link rel="stylesheet" href="css/site.css?v=0c3d7f9e">
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
 </head>
 <body class="prints-page">
@@ -84,6 +84,13 @@
       <div class="small meta" id="shop-place"></div>
       <h3 class="shop-ref" id="shop-ref"></h3>
       <div class="shop-sizes" id="shop-sizes"></div>
+      <div class="shop-gift">
+        <label class="gift-toggle"><input type="checkbox" id="gift-on"><span class="gift-tick" aria-hidden="true"></span><span id="gift-label">It’s a gift</span></label>
+        <div class="gift-box" id="gift-box" hidden>
+          <textarea id="gift-msg" maxlength="240" rows="3"></textarea>
+          <div class="gift-meta small"><span id="gift-hint"></span><span id="gift-count">0/240</span></div>
+        </div>
+      </div>
       <div class="shop-buy"><a class="shop-btn" id="shop-btn" href="#" rel="noopener">Buy</a><span class="shop-soon small" id="shop-soon">Coming soon</span><button type="button" class="share-btn" id="shop-share"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7.5 7.5 12 3l4.5 4.5"/><path d="M5 12v7.5h14V12"/></svg><span>Share</span></button></div>
       <p class="shop-paying small" id="shop-paying" style="display:none"></p>
       <p class="shop-note small">Fine art print · Signed and numbered, limited edition of 15 · Secure payment with Stripe · Shipping address requested at checkout</p>
@@ -97,7 +104,7 @@
 
 <script src="js/photos.js?v=e0a7ecc7"></script>
 <script src="js/shop.js?v=de118303"></script>
-<script src="js/share.js?v=f147b646"></script>
+<script src="js/share.js?v=93d93291"></script>
 <script>
 (function(){
   var es=document.documentElement.lang==='es', S=window.SHOP||{sizes:[]}, R=window.ROOT||'';
@@ -132,6 +139,7 @@
   }
   function open(p){
     cur=p; size=S.sizes[0]||null;
+    var go=document.getElementById('gift-on'); if(go){ go.checked=false; document.getElementById('gift-box').hidden=true; document.getElementById('gift-msg').value=''; document.getElementById('gift-count').textContent='0/240'; }
     img.src=R+'photos/print/'+p.f; img.alt='IR-'+p.f.replace('.jpg','');
     document.getElementById('scene-img').onerror=function(){ side('front'); }; sceneSrc(); document.getElementById('scene-img').alt='IR-'+p.f.replace('.jpg','')+(es?' como copia fine art en su funda':' as a fine art print in its sleeve');
     var mock=document.getElementById('mock'); mock.style.setProperty('--ar', p.w/p.h); img.onload=function(){ if(img.naturalWidth) mock.style.setProperty('--ar', img.naturalWidth/img.naturalHeight); }; side('front');
@@ -158,6 +166,12 @@
   msg.addEventListener('click',function(){ msg.classList.remove('on'); });
   btn.addEventListener('click',function(e){
     e.preventDefault(); var url=btn.href;
+    if(giftOn.checked && cur){
+      var ref='IR-'+cur.f.replace('.jpg',''), code=Math.random().toString(36).slice(2,6).toUpperCase(), note=giftMsg.value.trim();
+      url=url.replace(/client_reference_id=[^&]*/,'client_reference_id='+encodeURIComponent(ref+'_'+size.id+'_regalo_'+code));
+      try{ fetch('https://formsubmit.co/ajax/iyanrojo@gmail.com',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify({_subject:'Regalo · '+ref+' · '+code,_template:'table',_captcha:'false','Código':code,'Foto':ref,'Tamaño':size.id,'Mensaje':note||'(sin mensaje)'})}).catch(function(){}); }catch(err){}
+    }
     say(TXT_GO, 0, true);
     if(window.innerWidth>=760){
       var w=500,h=760,l=window.screenX+(window.outerWidth-w)/2,t=window.screenY+(window.outerHeight-h)/2;
@@ -179,8 +193,14 @@
     setTimeout(function(){ say(TXT_OK,12000); },400);
   }
   document.getElementById('shop-share').addEventListener('click',function(e){ e.stopPropagation(); if(!cur) return; var ref='IR-'+cur.f.replace('.jpg','');
-    SHARE.open(this,{img:R+'photos/print/'+cur.f, num:R+'assets/numeracion.png', ref:ref, line:(es?'Copia fine art · Edición de 15 · ':'Fine art print · Edition of 15 · ')+'Ref. '+ref,
+    SHARE.open(this,{note:(giftOn.checked?giftMsg.value.trim():''), img:R+'photos/print/'+cur.f, num:R+'assets/numeracion.png', ref:ref, line:(es?'Copia fine art · Edición de 15 · ':'Fine art print · Edition of 15 · ')+'Ref. '+ref,
       url:location.origin+location.pathname+'#'+ref}); });
+  var giftOn=document.getElementById('gift-on'), giftMsg=document.getElementById('gift-msg'), giftBox=document.getElementById('gift-box');
+  document.getElementById('gift-label').textContent=es?'Es un regalo':'It’s a gift';
+  giftMsg.placeholder=es?'Escribe tu mensaje. Lo escribiré a mano en una tarjeta que va con la copia.':'Write your message. I will handwrite it on a card that goes with the print.';
+  document.getElementById('gift-hint').textContent=es?'Opcional':'Optional';
+  giftOn.addEventListener('change',function(){ giftBox.hidden=!giftOn.checked; if(giftOn.checked) giftMsg.focus(); });
+  giftMsg.addEventListener('input',function(){ document.getElementById('gift-count').textContent=giftMsg.value.length+'/240'; });
   document.getElementById('shop-close').addEventListener('click',close);
   // prints.html#IR-05 opens that photo directly (link from the gallery)
   function fromHash(){ var h=decodeURIComponent(location.hash.replace('#','')); if(!h) return; var m=list.filter(function(p){ return 'IR-'+p.f.replace('.jpg','')===h; })[0]; if(m) open(m); }
