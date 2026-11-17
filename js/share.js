@@ -55,40 +55,35 @@
     });
   }
 
+  // The image is prepared as soon as the menu opens, so sharing can start right on the tap
+  // (phones only allow the share sheet directly from a tap, not after waiting).
+  var ready = { key: '', blob: null };
+  function prepare(d) { var key = d.img + '|' + d.line; if (ready.key === key) return; ready = { key: key, blob: null };
+    story(d).then(function (b) { if (ready.key === key) ready.blob = b; }).catch(function () {}); }
+  function fileOf(d) { return ready.blob ? new File([ready.blob], 'iyanrojo-' + d.ref + '.jpg', { type: 'image/jpeg' }) : null; }
+  function download(d) { if (!ready.blob) return; var a = document.createElement('a'); a.href = URL.createObjectURL(ready.blob); a.download = 'iyanrojo-' + d.ref + '.jpg';
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000); }
+  var touch = window.matchMedia && matchMedia('(pointer:coarse)').matches;
+
   function shareStory(d) {
-    var link = d.url; copy(link).catch(function () {});
-    story(d).then(function (blob) {
-      var file = new File([blob], 'iyanrojo-' + d.ref + '.jpg', { type: 'image/jpeg' });
-      if (navigator.canShare && navigator.canShare({ files: [file] })) {
-        say(T.storyMob);
-        navigator.share({ files: [file] }).catch(function () {});
-      } else {
-        var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = file.name;
-        document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
-        say(T.storyDesk);
-      }
-    }).catch(function () { say(T.copied); });
+    copy(d.url).catch(function () {});
+    var f = fileOf(d);
+    if (touch && f && navigator.canShare && navigator.canShare({ files: [f] })) { say(T.storyMob); navigator.share({ files: [f] }).catch(function () {}); }
+    else { download(d); say(T.storyDesk); }
   }
 
-  // WhatsApp: the same image as the story, with the text and the link as caption.
+  // WhatsApp: the same image as the story, with the text and the link.
   function shareWhatsApp(d, text) {
-    var msg = text + '\n' + d.url;
-    var wa = window.open('', '_blank');               // open now, while the click still counts (pop-up blockers)
-    story(d).then(function (blob) {
-      var file = new File([blob], 'iyanrojo-' + d.ref + '.jpg', { type: 'image/jpeg' });
-      if (navigator.canShare && navigator.canShare({ files: [file], text: msg })) {
-        if (wa) wa.close();
-        copy(d.url).catch(function () {});
-        say(T.waMob);
-        navigator.share({ files: [file], text: msg }).catch(function () {});
-      } else {
-        var a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = file.name;
-        document.body.appendChild(a); a.click(); a.remove(); setTimeout(function () { URL.revokeObjectURL(a.href); }, 4000);
-        var u = 'https://wa.me/?text=' + encodeURIComponent(msg);
-        if (wa) wa.location.href = u; else window.open(u, '_blank', 'noopener');
-        say(T.waDesk);
-      }
-    }).catch(function () { var u = 'https://wa.me/?text=' + encodeURIComponent(msg); if (wa) wa.location.href = u; else window.open(u, '_blank', 'noopener'); });
+    var msg = text + '
+' + d.url, f = fileOf(d);
+    if (touch && f && navigator.canShare && navigator.canShare({ files: [f], text: msg })) {
+      copy(d.url).catch(function () {}); say(T.waMob);
+      navigator.share({ files: [f], text: msg }).catch(function () {});
+      return;
+    }
+    var u = 'https://wa.me/?text=' + encodeURIComponent(msg);
+    if (touch) { location.href = u; return; }           // phone without file sharing: WhatsApp with the link
+    download(d); window.open(u, '_blank', 'noopener'); say(T.waDesk);
   }
 
   function item(label, fn) { var b = document.createElement('button'); b.type = 'button'; b.setAttribute('role', 'menuitem'); b.textContent = label; b.addEventListener('click', function () { close(); fn(); }); return b; }
@@ -96,7 +91,7 @@
   window.SHARE = {
     open: function (btn, d) {
       if (menu.classList.contains('open') && menu._for === btn) { close(); return; }
-      menu.innerHTML = ''; menu._for = btn;
+      menu.innerHTML = ''; menu._for = btn; prepare(d);
       var text = (d.line ? d.line + ' · ' : '') + 'Iyán Rojo';
       menu.appendChild(item(T.story, function () { shareStory(d); }));
       menu.appendChild(item(T.wa, function () { shareWhatsApp(d, text); }));
