@@ -205,7 +205,7 @@ def build():
                     tag[attr] = "../" + v
         root = soup.new_tag("script"); root.string = "window.ROOT='../';"
         soup.head.append(root)
-        out = str(soup)
+        out = set_head(str(soup), page, "es")   # Spanish title, description, canonical and Open Graph
         open(os.path.join("es", page), "w", encoding="utf-8").write(out)
 
     for extra in ("404.html",):
