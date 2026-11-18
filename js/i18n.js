@@ -448,6 +448,7 @@ var ES = {
   "Cover of the photographic series Calima": "Portada de la serie fotográfica Calima",
   "A signed fine art print in its sleeve on a shelf": "Una copia fine art firmada en su funda, sobre una estantería",
   "Fine art prints <span aria-hidden=\"true\">→</span>": "Copias fine art <span aria-hidden=\"true\">→</span>",
+  "Open gallery": "Abrir galería",
   "← Back to home": "← Volver al inicio"
 };
 

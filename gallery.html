@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=a37dbf7d">
+<link rel="stylesheet" href="css/site.css?v=174c6d8c">
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
 </head>
 <body class="photo-page gallery-page">
@@ -66,7 +66,7 @@
       <h2 class="case-h" id="h-selection">Selection</h2>
       <div class="masonry gallery">
       </div>
-      <div class="to-gallery"><button type="button" class="more archive-btn" id="archive-btn">See the full archive</button></div>
+      <div class="to-gallery"><button type="button" class="archive-btn" id="archive-btn">Open gallery</button></div>
     </section>
 
     <section class="ph-block" aria-labelledby="h-prints">
@@ -97,7 +97,7 @@
 
 <script src="js/shop.js?v=de118303"></script>
 <script src="js/share.js?v=93d93291"></script>
-<script src="js/photos.js?v=fcf83f36"></script>
+<script src="js/photos.js?v=1827dd7d"></script>
 <script>
 // Build the mosaic from the photo list. Each frame gets its final proportions up front,
 // so the layout never jumps while images load; each photo then fades in.
@@ -125,11 +125,14 @@
     if(n===cols) return; cols=n; box.innerHTML='';
     var C=[],H=[];
     for(var i=0;i<n;i++){ var d=document.createElement('div'); d.className='gcol'; box.appendChild(d); C.push(d); H.push(0); }
-    items.forEach(function(it){ if(!full && it.el.hasAttribute('data-extra')) return; var c=H.indexOf(Math.min.apply(null,H)); C[c].appendChild(it.el); H[c]+=it.r+0.06; });
+    var k=0;
+    items.forEach(function(it){ if(!full && it.el.hasAttribute('data-extra')) return; var c=H.indexOf(Math.min.apply(null,H)); C[c].appendChild(it.el); H[c]+=it.r+0.06;
+      if(full && it.el.hasAttribute('data-extra')){ it.el.classList.remove('reveal'); void it.el.offsetWidth; it.el.style.animationDelay=Math.min(k++,18)*70+'ms'; it.el.classList.add('reveal'); } });
+    box.classList.toggle('closed', !full);
   }
   layout(); window.addEventListener('resize',layout);
   var ab=document.getElementById('archive-btn'), es=document.documentElement.lang==='es';
-  function label(){ ab.textContent = full ? (es?'Ver solo la selección':'Show the selection only') : (es?'Ver el archivo completo':'See the full archive')+' ('+items.length+')'; }
+  function label(){ ab.textContent = full ? (es?'Cerrar galería':'Close gallery') : (es?'Abrir galería':'Open gallery')+' ('+items.length+')'; }
   label();
   ab.addEventListener('click',function(){ full=!full; cols=0; layout(); label(); history.replaceState(null,'',full?'#archive':location.pathname); if(!full) document.getElementById('h-selection').scrollIntoView({behavior:'smooth'}); });
 })();
