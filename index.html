@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=0c3d7f9e">
+<link rel="stylesheet" href="css/site.css?v=e9d3c348">
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
 </head>
 <body class="landing">
@@ -103,7 +103,7 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape') clos
  }
   function idx(){ return Math.max(0,list().indexOf(cur)); }
   function stop(){ if(timer){clearInterval(timer);timer=null;} }
-  function start(){ stop(); if(playing && !reduce) timer=setInterval(function(){show(idx()+1);},5000); }
+  function start(){ stop(); if(playing && !reduce) timer=setInterval(function(){show(idx()+1);},3500); }
   function go(d){ show(idx()+d); start(); }
   // Build the slides from the photo list, in random order on every visit.
   var stage=document.querySelector('.stage');
