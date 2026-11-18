@@ -25,19 +25,60 @@
   li.appendChild(b); ul.appendChild(li); sync();
 })();
 
-/* Email links: copy the address and say so, instead of opening a mail app the visitor may not use. */
+/* "Write to me" popup: email links and links to contact.html#escribeme open a small form over the page
+   (background blurred). Messages are sent through FormSubmit to Iyán's inbox. */
 (function () {
-  var toast = null, tm = null;
-  function show(msg) {
-    if (!toast) { toast = document.createElement('div'); toast.className = 'mail-toast'; toast.setAttribute('role', 'status'); document.body.appendChild(toast); }
-    toast.textContent = msg; toast.classList.add('on'); clearTimeout(tm); tm = setTimeout(function () { toast.classList.remove('on'); }, 3200);
+  var MAIL = 'iyanrojo@gmail.com', es = document.documentElement.lang === 'es', box = null, prev = null;
+  var T = es ? {h:'Escríbeme', n:'Nombre', e:'Tu email', m:'Mensaje', s:'Enviar', c:'Cerrar', or:'O escríbeme directamente a', cp:'Copiar', cpd:'Copiado',
+               bad:'Rellena nombre, un email válido y el mensaje.', go:'Enviando…', ok:'Gracias, mensaje enviado. Te respondo pronto.', err:'No se ha podido enviar. Escríbeme a ' + MAIL + '.',
+               size:'Hola Iyán, me interesa una copia en otro tamaño. ', work:'Hola Iyán, me gustaría hablar contigo sobre un proyecto. ', print:'Hola Iyán, me interesa una copia impresa. ', ref:'Hola Iyán, me interesa una copia de la fotografía ', ser:['Hola Iyán, me interesa una copia de la serie «','». '], subj:'Mensaje desde la web – '}
+          : {h:'Write to me', n:'Name', e:'Your email', m:'Message', s:'Send', c:'Close', or:'Or write to me directly at', cp:'Copy', cpd:'Copied',
+               bad:'Please fill in your name, a valid email and a message.', go:'Sending…', ok:'Thank you, your message has been sent. I will reply soon.', err:'It could not be sent. Please write to ' + MAIL + '.',
+               size:'Hi Iyán, I am interested in a print in another size. ', work:'Hi Iyán, I would like to talk to you about a project. ', print:'Hi Iyán, I am interested in a print. ', ref:'Hi Iyán, I am interested in a print of photograph ', ser:['Hi Iyán, I am interested in a print from the series “','”. '], subj:'Message from the website – '};
+  function build() {
+    box = document.createElement('div'); box.className = 'wm'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true'); box.setAttribute('aria-labelledby', 'wm-h');
+    box.innerHTML = '<div class="wm-card"><button type="button" class="wm-x" aria-label="' + T.c + '">' + T.c + '</button>' +
+      '<h2 class="wm-h" id="wm-h">' + T.h + '</h2><form class="write-form" novalidate>' +
+      '<label><span>' + T.n + '</span><input name="name" autocomplete="name" required></label>' +
+      '<label><span>' + T.e + '</span><input name="email" type="email" autocomplete="email" required></label>' +
+      '<label class="wide"><span>' + T.m + '</span><textarea name="message" rows="6" required></textarea></label>' +
+      '<input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">' +
+      '<div class="write-foot wide"><button type="submit" class="write-btn">' + T.s + '</button><span class="write-status small" role="status"></span></div></form>' +
+      '<p class="wm-alt small">' + T.or + ' <button type="button" class="wm-copy">' + MAIL + '</button></p></div>';
+    document.body.appendChild(box);
+    var f = box.querySelector('form'), st = box.querySelector('.write-status'), btn = f.querySelector('.write-btn');
+    box.querySelector('.wm-x').addEventListener('click', close);
+    box.addEventListener('click', function (e) { if (e.target === box) close(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && box.classList.contains('open')) close(); });
+    box.querySelector('.wm-copy').addEventListener('click', function () { var b = this;
+      try { navigator.clipboard.writeText(MAIL); } catch (x) {} b.setAttribute('data-done', T.cpd); setTimeout(function () { b.removeAttribute('data-done'); }, 1800); });
+    f.addEventListener('submit', function (e) {
+      e.preventDefault(); if (f.elements._honey.value) return;
+      var n = f.elements.name.value.trim(), m = f.elements.email.value.trim(), t = f.elements.message.value.trim();
+      if (!n || !t || !/^\S+@\S+\.\S+$/.test(m)) { st.textContent = T.bad; return; }
+      btn.disabled = true; st.textContent = T.go;
+      fetch('https://formsubmit.co/ajax/' + MAIL, {method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body: JSON.stringify({name:n, email:m, message:t, page:location.href.split('#')[0], _subject:T.subj + n, _replyto:m, _template:'table', _captcha:'false'})})
+      .then(function (r) { if (!r.ok) throw 0; f.reset(); st.textContent = T.ok; setTimeout(close, 2600); })
+      .catch(function () { st.textContent = T.err; })
+      .then(function () { btn.disabled = false; });
+    });
   }
+  function open(q) {
+    if (!box) build();
+    var f = box.querySelector('form'), msg = f.elements.message; box.querySelector('.write-status').textContent = '';
+    var start = q.get('ref') ? T.ref + q.get('ref') + '. ' : q.get('serie') ? T.ser[0] + q.get('serie') + T.ser[1] : q.get('tema') === 'size' ? T.size : q.get('tema') === 'work' ? T.work : q.get('tema') === 'print' ? T.print : '';
+    if (start && (!msg.value || msg.value === box._start)) msg.value = start; box._start = start;
+    prev = document.activeElement; box.classList.add('open'); document.documentElement.classList.add('wm-on');
+    setTimeout(function () { (f.elements.name.value ? msg : f.elements.name).focus(); }, 60);
+  }
+  function close() { box.classList.remove('open'); document.documentElement.classList.remove('wm-on'); if (prev && prev.focus) prev.focus(); }
+  window.openWrite = function (params) { open(new URLSearchParams(params || '')); };
   document.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('a[href^="mailto:iyanrojo@"]'); if (!a) return;
-    e.preventDefault();
-    var mail = a.getAttribute('href').replace('mailto:', '').split('?')[0], es = document.documentElement.lang === 'es';
-    function done() { show((es ? 'Email copiado: ' : 'Email copied: ') + mail); }
-    try { navigator.clipboard.writeText(mail).then(done, function () { fallback(); }); } catch (err) { fallback(); }
-    function fallback() { var i = document.createElement('textarea'); i.value = mail; i.style.position = 'fixed'; i.style.opacity = '0'; document.body.appendChild(i); i.select(); try { document.execCommand('copy'); } catch (x) {} document.body.removeChild(i); done(); }
+    var a = e.target.closest && e.target.closest('a[href]'); if (!a) return;
+    var h = a.getAttribute('href');
+    if (/^mailto:iyanrojo@/.test(h)) { e.preventDefault(); open(new URLSearchParams()); return; }
+    if (/(^|\/)contact\.html\?[^#]*#escribeme$|(^|\/)contact\.html#escribeme$/.test(h)) { e.preventDefault(); open(new URLSearchParams((h.split('?')[1] || '').split('#')[0])); }
   });
+  if (location.hash === '#escribeme') open(new URLSearchParams(location.search));
 })();

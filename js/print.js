@@ -24,6 +24,6 @@
       body = '';
     }
     var q = kind==='photo' && n ? 'ref='+encodeURIComponent(n) : (kind==='series' ? 'serie='+encodeURIComponent(seriesName()) : 'tema=print');
-    window.location.href='contact.html?'+q+'#escribeme';
+    if(window.openWrite) window.openWrite(q); else window.location.href='contact.html?'+q+'#escribeme';
   });
 })();

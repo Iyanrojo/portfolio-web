@@ -457,6 +457,8 @@ var ES = {
   "Name": "Nombre",
   "Message": "Mensaje",
   "Send": "Enviar",
+  "Want to work together?": "¿Trabajamos juntos?",
+  "Tell me about your project: a campaign, a documentary, a portrait series.": "Cuéntame tu proyecto: una campaña, un documental, una serie de retratos.",
   "← Back to home": "← Volver al inicio"
 };
 
