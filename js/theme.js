@@ -24,3 +24,20 @@
   });
   li.appendChild(b); ul.appendChild(li); sync();
 })();
+
+/* Email links: copy the address and say so, instead of opening a mail app the visitor may not use. */
+(function () {
+  var toast = null, tm = null;
+  function show(msg) {
+    if (!toast) { toast = document.createElement('div'); toast.className = 'mail-toast'; toast.setAttribute('role', 'status'); document.body.appendChild(toast); }
+    toast.textContent = msg; toast.classList.add('on'); clearTimeout(tm); tm = setTimeout(function () { toast.classList.remove('on'); }, 3200);
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="mailto:iyanrojo@"]'); if (!a) return;
+    e.preventDefault();
+    var mail = a.getAttribute('href').replace('mailto:', '').split('?')[0], es = document.documentElement.lang === 'es';
+    function done() { show((es ? 'Email copiado: ' : 'Email copied: ') + mail); }
+    try { navigator.clipboard.writeText(mail).then(done, function () { fallback(); }); } catch (err) { fallback(); }
+    function fallback() { var i = document.createElement('textarea'); i.value = mail; i.style.position = 'fixed'; i.style.opacity = '0'; document.body.appendChild(i); i.select(); try { document.execCommand('copy'); } catch (x) {} document.body.removeChild(i); done(); }
+  });
+})();

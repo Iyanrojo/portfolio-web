@@ -438,7 +438,7 @@ var ES = {
   "2026 · Medium format 6×6": "2026 · Formato medio 6×6",
   "2022 · Gran Canaria · 35 mm": "2022 · Gran Canaria · 35 mm",
   "Each photograph is a limited edition of 15 prints. Select an image to see the available formats, view the print and buy it.": "Cada fotografía pertenece a una edición limitada de 15 ejemplares. Selecciona una imagen para descubrir los formatos disponibles, visualizar la copia y adquirirla.",
-  "For other sizes, <a href=\"mailto:iyanrojo@gmail.com\">get in touch with me</a>.": "Para otros tamaños, <a href=\"mailto:iyanrojo@gmail.com\">ponte en contacto conmigo</a>.",
+  "For other sizes, <a href=\"contact.html?tema=size#escribeme\">get in touch with me</a>.": "Para otros tamaños, <a href=\"contact.html?tema=size#escribeme\">ponte en contacto conmigo</a>.",
   "Printing": "Impresión",
   "Shipping": "Envío",
   "Fine art print on Hahnemühle Photo Rag cotton paper, from the original negative scan. Signed and numbered by hand on the front, with a certificate of authenticity on the back.": "Copia fine art en papel de algodón Hahnemühle Photo Rag, a partir del escaneo del negativo original. Firmada y numerada a mano en el frente, con certificado de autenticidad en el dorso.",
@@ -453,6 +453,10 @@ var ES = {
   "Signed · Editions of 15": "Firmadas · Ediciones de 15",
   "+ Photos": "+ Fotos",
   "Analogue photography by Iyán Rojo": "Fotografía analógica de Iyán Rojo",
+  "Write to me": "Escríbeme",
+  "Name": "Nombre",
+  "Message": "Mensaje",
+  "Send": "Enviar",
   "← Back to home": "← Volver al inicio"
 };
 

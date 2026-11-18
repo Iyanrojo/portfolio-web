@@ -654,3 +654,21 @@ html[data-theme="dark"] .shop-photo{background:#2b2a27}
 @media (max-width:760px){.ph-top{grid-template-columns:1fr;max-width:none}.top-prints-col{border-right:0;padding-right:0;border-bottom:1px solid var(--rule);padding-bottom:18px}}
 .gallery-page .more-wrap{margin-top:20px}
 html:has(body.gallery-page),body.gallery-page,.gallery-page *{overflow-anchor:none}
+
+/* Contact form */
+.write{margin-top:clamp(32px,4vw,52px);border-top:1px solid var(--rule);padding-top:28px;max-width:900px}
+.write-form{display:grid;grid-template-columns:1fr 1fr;gap:18px 24px;margin-top:10px}
+.write-form .wide{grid-column:1/-1}
+.write-form label span{display:block;color:var(--muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.write-form input,.write-form textarea{width:100%;box-sizing:border-box;font:inherit;font-size:15px;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--rule);padding:8px 0;border-radius:0;outline:none;transition:border-color .25s}
+.write-form textarea{border:1px solid var(--rule);padding:10px 12px;resize:vertical;min-height:140px}
+.write-form input:focus,.write-form textarea:focus{border-color:var(--ink)}
+.write-form .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.write-foot{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.write-btn{font:inherit;font-size:12px;letter-spacing:.12em;text-transform:uppercase;background:var(--ink);color:var(--bg);border:1px solid var(--ink);padding:13px 26px;cursor:pointer;transition:opacity .25s}
+.write-btn:hover{opacity:.8}.write-btn:disabled{opacity:.45;cursor:default}
+.write-status{color:var(--muted)}
+@media (max-width:760px){.write-form{grid-template-columns:1fr}}
+/* Email links copy the address instead of opening a mail app */
+.mail-toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:var(--ink);color:var(--bg);font-size:13.5px;padding:12px 18px;max-width:min(92vw,520px);text-align:center;opacity:0;pointer-events:none;transition:opacity .35s ease,transform .45s cubic-bezier(.2,.7,.2,1);z-index:90}
+.mail-toast.on{opacity:1;transform:translate(-50%,0)}

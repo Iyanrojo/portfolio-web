@@ -1,6 +1,5 @@
-/* "Ask about a print": opens the visitor's email with the subject already written
-   (photo reference or series name). The address is also copied, in case
-   no mail app is set up on the device. */
+/* "Ask about a print": takes the visitor to the contact form with the message already started
+   (photo reference or series name). */
 (function(){
   var EMAIL='iyanrojo@gmail.com';
   var toast=document.createElement('div'); toast.className='toast'; toast.setAttribute('role','status'); document.body.appendChild(toast);
@@ -24,8 +23,7 @@
       subject = es() ? 'Copia impresa' : 'Print enquiry';
       body = '';
     }
-    try { navigator.clipboard.writeText(EMAIL); } catch(err){}
-    show(es() ? 'Abriendo tu correo… Si no se abre, escríbeme a '+EMAIL+' (ya copiado).' : 'Opening your email… If it doesn’t open, write to '+EMAIL+' (already copied).');
-    window.location.href='mailto:'+EMAIL+'?subject='+encodeURIComponent(subject)+(body?'&body='+encodeURIComponent(body):'');
+    var q = kind==='photo' && n ? 'ref='+encodeURIComponent(n) : (kind==='series' ? 'serie='+encodeURIComponent(seriesName()) : 'tema=print');
+    window.location.href='contact.html?'+q+'#escribeme';
   });
 })();

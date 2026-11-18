@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=14e96245">
+<link rel="stylesheet" href="css/site.css?v=eea0df37">
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
 </head>
 <body>
@@ -77,6 +77,16 @@
           </div>
         </div>
       </div>
+      <div class="write" id="escribeme">
+        <h2 class="nv-h">Write to me</h2>
+        <form class="write-form" id="write-form" novalidate>
+          <label><span>Name</span><input name="name" autocomplete="name" required></label>
+          <label><span>Email</span><input name="email" type="email" autocomplete="email" required></label>
+          <label class="wide"><span>Message</span><textarea name="message" rows="6" required></textarea></label>
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="write-foot wide"><button type="submit" class="write-btn">Send</button><span class="write-status small" id="write-status" role="status"></span></div>
+        </form>
+      </div>
       <div class="contact-press">
         <h2 class="nv-h">Press</h2>
         <div class="clips">
@@ -112,8 +122,32 @@
   <div class="wrap small"><span>© 2026 Iyán Rojo Greciet · Photographer and filmmaker · Cantabria, Spain</span><a href="#top" style="text-decoration:none">Back to top ↑</a></div>
 </footer>
 
+<script>
+(function(){
+  var f=document.getElementById('write-form'); if(!f) return;
+  var es=document.documentElement.lang==='es', st=document.getElementById('write-status'), btn=f.querySelector('button');
+  // contact.html?tema=size or ?ref=IR-05 fills in the start of the message
+  var q=new URLSearchParams(location.search), msg=f.elements.message;
+  if(q.get('ref')) msg.value=(es?'Hola Iyán, me interesa una copia de la fotografía ':'Hi Iyán, I am interested in a print of photograph ')+q.get('ref')+'. ';
+  else if(q.get('serie')) msg.value=(es?'Hola Iyán, me interesa una copia de la serie «':'Hi Iyán, I am interested in a print from the series “')+q.get('serie')+(es?'». ':'”. ');
+  else if(q.get('tema')==='size') msg.value=es?'Hola Iyán, me interesa una copia en otro tamaño. ':'Hi Iyán, I am interested in a print in another size. ';
+  else if(q.get('tema')==='print') msg.value=es?'Hola Iyán, me interesa una copia impresa. ':'Hi Iyán, I am interested in a print. ';
+  if(q.toString() && location.hash==='#escribeme') setTimeout(function(){ msg.focus(); msg.setSelectionRange(msg.value.length,msg.value.length); },400);
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); if(f.elements._honey.value) return;
+    var n=f.elements.name.value.trim(), m=f.elements.email.value.trim(), t=msg.value.trim();
+    if(!n||!t||!/^\S+@\S+\.\S+$/.test(m)){ st.textContent=es?'Rellena nombre, un email válido y el mensaje.':'Please fill in your name, a valid email and a message.'; return; }
+    btn.disabled=true; st.textContent=es?'Enviando…':'Sending…';
+    fetch('https://formsubmit.co/ajax/iyanrojo@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({name:n,email:m,message:t,_subject:(es?'Mensaje desde la web – ':'Message from the website – ')+n,_replyto:m,_template:'table',_captcha:'false'})})
+    .then(function(r){ if(!r.ok) throw 0; f.reset(); f.classList.add('sent'); st.textContent=es?'Gracias, mensaje enviado. Te respondo pronto.':'Thank you, your message has been sent. I will reply soon.'; })
+    .catch(function(){ st.innerHTML=es?'No se ha podido enviar. Escríbeme a iyanrojo@gmail.com.':'It could not be sent. Please write to iyanrojo@gmail.com.'; })
+    .then(function(){ btn.disabled=false; });
+  });
+})();
+</script>
 <script src="js/player.js?v=9f25ec93"></script>
 <script src="js/lang.js?v=558c6978"></script>
-<script src="js/theme.js?v=4df66a4c"></script>
+<script src="js/theme.js?v=14cb7f9b"></script>
 </body>
 </html>
