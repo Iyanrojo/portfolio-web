@@ -8,12 +8,14 @@ window.PHOTOS = [
   {"f": "03.jpg", "w": 883, "h": 890, "l": "Madrid", "le": "Madrid", "y": 2024},
   {"f": "29.jpg", "w": 750, "h": 738},
   {"f": "44.jpg", "w": 1069, "h": 702},
+  {"f": "78.jpg", "w": 548, "h": 811},
   {"f": "25.jpg", "w": 1994, "h": 1329, "l": "Gran Canaria", "le": "Gran Canaria", "y": 2023},
   {"f": "72.jpg", "w": 624, "h": 938, "nohome": 1},
   {"f": "54.jpg", "w": 1210, "h": 944},
   {"f": "20.jpg", "w": 1930, "h": 1272, "l": "Gran Canaria", "le": "Gran Canaria", "y": 2022},
   {"f": "40.jpg", "w": 491, "h": 754, "l": "Gran Canaria", "le": "Gran Canaria", "y": 2023},
   {"f": "08.jpg", "w": 1166, "h": 1354, "l": "Barcelona", "le": "Barcelona", "y": 2019},
+  {"f": "79.jpg", "w": 903, "h": 608},
   {"f": "42.jpg", "w": 1085, "h": 729, "l": "Islas Canarias", "le": "Canary Islands", "y": 2022},
   {"f": "22.jpg", "w": 1994, "h": 1321},
   {"f": "18.jpg", "w": 1044, "h": 1284},
@@ -71,4 +73,4 @@ window.PHOTOS = [
 ];
 
 // Curated selection shown first in Photography (the rest is in "full archive").
-window.SELECTION = ["50", "65", "29", "25", "54", "42", "22", "18", "76", "74", "36", "52", "04", "41", "60", "31", "30", "64", "14", "66", "15", "38", "73", "17", "05"];
+window.SELECTION = ["78","79","50", "65", "29", "25", "54", "42", "22", "18", "76", "74", "36", "52", "04", "41", "60", "31", "30", "64", "14", "66", "15", "38", "73", "17", "05"];
