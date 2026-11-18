@@ -26,10 +26,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=0c3d7f9e">
+<link rel="stylesheet" href="css/site.css?v=7a071888">
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
 </head>
-<body class="photo-page">
+<body class="photo-page gallery-page">
 
 <header id="top">
   <div class="wrap">
@@ -51,32 +51,36 @@
   <!-- GALLERY: every photo lives in photos/ as 01.jpg, 02.jpg … Add or remove <button class="ph"> lines to match.
        The first ten are also the ones in the slideshow on the home page. -->
   <div class="wrap">
-    <div class="photo-layout">
-      <aside class="photo-side">
-        <div class="side-block">
-          <div class="side-label small">Projects</div>
-          <ul class="proj-list">
-            <li><a href="dos-amigos.html" data-cover="photos/2a-cover.jpg"><span class="proj-name">2 Amigos</span></a></li>
-            <li><a href="tierra-de-nadie.html" data-cover="photos/tdn-cover.jpg"><span class="proj-name">Tierra de Nadie</span></a></li>
-            <li><a href="calima.html" data-cover="photos/cal-cover.jpg"><span class="proj-name">Calima</span></a></li>
-          </ul>
-        </div>
-        <div class="side-block side-prints">
-          <div class="side-label small">Prints</div>
-          <ul class="proj-list">
-            <li><a href="prints.html"><span class="proj-name">Author’s prints</span><span class="proj-arrow"> →</span></a></li>
-          </ul>
-        </div>
-      </aside>
-      <div class="photo-main">
-    <div class="masonry gallery">
-    </div>
+    <div class="sec-top" style="border-top:0;padding-top:0"><h1>Photography</h1><p>Author projects and a selection of analogue photographs</p></div>
+
+    <section class="ph-block" aria-labelledby="h-projects">
+      <h2 class="case-h" id="h-projects">Projects</h2>
+      <div class="proj-cards">
+        <a class="proj-card" href="dos-amigos.html"><span class="pc-img"><img src="photos/2a-cover.jpg" alt="Cover of the photographic series 2 Amigos" loading="lazy"></span><span class="pc-title">2 Amigos</span><span class="pc-meta small">2026 · Medium format</span></a>
+        <a class="proj-card" href="tierra-de-nadie.html"><span class="pc-img"><img src="photos/tdn-cover.jpg" alt="Cover of the photographic series Tierra de Nadie" loading="lazy"></span><span class="pc-title">Tierra de Nadie</span><span class="pc-meta small">2026 · Medium format 6×6</span></a>
+        <a class="proj-card" href="calima.html"><span class="pc-img"><img src="photos/cal-cover.jpg" alt="Cover of the photographic series Calima" loading="lazy"></span><span class="pc-title">Calima</span><span class="pc-meta small">2022 · Gran Canaria · 35 mm</span></a>
       </div>
-    </div>
-    <section id="prints" class="prints">
-      <h2 class="case-h">Interested in a print?</h2>
-      <p>The photographs in this gallery are available as prints. Write me an email at <a class="u" href="mailto:iyanrojo@gmail.com">iyanrojo@gmail.com</a>.</p>
     </section>
+
+    <section class="ph-block" aria-labelledby="h-selection">
+      <h2 class="case-h" id="h-selection">Selection</h2>
+      <div class="masonry gallery">
+      </div>
+      <div class="to-gallery"><button type="button" class="more archive-btn" id="archive-btn">See the full archive</button></div>
+    </section>
+
+    <section class="ph-block" aria-labelledby="h-prints">
+      <h2 class="case-h" id="h-prints">Author’s prints</h2>
+      <a class="prints-card" href="prints.html">
+        <span class="prc-img"><img src="photos/mock/s-25.jpg" alt="A signed fine art print in its sleeve on a shelf" loading="lazy"></span>
+        <span class="prc-txt">
+          <span class="prc-title">Signed and numbered fine art prints</span>
+          <span class="prc-desc">Each photograph is a limited edition of 15 prints, in two sizes.</span>
+          <span class="more">See the prints →</span>
+        </span>
+      </a>
+    </section>
+
     <div class="to-gallery"><a class="more" href="index.html">← Back to home</a></div>
   </div>
 </main>
@@ -93,14 +97,16 @@
 
 <script src="js/shop.js?v=de118303"></script>
 <script src="js/share.js?v=93d93291"></script>
-<script src="js/photos.js?v=e0a7ecc7"></script>
+<script src="js/photos.js?v=fcf83f36"></script>
 <script>
 // Build the mosaic from the photo list. Each frame gets its final proportions up front,
 // so the layout never jumps while images load; each photo then fades in.
 (function(){
   var box=document.querySelector('.masonry.gallery'), items=[];
+  var SEL=window.SELECTION||[], full=/(^|#)archive$/.test(location.hash);
   (window.PHOTOS||[]).forEach(function(p, n){
     var b=document.createElement('button'); b.type='button'; b.className='ph';
+    if(SEL.length && SEL.indexOf(p.f.replace('.jpg',''))<0) b.setAttribute('data-extra','1');
     b.style.aspectRatio=p.w+' / '+p.h;
     var img=document.createElement('img'); img.alt=(document.documentElement.lang==='es'?'Fotografía analógica de Iyán Rojo, ref. IR-':'Analogue photograph by Iyán Rojo, ref. IR-')+p.f.replace('.jpg',''); img.decoding='async';
     if(n>8) img.loading='lazy';
@@ -119,9 +125,13 @@
     if(n===cols) return; cols=n; box.innerHTML='';
     var C=[],H=[];
     for(var i=0;i<n;i++){ var d=document.createElement('div'); d.className='gcol'; box.appendChild(d); C.push(d); H.push(0); }
-    items.forEach(function(it){ var c=H.indexOf(Math.min.apply(null,H)); C[c].appendChild(it.el); H[c]+=it.r+0.06; });
+    items.forEach(function(it){ if(!full && it.el.hasAttribute('data-extra')) return; var c=H.indexOf(Math.min.apply(null,H)); C[c].appendChild(it.el); H[c]+=it.r+0.06; });
   }
   layout(); window.addEventListener('resize',layout);
+  var ab=document.getElementById('archive-btn'), es=document.documentElement.lang==='es';
+  function label(){ ab.textContent = full ? (es?'Ver solo la selección':'Show the selection only') : (es?'Ver el archivo completo':'See the full archive')+' ('+items.length+')'; }
+  label();
+  ab.addEventListener('click',function(){ full=!full; cols=0; layout(); label(); history.replaceState(null,'',full?'#archive':location.pathname); if(!full) document.getElementById('h-selection').scrollIntoView({behavior:'smooth'}); });
 })();
 var lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img'), lbCount = document.getElementById('lb-count'), cur = 0;
 function list(){ return [].slice.call(document.querySelectorAll('.gallery .ph.has-img')).sort(function(a,b){ return a.getAttribute('data-i')-b.getAttribute('data-i'); }).map(function(b){ return b.querySelector('img'); }); }
@@ -167,6 +177,8 @@ document.getElementById('lb-share').addEventListener('click', function (e) {
 });
 // gallery.html#IR-05 opens that photo (shared links)
 (function(){ var h = decodeURIComponent(location.hash.replace('#','')); if (!/^IR-\d+$/.test(h)) return;
+  var _s=window.SELECTION||[]; if (_s.length && _s.indexOf(h.replace('IR-',''))<0) { var _b=document.getElementById('archive-btn'); if(_b) _b.click(); }
+  if ((window.SELECTION||[]).length && window.SELECTION.indexOf(h.replace('IR-','')) < 0 && !document.querySelector('.gallery .ph[data-extra]:not(:empty)')) { var _b=document.getElementById('archive-btn'); if(_b) _b.click(); }
   var tries = 0; (function go(){ var L = list(), n = -1; L.forEach(function(im, i){ if (('IR-' + ((im.getAttribute('src').match(/(\d+)\.jpg/) || [,''])[1])) === h) n = i; });
     if (n > -1) openAt(n); else if (tries++ < 40) setTimeout(go, 150); })(); })();
 document.addEventListener('keydown', function (e) {

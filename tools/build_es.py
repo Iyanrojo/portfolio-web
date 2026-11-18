@@ -153,7 +153,7 @@ def seo_block(page, lang):
 def set_head(s, page, lang):
     t, d, block = seo_block(page, lang)
     s = re.sub(r"<title>.*?</title>", lambda m: "<title>%s</title>" % html.escape(t, quote=False), s, count=1, flags=re.S)
-    s = re.sub(r'<meta name="description" content="[^"]*">', lambda m: '<meta name="description" content="%s">' % html.escape(d), s, count=1)
+    s = re.sub(r'<meta (?:name="description" content="[^"]*"|content="[^"]*" name="description")\s*/?>', lambda m: '<meta name="description" content="%s">' % html.escape(d), s, count=1)
     s = re.sub(r"<!-- SEO -->.*?<!-- /SEO -->", lambda m: block, s, count=1, flags=re.S)
     return s
 

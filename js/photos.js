@@ -69,3 +69,6 @@ window.PHOTOS = [
   {"f": "43.jpg", "w": 898, "h": 597},
   {"f": "34.jpg", "w": 596, "h": 761}
 ];
+
+// Curated selection shown first in Photography (the rest is in "full archive").
+window.SELECTION = ["50", "65", "29", "25", "54", "42", "22", "18", "76", "74", "36", "52", "04", "41", "60", "31", "30", "64", "14", "66", "15", "38", "73", "17"];
