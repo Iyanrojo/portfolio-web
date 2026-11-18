@@ -146,7 +146,7 @@ function openAt(n){ var L = list(); if (!L.length) return; cur = (n + L.length) 
   var meta = (window.PHOTOS||[]).filter(function(p){ return L[cur].getAttribute('src').indexOf(p.f) > -1; })[0] || {};
   var place = document.documentElement.lang === 'es' ? meta.l : (meta.le || meta.l);
   var ref = window.currentPhoto.replace('IR-',''), cta = document.getElementById('lb-cta'), ex = ((window.SHOP||{}).exclude||[]);
-  cta.style.display = '';
+  cta.style.display = ex.indexOf(ref) > -1 ? 'none' : '';
   cta.href = 'prints.html#' + window.currentPhoto;
   window.currentMeta = {img: L[cur].getAttribute('src'), line: place ? place + (meta.y ? ', ' + meta.y : '') : (meta.y || '')};
   lbCount.textContent = (place ? place + (meta.y ? ', ' + meta.y : '') + ' · ' : (meta.y ? meta.y + ' · ' : '')) + 'Ref. ' + window.currentPhoto;

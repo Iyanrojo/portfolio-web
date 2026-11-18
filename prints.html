@@ -207,7 +207,7 @@
   giftMsg.addEventListener('input',function(){ document.getElementById('gift-count').textContent=giftMsg.value.length+'/240'; });
   document.getElementById('shop-close').addEventListener('click',close);
   // prints.html#IR-05 opens that photo directly (link from the gallery)
-  function fromHash(){ var h=decodeURIComponent(location.hash.replace('#','')); if(!h) return; var m=(window.PHOTOS||[]).filter(function(p){ return 'IR-'+p.f.replace('.jpg','')===h; })[0]; if(m) open(m); }
+  function fromHash(){ var h=decodeURIComponent(location.hash.replace('#','')); if(!h) return; var m=list.filter(function(p){ return 'IR-'+p.f.replace('.jpg','')===h; })[0]; if(m) open(m); }
   fromHash(); window.addEventListener('hashchange',fromHash); window.addEventListener('pageshow',function(e){ if(e.persisted) fromHash(); });
   panel.addEventListener('click',function(e){ if(e.target===panel) close(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
