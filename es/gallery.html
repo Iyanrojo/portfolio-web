@@ -27,7 +27,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&amp;family=Hanken+Grotesk:wght@500;600&amp;family=Cormorant+Garamond:ital,wght@1,400;1,500&amp;display=swap" rel="stylesheet"/>
-<link href="../css/site.css?v=6f0fe203" rel="stylesheet"/>
+<link href="../css/site.css?v=14e96245" rel="stylesheet"/>
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
 <script>window.ROOT='../';</script></head>
 <body class="photo-page gallery-page">
@@ -113,35 +113,28 @@
     items.push({el:b, r:p.h/p.w});
   });
   // Masonry by columns: each photo goes to the shortest column, so the list order is the reading order.
-  var cols=0, extraTotal=items.filter(function(it){ return it.el.hasAttribute('data-extra'); }).length, shown=0, fresh=0;
+  var cols=0, extraTotal=items.filter(function(it){ return it.el.hasAttribute('data-extra'); }).length, shown=0, C=[], H=[];
+  function place(it){ var c=H.indexOf(Math.min.apply(null,H)); C[c].appendChild(it.el); H[c]+=it.r+0.06; }
   function layout(force){
     var w=box.clientWidth, gap=document.body.classList.contains('photo-page')?16:24, n=window.innerWidth<=760?1:Math.max(1,Math.min(3,Math.floor((w+gap)/(340+gap))));
-    if(n===cols && !force) return; cols=n; box.innerHTML='';
-    var C=[],H=[];
+    if(n===cols && !force) return; cols=n; box.innerHTML=''; C=[]; H=[];
     for(var i=0;i<n;i++){ var d=document.createElement('div'); d.className='gcol'; box.appendChild(d); C.push(d); H.push(0); }
-    var e=0, k=0;
-    items.forEach(function(it){
-      if(it.el.hasAttribute('data-extra')){ if(e>=shown) return; e++;
-        if(e>shown-fresh){ it.el.classList.remove('reveal'); void it.el.offsetWidth; it.el.style.animationDelay=(k++)*70+'ms'; it.el.classList.add('reveal'); } }
-      var c=H.indexOf(Math.min.apply(null,H)); C[c].appendChild(it.el); H[c]+=it.r+0.06; });
-    fresh=0;
+    var e=0;
+    items.forEach(function(it){ if(it.el.hasAttribute('data-extra')){ if(e>=shown) return; e++; } it.el.classList.remove('reveal'); place(it); });
     box.classList.toggle('closed', shown<extraTotal);
   }
   layout(); window.addEventListener('resize',function(){ layout(); });
-  // A selection first; each click on "+ Photos" opens ten more below.
+  // A selection first; each click on "+ Photos" adds ten more underneath with a fade. Nothing already on screen moves.
   var ab=document.getElementById('archive-btn'), es=document.documentElement.lang==='es';
   function label(){ ab.parentNode.style.display = shown>=extraTotal ? 'none' : ''; ab.textContent = es ? '+ Fotos' : '+ Photos'; }
   label();
   window.showMore=function(all){
-    var before=shown, h0=box.offsetHeight, y0=window.scrollY;
-    shown=all?extraTotal:Math.min(extraTotal,shown+10); fresh=shown-before; layout(true); label();
-    if(all) return;
-    // Unfold downwards: the gallery grows from its old height while the page stays where it was, then glides down to the new photos.
-    var h1=box.offsetHeight; window.scrollTo(0,y0);
-    box.style.height=h0+'px'; box.style.overflow='hidden'; void box.offsetHeight;
-    box.style.transition='height .9s cubic-bezier(.2,.7,.2,1)'; box.style.height=h1+'px';
-    setTimeout(function(){ box.style.height=''; box.style.overflow=''; box.style.transition=''; },950);
-    setTimeout(function(){ window.scrollTo({top:y0+Math.round(window.innerHeight*0.6),behavior:'smooth'}); },120);
+    var extras=items.filter(function(it){ return it.el.hasAttribute('data-extra'); });
+    var to=all?extraTotal:Math.min(extraTotal,shown+10), k=0;
+    // Start the new rows level with the bottom of the longest column, so they sit below everything already shown.
+    var top=Math.max.apply(null,H); for(var i=0;i<H.length;i++) H[i]=top;
+    extras.slice(shown,to).forEach(function(it){ it.el.classList.remove('reveal'); it.el.style.animationDelay=(k++)*90+'ms'; it.el.classList.add('reveal'); place(it); });
+    shown=to; box.classList.toggle('closed', shown<extraTotal); label();
   };
   ab.addEventListener('click',function(){ showMore(false); });
 })();

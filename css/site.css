@@ -630,8 +630,8 @@ html[data-theme="dark"] .shop-photo{background:#2b2a27}
 .archive-btn:hover{opacity:.85}
 .gallery-page .masonry.gallery.closed{position:relative}
 .gallery-page .masonry.gallery.closed::after{content:"";position:absolute;left:0;right:0;bottom:0;height:min(28vh,260px);background:linear-gradient(to bottom,color-mix(in srgb,var(--bg) 0%,transparent),var(--bg) 92%);pointer-events:none}
-.gallery-page .gallery .ph.reveal{animation:galIn .9s cubic-bezier(.2,.7,.2,1) both}
-@keyframes galIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.gallery-page .gallery .ph.reveal{animation:galIn 1.2s ease both}
+@keyframes galIn{from{opacity:0}to{opacity:1}}
 .gallery-page .to-gallery{margin-top:8px}
 .prints-card{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(18px,3vw,44px);align-items:center;text-decoration:none;color:var(--ink);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:clamp(16px,2vw,24px) 0}
 .prc-img{display:block;overflow:hidden}
@@ -653,4 +653,4 @@ html[data-theme="dark"] .shop-photo{background:#2b2a27}
 .top-prints-col .pc-img img{object-position:40% center}
 @media (max-width:760px){.ph-top{grid-template-columns:1fr;max-width:none}.top-prints-col{border-right:0;padding-right:0;border-bottom:1px solid var(--rule);padding-bottom:18px}}
 .gallery-page .more-wrap{margin-top:20px}
-.gallery-page .masonry.gallery,.gallery-page .more-wrap{overflow-anchor:none}
+html:has(body.gallery-page),body.gallery-page,.gallery-page *{overflow-anchor:none}
