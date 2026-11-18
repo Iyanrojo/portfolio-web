@@ -141,7 +141,7 @@
     cur=p; size=S.sizes[0]||null;
     var go=document.getElementById('gift-on'); if(go){ go.checked=false; document.getElementById('gift-box').hidden=true; document.getElementById('gift-msg').value=''; document.getElementById('gift-count').textContent='0/240'; }
     img.src=R+'photos/print/'+p.f; img.alt='IR-'+p.f.replace('.jpg','');
-    document.getElementById('scene-img').onerror=function(){ side('front'); }; sceneSrc(); document.getElementById('scene-img').alt='IR-'+p.f.replace('.jpg','')+(es?' como copia fine art en su funda':' as a fine art print in its sleeve');
+    var sb=document.querySelector('.mock-toggle [data-side=scene]'); sb.style.display='none'; document.getElementById('scene-img').onload=function(){ sb.style.display=''; }; document.getElementById('scene-img').onerror=function(){ sb.style.display='none'; side('front'); }; sceneSrc(); document.getElementById('scene-img').alt='IR-'+p.f.replace('.jpg','')+(es?' como copia fine art en su funda':' as a fine art print in its sleeve');
     var mock=document.getElementById('mock'); mock.style.setProperty('--ar', p.w/p.h); img.onload=function(){ if(img.naturalWidth) mock.style.setProperty('--ar', img.naturalWidth/img.naturalHeight); }; side('front');
     refEl.textContent='Ref. IR-'+p.f.replace('.jpg','');
     var place=es?p.l:(p.le||p.l); placeEl.textContent=place?(place+(p.y?', '+p.y:'')):(p.y||'');
@@ -203,7 +203,7 @@
   giftMsg.addEventListener('input',function(){ document.getElementById('gift-count').textContent=giftMsg.value.length+'/240'; });
   document.getElementById('shop-close').addEventListener('click',close);
   // prints.html#IR-05 opens that photo directly (link from the gallery)
-  function fromHash(){ var h=decodeURIComponent(location.hash.replace('#','')); if(!h) return; var m=list.filter(function(p){ return 'IR-'+p.f.replace('.jpg','')===h; })[0]; if(m) open(m); }
+  function fromHash(){ var h=decodeURIComponent(location.hash.replace('#','')); if(!h) return; var m=(window.PHOTOS||[]).filter(function(p){ return 'IR-'+p.f.replace('.jpg','')===h; })[0]; if(m) open(m); }
   fromHash(); window.addEventListener('hashchange',fromHash); window.addEventListener('pageshow',function(e){ if(e.persisted) fromHash(); });
   panel.addEventListener('click',function(e){ if(e.target===panel) close(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });

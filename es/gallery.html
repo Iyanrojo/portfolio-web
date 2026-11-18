@@ -153,7 +153,7 @@ function openAt(n){ var L = list(); if (!L.length) return; cur = (n + L.length) 
   var meta = (window.PHOTOS||[]).filter(function(p){ return L[cur].getAttribute('src').indexOf(p.f) > -1; })[0] || {};
   var place = document.documentElement.lang === 'es' ? meta.l : (meta.le || meta.l);
   var ref = window.currentPhoto.replace('IR-',''), cta = document.getElementById('lb-cta'), ex = ((window.SHOP||{}).exclude||[]);
-  cta.style.display = ex.indexOf(ref) > -1 ? 'none' : '';
+  cta.style.display = '';
   cta.href = 'prints.html#' + window.currentPhoto;
   window.currentMeta = {img: L[cur].getAttribute('src'), line: place ? place + (meta.y ? ', ' + meta.y : '') : (meta.y || '')};
   lbCount.textContent = (place ? place + (meta.y ? ', ' + meta.y : '') + ' · ' : (meta.y ? meta.y + ' · ' : '')) + 'Ref. ' + window.currentPhoto;
@@ -161,10 +161,10 @@ function openAt(n){ var L = list(); if (!L.length) return; cur = (n + L.length) 
   lbImg.classList.add('swap');
   setTimeout(function(){ lbImg.onload = function(){ lbImg.classList.remove('swap'); }; lbImg.src = src;
     if (lbImg.complete) lbImg.classList.remove('swap'); }, 220); }
-document.querySelectorAll('.ph').forEach(function (b) {
-  b.addEventListener('click', function () { if (!b.classList.contains('has-img')) return;
-    openAt(list().indexOf(b.querySelector('img'))); document.getElementById('lb-close').focus(); });
-});
+// One listener for the whole gallery, so photos added later with "+ Photos" open too.
+document.querySelector('.masonry.gallery').addEventListener('click', function (e) {
+  var b = e.target.closest('.ph'); if (!b || !b.classList.contains('has-img')) return;
+  openAt(list().indexOf(b.querySelector('img'))); document.getElementById('lb-close').focus(); });
 function closeLb(){ lb.classList.remove('open'); setTimeout(function(){ if(!lb.classList.contains('open')) lbImg.removeAttribute('src'); }, 520); }
 document.getElementById('lb-close').addEventListener('click', closeLb);
 // Click the right half of the photo for the next one, the left half for the previous one.
@@ -190,6 +190,7 @@ document.getElementById('lb-share').addEventListener('click', function (e) {
 // gallery.html#IR-05 opens that photo (shared links)
 (function(){ var h = decodeURIComponent(location.hash.replace('#','')); if (!/^IR-\d+$/.test(h)) return;
   var _s=window.SELECTION||[]; if (_s.length && _s.indexOf(h.replace('IR-',''))<0 && window.showMore) showMore(true);
+  [].forEach.call(document.querySelectorAll('.gallery .ph img'), function(im){ if (('IR-' + ((im.getAttribute('src').match(/(\d+)\.jpg/) || [,''])[1])) === h) im.loading = 'eager'; });
   var tries = 0; (function go(){ var L = list(), n = -1; L.forEach(function(im, i){ if (('IR-' + ((im.getAttribute('src').match(/(\d+)\.jpg/) || [,''])[1])) === h) n = i; });
     if (n > -1) openAt(n); else if (tries++ < 40) setTimeout(go, 150); })(); })();
 document.addEventListener('keydown', function (e) {
