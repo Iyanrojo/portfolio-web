@@ -27,7 +27,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&amp;family=Hanken+Grotesk:wght@500;600&amp;family=Cormorant+Garamond:ital,wght@1,400;1,500&amp;display=swap" rel="stylesheet"/>
-<link href="../css/site.css?v=174c6d8c" rel="stylesheet"/>
+<link href="../css/site.css?v=1a20d72c" rel="stylesheet"/>
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
 <script>window.ROOT='../';</script></head>
 <body class="photo-page gallery-page">
@@ -50,20 +50,26 @@
 <!-- GALLERY: every photo lives in photos/ as 01.jpg, 02.jpg … Add or remove <button class="ph"> lines to match.
        The first ten are also the ones in the slideshow on the home page. -->
 <div class="wrap">
-<div class="sec-top" style="border-top:0;padding-top:0"><h1>Fotografía</h1><a class="top-prints" href="prints.html">Copias fine art <span aria-hidden="true">→</span></a></div>
-<section aria-labelledby="h-projects" class="ph-block">
+<div class="sec-top" style="border-top:0;padding-top:0"><h1>Fotografía</h1></div>
+<section aria-labelledby="h-projects" class="ph-block ph-top">
+<div class="top-col top-prints-col">
+<h2 class="case-h">Copias</h2>
+<a class="proj-card" href="prints.html"><span class="pc-img"><img alt="A signed fine art print in its sleeve on a shelf" loading="lazy" src="../photos/mock/s-25.jpg"/></span><span class="pc-title">Copias fine art →</span><span class="pc-meta small">Firmadas · Ediciones de 15</span></a>
+</div>
+<div class="top-col">
 <h2 class="case-h" id="h-projects">Proyectos</h2>
 <div class="proj-cards">
 <a class="proj-card" href="dos-amigos.html"><span class="pc-img"><img alt="Cover of the photographic series 2 Amigos" loading="lazy" src="../photos/card-2a-cover.jpg"/></span><span class="pc-title">2 Amigos</span><span class="pc-meta small">2026 · Formato medio</span></a>
 <a class="proj-card" href="tierra-de-nadie.html"><span class="pc-img"><img alt="Cover of the photographic series Tierra de Nadie" loading="lazy" src="../photos/card-tdn-cover.jpg"/></span><span class="pc-title">Tierra de Nadie</span><span class="pc-meta small">2026 · Formato medio 6×6</span></a>
 <a class="proj-card" href="calima.html"><span class="pc-img"><img alt="Cover of the photographic series Calima" loading="lazy" src="../photos/card-cal-cover.jpg"/></span><span class="pc-title">Calima</span><span class="pc-meta small">2022 · Gran Canaria · 35 mm</span></a>
 </div>
+</div>
 </section>
 <section aria-labelledby="h-selection" class="ph-block">
 <h2 class="case-h" id="h-selection">Selección</h2>
 <div class="masonry gallery">
 </div>
-<div class="to-gallery"><button class="archive-btn" id="archive-btn" type="button">Abrir galería</button></div>
+<div class="to-gallery"><button class="archive-btn" id="archive-btn" type="button">+ Fotos</button></div>
 </section>
 <section aria-labelledby="h-prints" class="ph-block">
 <h2 class="case-h" id="h-prints">Copias de autor</h2>
@@ -111,22 +117,27 @@
     items.push({el:b, r:p.h/p.w});
   });
   // Masonry by columns: each photo goes to the shortest column, so the list order is the reading order.
-  var cols=0;
-  function layout(){
+  var cols=0, extraTotal=items.filter(function(it){ return it.el.hasAttribute('data-extra'); }).length, shown=full?extraTotal:0, fresh=0;
+  function layout(force){
     var w=box.clientWidth, gap=document.body.classList.contains('photo-page')?16:24, n=window.innerWidth<=760?1:Math.max(1,Math.min(3,Math.floor((w+gap)/(340+gap))));
-    if(n===cols) return; cols=n; box.innerHTML='';
+    if(n===cols && !force) return; cols=n; box.innerHTML='';
     var C=[],H=[];
     for(var i=0;i<n;i++){ var d=document.createElement('div'); d.className='gcol'; box.appendChild(d); C.push(d); H.push(0); }
-    var k=0;
-    items.forEach(function(it){ if(!full && it.el.hasAttribute('data-extra')) return; var c=H.indexOf(Math.min.apply(null,H)); C[c].appendChild(it.el); H[c]+=it.r+0.06;
-      if(full && it.el.hasAttribute('data-extra')){ it.el.classList.remove('reveal'); void it.el.offsetWidth; it.el.style.animationDelay=Math.min(k++,18)*70+'ms'; it.el.classList.add('reveal'); } });
-    box.classList.toggle('closed', !full);
+    var e=0, k=0;
+    items.forEach(function(it){
+      if(it.el.hasAttribute('data-extra')){ if(e>=shown) return; e++;
+        if(e>shown-fresh){ it.el.classList.remove('reveal'); void it.el.offsetWidth; it.el.style.animationDelay=(k++)*70+'ms'; it.el.classList.add('reveal'); } }
+      var c=H.indexOf(Math.min.apply(null,H)); C[c].appendChild(it.el); H[c]+=it.r+0.06; });
+    fresh=0;
+    box.classList.toggle('closed', shown<extraTotal);
   }
-  layout(); window.addEventListener('resize',layout);
+  layout(); window.addEventListener('resize',function(){ layout(); });
   var ab=document.getElementById('archive-btn'), es=document.documentElement.lang==='es';
-  function label(){ ab.textContent = full ? (es?'Cerrar galería':'Close gallery') : (es?'Abrir galería':'Open gallery')+' ('+items.length+')'; }
+  function label(){ ab.style.display = shown>=extraTotal ? 'none' : ''; ab.textContent = es ? '+ Fotos' : '+ Photos'; }
   label();
-  ab.addEventListener('click',function(){ full=!full; cols=0; layout(); label(); history.replaceState(null,'',full?'#archive':location.pathname); if(!full) document.getElementById('h-selection').scrollIntoView({behavior:'smooth'}); });
+  // Each click opens ten more photos below.
+  window.showMore=function(all){ var before=shown; shown=all?extraTotal:Math.min(extraTotal,shown+10); fresh=shown-before; layout(true); label(); };
+  ab.addEventListener('click',function(){ showMore(false); });
 })();
 var lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img'), lbCount = document.getElementById('lb-count'), cur = 0;
 function list(){ return [].slice.call(document.querySelectorAll('.gallery .ph.has-img')).sort(function(a,b){ return a.getAttribute('data-i')-b.getAttribute('data-i'); }).map(function(b){ return b.querySelector('img'); }); }
@@ -172,8 +183,8 @@ document.getElementById('lb-share').addEventListener('click', function (e) {
 });
 // gallery.html#IR-05 opens that photo (shared links)
 (function(){ var h = decodeURIComponent(location.hash.replace('#','')); if (!/^IR-\d+$/.test(h)) return;
-  var _s=window.SELECTION||[]; if (_s.length && _s.indexOf(h.replace('IR-',''))<0) { var _b=document.getElementById('archive-btn'); if(_b) _b.click(); }
-  if ((window.SELECTION||[]).length && window.SELECTION.indexOf(h.replace('IR-','')) < 0 && !document.querySelector('.gallery .ph[data-extra]:not(:empty)')) { var _b=document.getElementById('archive-btn'); if(_b) _b.click(); }
+  var _s=window.SELECTION||[]; if (_s.length && _s.indexOf(h.replace('IR-',''))<0) { if(window.showMore) showMore(true); }
+  if ((window.SELECTION||[]).length && window.SELECTION.indexOf(h.replace('IR-','')) < 0 && !document.querySelector('.gallery .ph[data-extra]:not(:empty)')) { if(window.showMore) showMore(true); }
   var tries = 0; (function go(){ var L = list(), n = -1; L.forEach(function(im, i){ if (('IR-' + ((im.getAttribute('src').match(/(\d+)\.jpg/) || [,''])[1])) === h) n = i; });
     if (n > -1) openAt(n); else if (tries++ < 40) setTimeout(go, 150); })(); })();
 document.addEventListener('keydown', function (e) {
