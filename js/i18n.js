@@ -459,6 +459,16 @@ var ES = {
   "Send": "Enviar",
   "Want to work together?": "¿Trabajamos juntos?",
   "Tell me about your project: a campaign, a documentary, a portrait series.": "Cuéntame tu proyecto: una campaña, un documental, una serie de retratos.",
+  "Exhibition view": "Vista exposición",
+  "The photographs, one by one, in a dark room.": "Las fotografías, una a una, en una sala a oscuras.",
+  "Enter": "Entrar",
+  "Enter with music": "Entrar con música",
+  "← Back to the gallery": "← Volver a la galería",
+  "Turn your phone": "Gira el móvil",
+  "The exhibition view is seen in landscape.": "La vista exposición se ve en horizontal.",
+  "Exit": "Salir",
+  "Exhibition view →": "Vista exposición →",
+  "A selection of the photographs in this gallery is available as signed, numbered fine art prints. <a class=\"u\" href=\"prints.html\">See the fine art prints →</a>": "Una selección de las fotografías de esta galería está disponible en copia fine art, firmada y numerada. <a class=\"u\" href=\"prints.html\">Ver las copias fine art →</a>",
   "← Back to home": "← Volver al inicio"
 };
 

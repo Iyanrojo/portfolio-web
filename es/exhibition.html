@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#000000" name="theme-color"/>
+<title>Vista exposición · Fotografía analógica · Iyán Rojo</title>
+<meta name="description" content="Las fotografías analógicas de Iyán Rojo una a una, a pantalla completa sobre fondo negro, con música opcional.">
+<!-- SEO -->
+<link rel="canonical" href="https://iyanrojo.com/es/exhibition.html">
+<link rel="alternate" hreflang="en" href="https://iyanrojo.com/exhibition.html">
+<link rel="alternate" hreflang="es" href="https://iyanrojo.com/es/exhibition.html">
+<link rel="alternate" hreflang="x-default" href="https://iyanrojo.com/exhibition.html">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-96.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png?v=2">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Iyán Rojo">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Vista exposición · Fotografía analógica · Iyán Rojo">
+<meta property="og:description" content="Las fotografías analógicas de Iyán Rojo una a una, a pantalla completa sobre fondo negro, con música opcional.">
+<meta property="og:url" content="https://iyanrojo.com/es/exhibition.html">
+<meta property="og:image" content="https://iyanrojo.com/photos/28.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<!-- /SEO -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&amp;family=Cormorant+Garamond:ital,wght@1,400;1,500&amp;display=swap" rel="stylesheet"/>
+<style>
+  /* Exhibition view: black room, one photograph at a time. */
+  html,body{margin:0;height:100%;background:#000;color:#e9e6df;overflow:hidden;-webkit-font-smoothing:antialiased}
+  body{font-family:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif}
+  button,a{font:inherit;color:inherit}
+  .stage{position:fixed;inset:0;background:#000}
+  .stage img{position:absolute;inset:0;margin:auto;max-width:calc(100vw - 2*var(--m));max-height:calc(100vh - 2*var(--m));max-height:calc(100dvh - 2*var(--m));width:auto;height:auto;opacity:0;transition:opacity 1.8s ease;user-select:none;-webkit-user-drag:none}
+  .stage img.on{opacity:1}
+  :root{--m:clamp(18px,6vh,64px)}
+  .cap{position:fixed;left:clamp(16px,3vw,36px);bottom:clamp(12px,3vh,30px);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(233,230,223,.42);transition:opacity 1.2s ease;pointer-events:none}
+  .bar{position:fixed;right:clamp(10px,2.4vw,28px);bottom:clamp(6px,2.4vh,22px);display:flex;gap:4px;align-items:center;transition:opacity .5s ease}
+  .bar button,.bar a{background:none;border:0;cursor:pointer;padding:9px 10px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(233,230,223,.62);text-decoration:none;transition:color .2s}
+  .bar button:hover,.bar a:hover,.bar button.on{color:#fff}
+  .bar .sep{width:1px;height:14px;background:rgba(233,230,223,.18);margin:0 4px}
+  body.idle .bar,body.idle .cap{opacity:0}
+  body.idle{cursor:none}
+  .prog{position:fixed;left:0;bottom:0;height:1px;background:rgba(233,230,223,.28);width:0}
+  /* Entrance and "turn your phone" screens */
+  .door,.turn{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#000;z-index:5;padding:24px;transition:opacity .9s ease,visibility 0s linear .9s}
+  .door.gone{opacity:0;visibility:hidden}
+  .door h1{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(34px,5vw,58px);margin:0 0 8px;color:#f2efe8}
+  .door p{margin:0 0 30px;color:rgba(233,230,223,.55);font-size:14px;max-width:420px;line-height:1.55}
+  .door .go{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+  .door .go button{background:none;border:1px solid rgba(233,230,223,.4);padding:13px 22px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;color:#f2efe8;transition:background .25s,color .25s}
+  .door .go button:hover{background:#f2efe8;color:#000}
+  .door .back{margin-top:30px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(233,230,223,.45);text-decoration:none}
+  .turn{display:none;z-index:6}
+  .turn svg{width:64px;height:64px;margin-bottom:22px;animation:tilt 2.4s ease-in-out infinite}
+  .turn p{margin:0;font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:26px;color:#f2efe8}
+  .turn small{display:block;margin-top:10px;font-size:12px;color:rgba(233,230,223,.5);letter-spacing:.04em}
+  .turn a{margin-top:26px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(233,230,223,.45);text-decoration:none}
+  @keyframes tilt{0%,30%{transform:rotate(0)}55%,85%{transform:rotate(-90deg)}100%{transform:rotate(0)}}
+  @media (orientation:portrait) and (max-width:900px){ .turn{display:flex} }
+  @media (max-height:520px){ :root{--m:10px} #full{display:none!important} .bar button,.bar a{padding:7px 8px;font-size:10px} .cap{font-size:10px} }
+  @media (prefers-reduced-motion:reduce){ .stage img{transition-duration:.3s} .turn svg{animation:none} }
+</style>
+<script src="../js/photos.js?v=5bb0d046"></script>
+<script>window.ROOT='../';</script></head>
+<body>
+<div aria-live="polite" class="stage" id="stage"><img alt="" id="a"/><img alt="" id="b"/></div>
+<div class="cap" id="cap"></div>
+<div class="prog" id="prog"></div>
+<div class="bar" id="bar">
+<button aria-label="Previous" id="prev" type="button">‹</button>
+<button id="play" type="button">Pause</button>
+<button aria-label="Next" id="next" type="button">›</button>
+<span class="sep"></span>
+<button id="music" type="button">Music</button>
+<button id="full" type="button">Full screen</button>
+<span class="sep"></span>
+<a href="gallery.html" id="exit">Salir</a>
+</div>
+<div class="door" id="door">
+<h1>Vista exposición</h1>
+<p>Las fotografías, una a una, en una sala a oscuras.</p>
+<div class="go"><button id="enter" type="button">Entrar</button><button id="enter-music" type="button">Entrar con música</button></div>
+<a class="back" href="gallery.html">← Volver a la galería</a>
+</div>
+<div class="turn" id="turn">
+<svg aria-hidden="true" fill="none" stroke="#f2efe8" stroke-width="1.6" viewbox="0 0 64 64"><rect height="48" rx="4" width="24" x="20" y="8"></rect><path d="M29 50h6"></path></svg>
+<p>Gira el móvil</p>
+<small>La vista exposición se ve en horizontal.</small>
+<a href="gallery.html">← Volver a la galería</a>
+</div>
+<script>
+(function(){
+  var es=document.documentElement.lang==='es', R=window.ROOT||'';
+  var T=es?{pause:'Pausa',play:'Seguir',music:'Música',full:'Pantalla completa',exitFull:'Salir de pantalla completa'}
+          :{pause:'Pause',play:'Play',music:'Music',full:'Full screen',exitFull:'Exit full screen'};
+  // Order: the gallery selection first, then the rest of the archive, as in the gallery.
+  var P=window.PHOTOS||[], S=window.SELECTION||[];
+  var list=P.filter(function(p){ return S.indexOf(p.f.replace('.jpg',''))>-1; }).concat(P.filter(function(p){ return S.indexOf(p.f.replace('.jpg',''))<0; }));
+  var A=[document.getElementById('a'),document.getElementById('b')], front=0, i=-1, timer=null, playing=true, DUR=7000, started=false;
+  var cap=document.getElementById('cap'), prog=document.getElementById('prog');
+  function src(p){ return R+'photos/'+p.f; }
+  function preload(n){ var im=new Image(); im.src=src(list[(n+list.length)%list.length]); }
+  function show(n){
+    i=(n+list.length)%list.length; var p=list[i], back=A[1-front];
+    back.onload=function(){
+      back.classList.add('on'); A[front].classList.remove('on'); front=1-front;
+      var place=es?p.l:(p.le||p.l), ref='IR-'+p.f.replace('.jpg','');
+      cap.textContent=ref+(place?' · '+place:'')+(p.y?(place?', ':' · ')+p.y:'');
+      back.alt=(es?'Fotografía analógica de Iyán Rojo, ':'Analogue photograph by Iyán Rojo, ')+ref;
+      preload(i+1); schedule();
+    };
+    back.src=src(p);
+  }
+  function schedule(){
+    clearTimeout(timer); prog.style.transition='none'; prog.style.width='0';
+    if(!playing) return;
+    void prog.offsetWidth; prog.style.transition='width '+DUR+'ms linear'; prog.style.width='100%';
+    timer=setTimeout(function(){ show(i+1); },DUR);
+  }
+  function setPlay(v){ playing=v; document.getElementById('play').textContent=v?T.pause:T.play; schedule(); }
+  document.getElementById('prev').onclick=function(){ show(i-1); };
+  document.getElementById('next').onclick=function(){ show(i+1); };
+  document.getElementById('play').onclick=function(){ setPlay(!playing); };
+
+  // Full screen (and landscape lock where the phone allows it)
+  var fullBtn=document.getElementById('full'), canFull=!!(document.documentElement.requestFullscreen||document.documentElement.webkitRequestFullscreen);
+  if(!canFull) fullBtn.style.display='none';
+  function isFull(){ return !!(document.fullscreenElement||document.webkitFullscreenElement); }
+  function goFull(){ var d=document.documentElement; try{ var r=(d.requestFullscreen||d.webkitRequestFullscreen).call(d); if(r&&r.then) r.then(lock,function(){}); else lock(); }catch(e){} }
+  function lock(){ try{ screen.orientation&&screen.orientation.lock&&screen.orientation.lock('landscape').catch(function(){}); }catch(e){} }
+  fullBtn.onclick=function(){ if(isFull()){ (document.exitFullscreen||document.webkitExitFullscreen).call(document); } else goFull(); };
+  function fullLabel(){ fullBtn.textContent=isFull()?T.exitFull:T.full; }
+  document.addEventListener('fullscreenchange',fullLabel); document.addEventListener('webkitfullscreenchange',fullLabel);
+
+  // Music: a quiet ambient piece generated in the browser (no file to download).
+  var ac=null, master=null, musicOn=false, chordT=null, noteT=null;
+  var CH=[[45,52,55,59,60],[41,48,52,57,64],[48,55,59,62,64],[43,50,55,59,66]], ci=0, PENTA=[69,72,74,76,79,81,84];
+  function hz(m){ return 440*Math.pow(2,(m-69)/12); }
+  function initAudio(){
+    var C=window.AudioContext||window.webkitAudioContext; if(!C) return false;
+    ac=new C(); master=ac.createGain(); master.gain.value=0;
+    var lp=ac.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=1800;
+    var rev=ac.createConvolver(), len=ac.sampleRate*5, buf=ac.createBuffer(2,len,ac.sampleRate);
+    for(var c=0;c<2;c++){ var d=buf.getChannelData(c); for(var k=0;k<len;k++) d[k]=(Math.random()*2-1)*Math.pow(1-k/len,2.6); }
+    rev.buffer=buf; var wet=ac.createGain(), dry=ac.createGain(); wet.gain.value=.55; dry.gain.value=.5;
+    master.connect(lp); lp.connect(dry); lp.connect(rev); rev.connect(wet); dry.connect(ac.destination); wet.connect(ac.destination);
+    return true;
+  }
+  function pad(){
+    var t=ac.currentTime, ch=CH[ci++%CH.length];
+    ch.forEach(function(m,k){
+      [-4,4].forEach(function(det){
+        var o=ac.createOscillator(), g=ac.createGain(); o.type=k===0?'sine':'triangle'; o.frequency.value=hz(m); o.detune.value=det;
+        g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(k===0?.05:.022,t+3.5); g.gain.setValueAtTime(k===0?.05:.022,t+8); g.gain.linearRampToValueAtTime(0,t+13);
+        o.connect(g); g.connect(master); o.start(t); o.stop(t+13.2);
+      });
+    });
+    chordT=setTimeout(pad,9000);
+  }
+  function note(){
+    var t=ac.currentTime, o=ac.createOscillator(), g=ac.createGain();
+    o.type='sine'; o.frequency.value=hz(PENTA[Math.floor(Math.random()*PENTA.length)]-12*(Math.random()<.4?1:0));
+    g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.045,t+.02); g.gain.exponentialRampToValueAtTime(.0005,t+4.5);
+    o.connect(g); g.connect(master); o.start(t); o.stop(t+4.6);
+    noteT=setTimeout(note,2200+Math.random()*4200);
+  }
+  function setMusic(v){
+    if(v&&!ac&&!initAudio()) return;
+    musicOn=v; var b=document.getElementById('music'); b.classList.toggle('on',v); b.setAttribute('aria-pressed',v);
+    if(v){ ac.resume(); var t=ac.currentTime; master.gain.cancelScheduledValues(t); master.gain.setValueAtTime(master.gain.value,t); master.gain.linearRampToValueAtTime(.9,t+2.5);
+      if(!chordT){ pad(); noteT=setTimeout(note,3000); } }
+    else if(ac){ var t2=ac.currentTime; master.gain.cancelScheduledValues(t2); master.gain.setValueAtTime(master.gain.value,t2); master.gain.linearRampToValueAtTime(0,t2+1.5);
+      setTimeout(function(){ if(!musicOn){ clearTimeout(chordT); clearTimeout(noteT); chordT=noteT=null; } },1600); }
+  }
+  document.getElementById('music').onclick=function(){ setMusic(!musicOn); };
+
+  // Enter
+  function enter(withMusic){
+    document.getElementById('door').classList.add('gone'); started=true;
+    if(matchMedia('(pointer:coarse)').matches) goFull();
+    if(withMusic) setMusic(true);
+    show(0); idle();
+  }
+  document.getElementById('enter').onclick=function(){ enter(false); };
+  document.getElementById('enter-music').onclick=function(){ enter(true); };
+
+  // Controls fade away when the visitor is still.
+  var it=null; function idle(){ document.body.classList.remove('idle'); clearTimeout(it); it=setTimeout(function(){ if(started) document.body.classList.add('idle'); },2600); }
+  ['mousemove','touchstart','keydown'].forEach(function(e){ document.addEventListener(e,idle,{passive:true}); });
+  // Swipe and keys
+  var sx=null; document.getElementById('stage').addEventListener('touchstart',function(e){ sx=e.touches[0].clientX; },{passive:true});
+  document.getElementById('stage').addEventListener('touchend',function(e){ if(sx===null) return; var dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>40) show(dx<0?i+1:i-1); sx=null; });
+  document.getElementById('stage').addEventListener('click',function(e){ if(!started) return; var x=e.clientX/window.innerWidth; if(x>.66) show(i+1); else if(x<.34) show(i-1); });
+  document.addEventListener('keydown',function(e){
+    if(!started){ if(e.key==='Enter') enter(false); return; }
+    if(e.key==='ArrowRight') show(i+1); else if(e.key==='ArrowLeft') show(i-1);
+    else if(e.key===' '){ e.preventDefault(); setPlay(!playing); }
+    else if(e.key==='m'||e.key==='M') setMusic(!musicOn);
+    else if(e.key==='f'||e.key==='F') fullBtn.onclick();
+    else if(e.key==='Escape'&&!isFull()) location.href=document.getElementById('exit').getAttribute('href');
+  });
+  // Turning the phone back to portrait pauses the show.
+  var mq=matchMedia('(orientation:portrait) and (max-width:900px)'), wasPlaying=true;
+  function orient(){ if(!started) return; if(mq.matches){ wasPlaying=playing; setPlay(false); } else if(wasPlaying) setPlay(true); }
+  if(mq.addEventListener) mq.addEventListener('change',orient); else mq.addListener(orient);
+  document.addEventListener('visibilitychange',function(){ if(document.hidden&&ac&&musicOn) ac.suspend(); else if(!document.hidden&&ac&&musicOn) ac.resume(); });
+  if(es){ document.getElementById('play').textContent=T.pause; document.getElementById('music').textContent=T.music; fullLabel(); }
+})();
+</script>
+</body>
+</html>
