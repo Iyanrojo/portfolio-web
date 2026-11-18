@@ -452,6 +452,7 @@ var ES = {
   "Fine art prints →": "Copias fine art →",
   "Signed · Editions of 15": "Firmadas · Ediciones de 15",
   "+ Photos": "+ Fotos",
+  "Analogue photography by Iyán Rojo": "Fotografía analógica de Iyán Rojo",
   "← Back to home": "← Volver al inicio"
 };
 
