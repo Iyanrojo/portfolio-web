@@ -639,3 +639,6 @@ html[data-theme="dark"] .shop-photo{background:#2b2a27}
 .shop-info p{color:var(--ink-3);max-width:52ch;margin:0}
 @media (max-width:760px){.shop-info{grid-template-columns:1fr}}
 .gallery-page section.ph-block{padding-top:0}
+.top-prints{font:700 12px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--ink);text-decoration:none;border:1px solid var(--ink);padding:10px 14px}
+.top-prints:hover{background:var(--ink);color:var(--bg)}
+.pc-img img{object-position:center}
