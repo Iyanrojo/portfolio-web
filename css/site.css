@@ -653,3 +653,4 @@ html[data-theme="dark"] .shop-photo{background:#2b2a27}
 .top-prints-col .pc-img img{object-position:40% center}
 @media (max-width:760px){.ph-top{grid-template-columns:1fr;max-width:none}.top-prints-col{border-right:0;padding-right:0;border-bottom:1px solid var(--rule);padding-bottom:18px}}
 .gallery-page .more-wrap{margin-top:20px}
+.gallery-page .masonry.gallery,.gallery-page .more-wrap{overflow-anchor:none}
