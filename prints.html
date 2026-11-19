@@ -173,7 +173,7 @@
     if(giftOn.checked && cur){
       var ref='IR-'+cur.f.replace('.jpg',''), code=Math.random().toString(36).slice(2,6).toUpperCase(), note=giftMsg.value.trim();
       url=url.replace(/client_reference_id=[^&]*/,'client_reference_id='+encodeURIComponent(ref+'_'+size.id+'_regalo_'+code));
-      try{ fetch('https://formsubmit.co/ajax/iyanrojo@gmail.com',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json','Accept':'application/json'},
+      try{ fetch('https://formsubmit.co/ajax/hola@iyanrojo.com',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json','Accept':'application/json'},
         body:JSON.stringify({_subject:'Regalo · '+ref+' · '+code,_template:'table',_captcha:'false','Código':code,'Foto':ref,'Tamaño':size.id,'Mensaje':note||'(sin mensaje)'})}).catch(function(){}); }catch(err){}
     }
     say(TXT_GO, 0, true);
@@ -216,6 +216,6 @@
 })();
 </script>
 <script src="js/lang.js?v=558c6978"></script>
-<script src="js/theme.js?v=13069437"></script>
+<script src="js/theme.js?v=3b6b15f9"></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 /* "Ask about a print": takes the visitor to the contact form with the message already started
    (photo reference or series name). */
 (function(){
-  var EMAIL='iyanrojo@gmail.com';
+  var EMAIL='hola@iyanrojo.com';
   var toast=document.createElement('div'); toast.className='toast'; toast.setAttribute('role','status'); document.body.appendChild(toast);
   var t=null;
   function show(msg){ toast.textContent=msg; toast.classList.add('on'); clearTimeout(t); t=setTimeout(function(){ toast.classList.remove('on'); }, 5200); }

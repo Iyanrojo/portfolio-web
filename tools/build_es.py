@@ -107,7 +107,7 @@ BUSINESS = {
    "sameAs": ["https://www.instagram.com/iyanrojo_/", "https://vimeo.com/341890221", "https://www.youtube.com/watch?v=FFCa6GAHRDk"]},
   {"@type": "ProfessionalService", "@id": D + "/#service", "name": "Iyán Rojo · Fotografía y producción de vídeo",
    "url": D + "/", "image": D + "/photos/02.jpg", "founder": {"@id": D + "/#person"},
-   "email": "iyanrojo@gmail.com", "telephone": "+34649925806",
+   "email": "hola@iyanrojo.com", "telephone": "+34649925806",
    "address": {"@type": "PostalAddress", "addressLocality": "Torrelavega", "addressRegion": "Cantabria", "addressCountry": "ES"},
    "areaServed": [{"@type": "AdministrativeArea", "name": "Cantabria"}, {"@type": "City", "name": "Santander"}, {"@type": "City", "name": "Torrelavega"}, {"@type": "Country", "name": "España"}],
    "serviceType": ["Producción de vídeo", "Grabación de vídeo", "Fotografía analógica", "Fotógrafo", "Documental", "Campañas audiovisuales"]}

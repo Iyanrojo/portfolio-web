@@ -28,7 +28,7 @@
 /* "Write to me" popup: email links and links to contact.html#escribeme open a small form over the page
    (background blurred). Messages are sent through FormSubmit to Iyán's inbox. */
 (function () {
-  var MAIL = 'iyanrojo@gmail.com', es = document.documentElement.lang === 'es', box = null, prev = null;
+  var MAIL = 'hola@iyanrojo.com', es = document.documentElement.lang === 'es', box = null, prev = null;
   var T = es ? {h:'Escríbeme', n:'Nombre', e:'Tu email', m:'Mensaje', s:'Enviar', c:'Cerrar', or:'O escríbeme directamente a', cp:'Copiar', cpd:'Copiado',
                bad:'Rellena nombre, un email válido y el mensaje.', go:'Enviando…', ok:'Gracias, mensaje enviado. Te respondo pronto.', err:'No se ha podido enviar. Escríbeme a ' + MAIL + '.',
                size:'Hola Iyán, me interesa una copia en otro tamaño. ', work:'Hola Iyán, me gustaría hablar contigo sobre un proyecto. ', print:'Hola Iyán, me interesa una copia impresa. ', ref:'Hola Iyán, me interesa una copia de la fotografía ', ser:['Hola Iyán, me interesa una copia de la serie «','». '], subj:'Mensaje desde la web – '}
@@ -77,7 +77,7 @@
   document.addEventListener('click', function (e) {
     var a = e.target.closest && e.target.closest('a[href]'); if (!a) return;
     var h = a.getAttribute('href');
-    if (/^mailto:iyanrojo@/.test(h)) { e.preventDefault(); open(new URLSearchParams()); return; }
+    if (/^mailto:(hola@iyanrojo\.com|iyanrojo@)/.test(h)) { e.preventDefault(); open(new URLSearchParams()); return; }
     if (/(^|\/)contact\.html\?[^#]*#escribeme$|(^|\/)contact\.html#escribeme$/.test(h)) { e.preventDefault(); open(new URLSearchParams((h.split('?')[1] || '').split('#')[0])); }
   });
   if (location.hash === '#escribeme') open(new URLSearchParams(location.search));
