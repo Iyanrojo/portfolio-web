@@ -562,12 +562,11 @@ html[data-theme="dark"] .shop-photo{background:#2b2a27}
 .lb-cta:hover{opacity:.85}
 .lb img{max-height:80vh}
 @media (max-width:620px){.lb .lb-foot{left:18px;right:18px;bottom:16px}.lb-cta{padding:10px 14px;font-size:11px}}
-.photo-side .side-prints,.photo-side .side-expo{margin-top:48px;padding-top:16px;border-top:1px solid var(--rule)}
-.photo-side .side-expo{margin-top:22px}
+.photo-side .side-prints{margin-top:48px;padding-top:16px;border-top:1px solid var(--rule)}
 .proj-arrow{font-family:var(--sans);font-size:.7em;color:var(--muted)}
 @media (max-width:860px){
   .photo-page .photo-side{flex-direction:column;gap:0}
-  .photo-side .side-prints,.photo-side .side-expo{margin-top:18px;padding-top:14px}
+  .photo-side .side-prints{margin-top:18px;padding-top:14px}
   .photo-page .proj-list{flex-wrap:wrap;gap:6px 22px}
 }
 .shop-msg{position:fixed;inset:0;z-index:400;display:flex;align-items:center;justify-content:center;padding:8vw;text-align:center;
@@ -696,4 +695,3 @@ html.wm-on{overflow:hidden}
 .ck-b{display:flex;gap:8px}
 .ck button{font:inherit;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:10px 16px;border:1px solid var(--rule);background:none;color:var(--ink);cursor:pointer}
 .ck .ck-ok{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.exhibition-page .ck{--bg:#111;--ink:#eee;--rule:#333}
