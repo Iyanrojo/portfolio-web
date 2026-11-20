@@ -12,5 +12,6 @@
   var saved = null;
   try { saved = localStorage.getItem(KEY); } catch (e) {}
   var wantsEs = saved === "es" || (!saved && (navigator.language || "").toLowerCase().indexOf("es") === 0);
+  if (link && /404\.html$/.test(link.getAttribute("href"))) return;   // error page: no redirect (relative link would loop)
   if (wantsEs && link && !/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent)) location.replace(link.getAttribute("href"));
 })();
