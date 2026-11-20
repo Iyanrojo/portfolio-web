@@ -123,6 +123,28 @@
     b.addEventListener('click',function(){ open(p); });
     grid.appendChild(b);
   });
+  // Notices to Iyán's inbox (via FormSubmit): someone enters the shop, opens a photo, presses Buy, completes a payment.
+  // Visits from Iyán's own devices are skipped: open the shop once with ?yo to mark this device (?yo=0 to undo).
+  var NOTIFY=(function(){
+    try{ var q=new URLSearchParams(location.search);
+      if(q.has('yo')){ if(q.get('yo')==='0') localStorage.removeItem('ir-owner'); else localStorage.setItem('ir-owner','1'); history.replaceState(null,'',location.pathname+location.hash); }
+      if(localStorage.getItem('ir-owner')) return false; }catch(e){}
+    return !navigator.webdriver && !/^(localhost|127\.)/.test(location.hostname);
+  })();
+  var BACK=/[?&](gracias|thanks)\b/.test(location.search);
+  var VID=(function(){ try{ var v=sessionStorage.getItem('ir-vid'); if(!v){ v=Math.random().toString(36).slice(2,6).toUpperCase(); sessionStorage.setItem('ir-vid',v); } return v; }catch(e){ return '----'; } })();
+  function once(k){ try{ if(sessionStorage.getItem('ir-n-'+k)) return false; sessionStorage.setItem('ir-n-'+k,'1'); }catch(e){} return true; }
+  function notify(subject,data){
+    if(!NOTIFY) return;
+    var ref=document.referrer && document.referrer.indexOf(location.host)<0 ? document.referrer.replace(/^https?:\/\//,'').split('/')[0] : (document.referrer?'(dentro de la web)':'(directo)');
+    var body={_subject:subject+' · visitante '+VID,_template:'table',_captcha:'false'};
+    for(var k in data) body[k]=data[k];
+    body['Visitante']=VID; body['Dispositivo']=matchMedia('(pointer:coarse)').matches?'Móvil / tablet':'Ordenador';
+    body['Idioma de la página']=es?'Español':'Inglés'; body['Viene de']=ref;
+    body['Hora']=new Date().toLocaleString('es-ES',{timeZone:'Europe/Madrid'});
+    try{ fetch('https://formsubmit.co/ajax/hola@iyanrojo.com',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(body)}).catch(function(){}); }catch(e){}
+  }
+  function sizeName(s){ return s ? s.es+' ('+(s.dims_es||s.dims)+')'+(s.price!=null?' · '+s.price+' €':'') : ''; }
   var panel=document.getElementById('shop-panel'), img=document.getElementById('shop-img'), refEl=document.getElementById('shop-ref'),
       placeEl=document.getElementById('shop-place'), sizesEl=document.getElementById('shop-sizes'), btn=document.getElementById('shop-btn'), soon=document.getElementById('shop-soon');
   var cur=null, size=null;
@@ -150,6 +172,7 @@
     refEl.textContent='Ref. IR-'+p.f.replace('.jpg','');
     var place=es?p.l:(p.le||p.l); placeEl.textContent=place?(place+(p.y?', '+p.y:'')):(p.y||'');
     render(); panel.classList.add('open'); document.documentElement.style.overflow='hidden';
+    var r0='IR-'+p.f.replace('.jpg',''); if(once('f-'+r0)) notify('Ficha abierta · '+r0,{'Acción':'Ha abierto la ficha de compra','Foto':r0});
     document.getElementById('shop-close').focus();
   }
   function close(){ panel.classList.remove('open'); document.documentElement.style.overflow=''; }
@@ -176,6 +199,9 @@
       try{ fetch('https://formsubmit.co/ajax/hola@iyanrojo.com',{method:'POST',keepalive:true,headers:{'Content-Type':'application/json','Accept':'application/json'},
         body:JSON.stringify({_subject:'Regalo · '+ref+' · '+code,_template:'table',_captcha:'false','Código':code,'Foto':ref,'Tamaño':size.id,'Mensaje':note||'(sin mensaje)'})}).catch(function(){}); }catch(err){}
     }
+    if(cur){ var rb='IR-'+cur.f.replace('.jpg',''), gc=(url.match(/_regalo_([A-Z0-9]+)/)||[])[1];
+      try{ localStorage.setItem('ir-last',JSON.stringify({ref:rb,size:sizeName(size),gift:gc||'',t:Date.now(),vid:VID})); }catch(err){}
+      notify('Ha pulsado Comprar · '+rb,{'Acción':'Ha pulsado «Comprar» y va a Stripe (aún no ha pagado)','Foto':rb,'Tamaño':sizeName(size),'Regalo':gc?'Sí · código '+gc:'No'}); }
     say(TXT_GO, 0, true);
     if(window.innerWidth>=760){
       var w=500,h=760,l=window.screenX+(window.outerWidth-w)/2,t=window.screenY+(window.outerHeight-h)/2;
@@ -193,6 +219,9 @@
   // Stripe sends buyers back to prints.html?gracias (set as "After payment" redirect in each payment link).
   if(/[?&](gracias|thanks)\b/.test(location.search)){
     history.replaceState(null,'',location.pathname);
+    (function(){ var L=null; try{ L=JSON.parse(localStorage.getItem('ir-last')||'null'); localStorage.removeItem('ir-last'); }catch(err){}
+      var fresh=L && Date.now()-L.t<6*3600e3;
+      notify('COMPRA COMPLETADA'+(fresh?' · '+L.ref:''),{'Acción':'Ha pagado en Stripe y ha vuelto a la web','Foto':fresh?L.ref:'(ver en Stripe)','Tamaño':fresh?L.size:'(ver en Stripe)','Regalo':fresh&&L.gift?'Sí · código '+L.gift:'No','Nota':'Los datos de envío y el cobro están en tu panel de Stripe.'}); })();
     if(window.opener && !window.opener.closed){ try{ window.opener.shopThanks(); window.close(); }catch(err){} }
     setTimeout(function(){ say(TXT_OK,12000); },400);
   }
@@ -208,6 +237,7 @@
   document.getElementById('shop-close').addEventListener('click',close);
   // prints.html#IR-05 opens that photo directly (link from the gallery)
   function fromHash(){ var h=decodeURIComponent(location.hash.replace('#','')); if(!h) return; var m=list.filter(function(p){ return 'IR-'+p.f.replace('.jpg','')===h; })[0]; if(m) open(m); }
+  if(!BACK && once('shop')) notify('Alguien ha entrado en Copias',{'Acción':'Ha entrado en la tienda de copias fine art','Entra directo a':location.hash?decodeURIComponent(location.hash.slice(1)):'(la tienda)'});
   fromHash(); window.addEventListener('hashchange',fromHash); window.addEventListener('pageshow',function(e){ if(e.persisted) fromHash(); });
   panel.addEventListener('click',function(e){ if(e.target===panel) close(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') close(); });
