@@ -469,6 +469,16 @@ var ES = {
   "Exit": "Salir",
   "Exhibition view →": "Vista exposición →",
   "A selection of the photographs in this gallery is available as signed, numbered fine art prints. <a class=\"u\" href=\"prints.html\">See the fine art prints →</a>": "Una selección de las fotografías de esta galería está disponible en copia fine art, firmada y numerada. <a class=\"u\" href=\"prints.html\">Ver las copias fine art →</a>",
+  "This website only uses analytics cookies, and only if you accept them.": "Esta web solo usa cookies de análisis, y solo si las aceptas.",
+  "What they are for": "Para qué sirven",
+  "Google Analytics tells me, anonymously, which pages, photographs and films people look at most, and where visitors come from. It helps me decide what to show and which prints to offer. Your IP address is anonymised and I do not use this information for advertising.": "Google Analytics me dice, de forma anónima, qué páginas, fotografías y películas se ven más y de dónde llegan las visitas. Me ayuda a decidir qué mostrar y qué copias ofrecer. Tu IP se anonimiza y no uso esta información para publicidad.",
+  "Which cookies": "Qué cookies",
+  "<b>_ga</b> and <b>_ga_*</b> (Google Analytics, by Google Ireland Ltd.): they tell visits apart. They last up to 2 years. If you decline, they are never created.": "<b>_ga</b> y <b>_ga_*</b> (Google Analytics, de Google Ireland Ltd.): distinguen unas visitas de otras. Duran hasta 2 años. Si las rechazas, no se crean.",
+  "The site also remembers in your browser whether you accepted or declined, and whether you chose dark mode. This is not shared with anyone.": "La web también recuerda en tu navegador si aceptaste o rechazaste y si elegiste el modo oscuro. Esto no se comparte con nadie.",
+  "Change your choice": "Cambiar tu elección",
+  "You can accept or decline again at any time.": "Puedes aceptar o rechazar de nuevo cuando quieras.",
+  "Cookie settings": "Configurar cookies",
+  "Data controller: Iyán Rojo Greciet · <a class=\"u\" href=\"mailto:hola@iyanrojo.com\">hola@iyanrojo.com</a>": "Responsable: Iyán Rojo Greciet · <a class=\"u\" href=\"mailto:hola@iyanrojo.com\">hola@iyanrojo.com</a>",
   "← Back to home": "← Volver al inicio"
 };
 

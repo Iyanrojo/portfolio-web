@@ -91,12 +91,12 @@
     download(d); window.open(u, '_blank', 'noopener'); say(T.waDesk);
   }
 
-  function item(label, fn) { var b = document.createElement('button'); b.type = 'button'; b.setAttribute('role', 'menuitem'); b.textContent = label; b.addEventListener('click', function () { close(); fn(); }); return b; }
+  function item(label, fn) { var b = document.createElement('button'); b.type = 'button'; b.setAttribute('role', 'menuitem'); b.textContent = label; b.addEventListener('click', function () { if (window.irTrack) irTrack('share', { method: label, photo: menu._ref || '' }); close(); fn(); }); return b; }
 
   window.SHARE = {
     open: function (btn, d) {
       if (menu.classList.contains('open') && menu._for === btn) { close(); return; }
-      menu.innerHTML = ''; menu._for = btn; prepare(d);
+      menu.innerHTML = ''; menu._for = btn; menu._ref = d.ref; prepare(d);
       var text = (d.note ? '«' + d.note + '»\n\n' : '') + (d.line ? d.line + ' · ' : '') + 'Iyán Rojo';
       menu.appendChild(item(T.story, function () { shareStory(d); }));
       menu.appendChild(item(T.wa, function () { shareWhatsApp(d, text); }));

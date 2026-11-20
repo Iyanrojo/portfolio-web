@@ -26,8 +26,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&family=Hanken+Grotesk:wght@500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=46f88d25">
+<link rel="stylesheet" href="css/site.css?v=3e6b7b60">
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
+<script src="js/stats.js?v=1b255ea3"></script>
 </head>
 <body class="prints-page">
 
@@ -108,7 +109,7 @@
 
 <script src="js/photos.js?v=5bb0d046"></script>
 <script src="js/shop.js?v=f4ed8d9b"></script>
-<script src="js/share.js?v=93d93291"></script>
+<script src="js/share.js?v=90b21d1d"></script>
 <script>
 (function(){
   var es=document.documentElement.lang==='es', S=window.SHOP||{sizes:[]}, R=window.ROOT||'';
@@ -172,7 +173,7 @@
     refEl.textContent='Ref. IR-'+p.f.replace('.jpg','');
     var place=es?p.l:(p.le||p.l); placeEl.textContent=place?(place+(p.y?', '+p.y:'')):(p.y||'');
     render(); panel.classList.add('open'); document.documentElement.style.overflow='hidden';
-    var r0='IR-'+p.f.replace('.jpg',''); if(once('f-'+r0)) notify('Ficha abierta · '+r0,{'Acción':'Ha abierto la ficha de compra','Foto':r0});
+    var r0='IR-'+p.f.replace('.jpg',''); if(once('f-'+r0)) notify('Ficha abierta · '+r0,{'Acción':'Ha abierto la ficha de compra','Foto':r0}); if(window.irTrack) irTrack('print_open',{ photo:r0 });
     document.getElementById('shop-close').focus();
   }
   function close(){ panel.classList.remove('open'); document.documentElement.style.overflow=''; }
@@ -201,6 +202,7 @@
     }
     if(cur){ var rb='IR-'+cur.f.replace('.jpg',''), gc=(url.match(/_regalo_([A-Z0-9]+)/)||[])[1];
       try{ localStorage.setItem('ir-last',JSON.stringify({ref:rb,size:sizeName(size),gift:gc||'',t:Date.now(),vid:VID})); }catch(err){}
+      if(window.irTrack) irTrack('begin_checkout',{ currency:'EUR', value:size.price||0, photo:rb, size:size.id, gift:gc?'si':'no', items:[{ item_id:rb, item_name:rb+' · '+size.id, item_variant:size.id, price:size.price||0, quantity:1 }] });
       notify('Ha pulsado Comprar · '+rb,{'Acción':'Ha pulsado «Comprar» y va a Stripe (aún no ha pagado)','Foto':rb,'Tamaño':sizeName(size),'Regalo':gc?'Sí · código '+gc:'No'}); }
     say(TXT_GO, 0, true);
     if(window.innerWidth>=760){
@@ -221,6 +223,8 @@
     history.replaceState(null,'',location.pathname);
     (function(){ var L=null; try{ L=JSON.parse(localStorage.getItem('ir-last')||'null'); localStorage.removeItem('ir-last'); }catch(err){}
       var fresh=L && Date.now()-L.t<6*3600e3;
+      if(window.irTrack && fresh){ var pr=(S.sizes.filter(function(s){ return L.size.indexOf(s.es)===0; })[0]||{}).price||0;
+        irTrack('purchase',{ transaction_id:L.vid+'-'+L.t, currency:'EUR', value:pr, photo:L.ref, items:[{ item_id:L.ref, item_name:L.ref, price:pr, quantity:1 }] }); }
       notify('COMPRA COMPLETADA'+(fresh?' · '+L.ref:''),{'Acción':'Ha pagado en Stripe y ha vuelto a la web','Foto':fresh?L.ref:'(ver en Stripe)','Tamaño':fresh?L.size:'(ver en Stripe)','Regalo':fresh&&L.gift?'Sí · código '+L.gift:'No','Nota':'Los datos de envío y el cobro están en tu panel de Stripe.'}); })();
     if(window.opener && !window.opener.closed){ try{ window.opener.shopThanks(); window.close(); }catch(err){} }
     setTimeout(function(){ say(TXT_OK,12000); },400);
@@ -237,6 +241,7 @@
   document.getElementById('shop-close').addEventListener('click',close);
   // prints.html#IR-05 opens that photo directly (link from the gallery)
   function fromHash(){ var h=decodeURIComponent(location.hash.replace('#','')); if(!h) return; var m=list.filter(function(p){ return 'IR-'+p.f.replace('.jpg','')===h; })[0]; if(m) open(m); }
+  if(!BACK && window.irTrack) irTrack('shop_enter',{ entry: location.hash?decodeURIComponent(location.hash.slice(1)):'tienda' });
   if(!BACK && once('shop')) notify('Alguien ha entrado en Copias',{'Acción':'Ha entrado en la tienda de copias fine art','Entra directo a':location.hash?decodeURIComponent(location.hash.slice(1)):'(la tienda)'});
   fromHash(); window.addEventListener('hashchange',fromHash); window.addEventListener('pageshow',function(e){ if(e.persisted) fromHash(); });
   panel.addEventListener('click',function(e){ if(e.target===panel) close(); });
@@ -246,6 +251,6 @@
 })();
 </script>
 <script src="js/lang.js?v=558c6978"></script>
-<script src="js/theme.js?v=3b6b15f9"></script>
+<script src="js/theme.js?v=07921e65"></script>
 </body>
 </html>

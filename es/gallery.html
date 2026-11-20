@@ -27,8 +27,9 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700&amp;family=Hanken+Grotesk:wght@500;600&amp;family=Cormorant+Garamond:ital,wght@1,400;1,500&amp;display=swap" rel="stylesheet"/>
-<link href="../css/site.css?v=46f88d25" rel="stylesheet"/>
+<link href="../css/site.css?v=3e6b7b60" rel="stylesheet"/>
 <script>(function(){try{var t=localStorage.getItem("site-theme")}catch(e){}if(!t&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches)t="dark";if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();</script>
+<script src="../js/stats.js?v=1b255ea3"></script>
 <script>window.ROOT='../';</script></head>
 <body class="photo-page gallery-page">
 <header id="top">
@@ -96,7 +97,7 @@
 <div class="lb-foot"><span class="lb-ref small" id="lb-count"></span><span class="lb-actions"><button class="share-btn" id="lb-share" type="button"><svg aria-hidden="true" fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="15"><path d="M12 15V3M7.5 7.5 12 3l4.5 4.5"></path><path d="M5 12v7.5h14V12"></path></svg><span>Compartir</span></button><a class="lb-cta" href="prints.html" id="lb-cta">¿Quieres esta fotografía?</a></span></div>
 </div>
 <script src="../js/shop.js?v=f4ed8d9b"></script>
-<script src="../js/share.js?v=93d93291"></script>
+<script src="../js/share.js?v=90b21d1d"></script>
 <script src="../js/photos.js?v=5bb0d046"></script>
 <script>
 // Build the mosaic from the photo list. Each frame gets its final proportions up front,
@@ -141,6 +142,7 @@
     var top=Math.max.apply(null,H); for(var i=0;i<H.length;i++) H[i]=top;
     extras.slice(shown,to).forEach(function(it){ it.el.classList.remove('reveal'); it.el.style.animationDelay=(k++)*90+'ms'; it.el.classList.add('reveal'); place(it); });
     shown=to; box.classList.toggle('closed', shown<extraTotal); label();
+    if(window.irTrack) irTrack('gallery_more', { shown: shown });
   };
   ab.addEventListener('click',function(){ showMore(false); });
 })();
@@ -153,7 +155,8 @@ function openAt(n){ var L = list(); if (!L.length) return; cur = (n + L.length) 
   var place = document.documentElement.lang === 'es' ? meta.l : (meta.le || meta.l);
   var ref = window.currentPhoto.replace('IR-',''), cta = document.getElementById('lb-cta'), ex = ((window.SHOP||{}).exclude||[]);
   cta.style.display = ex.indexOf(ref) > -1 ? 'none' : '';
-  cta.href = 'prints.html#' + window.currentPhoto;
+  cta.href = 'prints.html#' + window.currentPhoto; cta.onclick = function(){ if (window.irTrack) irTrack('print_interest', { photo: window.currentPhoto, source: 'galeria' }); };
+  if (window.irTrack) irTrack('photo_view', { photo: window.currentPhoto, place: place || '', source: 'galeria' });
   window.currentMeta = {img: L[cur].getAttribute('src'), line: place ? place + (meta.y ? ', ' + meta.y : '') : (meta.y || '')};
   lbCount.textContent = (place ? place + (meta.y ? ', ' + meta.y : '') + ' · ' : (meta.y ? meta.y + ' · ' : '')) + 'Ref. ' + window.currentPhoto;
   if (!wasOpen) { lbImg.src = src; lb.classList.add('open'); return; }
@@ -214,6 +217,6 @@ document.addEventListener('keydown', function (e) {
 <script src="../js/print.js?v=0396cd0e"></script>
 <script src="../js/player.js?v=9f25ec93"></script>
 <script src="../js/lang.js?v=558c6978"></script>
-<script src="../js/theme.js?v=3b6b15f9"></script>
+<script src="../js/theme.js?v=07921e65"></script>
 </body>
 </html>

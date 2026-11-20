@@ -16,7 +16,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
 
 # page: (EN title, EN description, ES title, ES description, share image)
-HIDDEN = set()  # built in both languages but kept out of the sitemap (and noindex in the page)
+HIDDEN = {"cookies.html"}  # built in both languages but kept out of the sitemap (and noindex in the page)
 
 SEO = {
  "index.html": ("Iyán Rojo · Photographer and filmmaker in Cantabria, Spain",
@@ -84,6 +84,7 @@ SEO = {
    "EUROsociAL+ · Campañas en vídeo · Iyán Rojo",
    "Dos campañas en vídeo dirigidas por Iyán Rojo para EUROsociAL+, el programa de la Unión Europea para la cohesión social en América Latina, sobre su cooperación con Centroamérica.",
    "photos/film-03.jpg"),
+ "cookies.html": ("Cookies · Iyán Rojo", "How this website uses analytics cookies.", "Cookies · Iyán Rojo", "Cómo usa esta web las cookies de análisis.", "photos/28.jpg"),
  "exhibition.html": ("Exhibition view · Analogue photography · Iyán Rojo",
    "Iyán Rojo's analogue photographs one by one, full screen on a black background, with optional music.",
    "Vista exposición · Fotografía analógica · Iyán Rojo",

@@ -59,7 +59,7 @@
       btn.disabled = true; st.textContent = T.go;
       fetch('https://formsubmit.co/ajax/' + MAIL, {method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
         body: JSON.stringify({name:n, email:m, message:t, page:location.href.split('#')[0], _subject:T.subj + n, _replyto:m, _template:'table', _captcha:'false'})})
-      .then(function (r) { if (!r.ok) throw 0; f.reset(); st.textContent = T.ok; setTimeout(close, 2600); })
+      .then(function (r) { if (!r.ok) throw 0; if (window.irTrack) irTrack('generate_lead', { reason: box._why || 'email' }); f.reset(); st.textContent = T.ok; setTimeout(close, 2600); })
       .catch(function () { st.textContent = T.err; })
       .then(function () { btn.disabled = false; });
     });
@@ -69,6 +69,8 @@
     var f = box.querySelector('form'), msg = f.elements.message; box.querySelector('.write-status').textContent = '';
     var start = q.get('ref') ? T.ref + q.get('ref') + '. ' : q.get('serie') ? T.ser[0] + q.get('serie') + T.ser[1] : q.get('tema') === 'size' ? T.size : q.get('tema') === 'work' ? T.work : q.get('tema') === 'print' ? T.print : '';
     if (start && (!msg.value || msg.value === box._start)) msg.value = start; box._start = start;
+    box._why = q.get('ref') || (q.get('serie') ? 'serie ' + q.get('serie') : (q.get('tema') || 'email'));
+    if (window.irTrack) irTrack('contact_open', { reason: box._why });
     prev = document.activeElement; box.classList.add('open'); document.documentElement.classList.add('wm-on');
     setTimeout(function () { (f.elements.name.value ? msg : f.elements.name).focus(); }, 60);
   }
