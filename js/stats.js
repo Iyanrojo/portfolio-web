@@ -4,7 +4,7 @@
    - window.irTrack(name, params) records an event; pages call it for photos opened,
      the shop, purchases, films, the contact form and the exhibition view. */
 (function () {
-  var GA_ID = 'G-XXXXXXXXXX';                       // Measurement ID of the GA4 property
+  var GA_ID = 'G-1ENGJ7REQX';                       // Measurement ID of the GA4 property
   var es = document.documentElement.lang === 'es', KEY = 'ir-consent', q = [];
 
   var owner = false;
