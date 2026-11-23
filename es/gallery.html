@@ -99,7 +99,11 @@
 (function(){
   var box=document.querySelector('.masonry.gallery'), items=[];
   var SEL=window.SELECTION||[];
-  (window.PHOTOS||[]).forEach(function(p, n){
+  // A different order on every visit: the selection is shuffled among itself, and so is the rest of the archive.
+  function shuffle(a){ for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)), t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+  var ALL=window.PHOTOS||[], inSel=function(p){ return !SEL.length || SEL.indexOf(p.f.replace('.jpg',''))>-1; };
+  var ORDER=shuffle(ALL.filter(inSel)).concat(shuffle(ALL.filter(function(p){ return !inSel(p); })));
+  ORDER.forEach(function(p, n){
     var b=document.createElement('button'); b.type='button'; b.className='ph';
     if(SEL.length && SEL.indexOf(p.f.replace('.jpg',''))<0) b.setAttribute('data-extra','1');
     b.style.aspectRatio=p.w+' / '+p.h;
