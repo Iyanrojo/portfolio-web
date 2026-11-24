@@ -12,14 +12,14 @@
   var hasApp = /^https:\/\/script\.google\.com\/macros\/s\//.test(APP);
   var T = es ? {
     h: 'Newsletter', p: 'Novedades, nuevas series, publicaciones y exposiciones, de vez en cuando. Sin spam.',
-    ph: 'Tu email', b: 'Suscribirme', ok: 'Gracias. Te escribiré cuando haya novedades.', ok2: 'Gracias. Te acabo de enviar un email de bienvenida con un regalo.',
+    ph: 'Tu email', b: 'Suscribirme', ok: 'Gracias. Te escribiré cuando haya novedades.', ok2: 'Gracias. Te acabo de enviar un email de bienvenida.',
     err: 'No se ha podido enviar. Inténtalo de nuevo o escríbeme a hola@iyanrojo.com.', bad: 'Escribe un email válido.',
     legal: 'Puedes darte de baja cuando quieras. <a href="cookies.html#newsletter">Privacidad</a>',
     pt: '¿Te escribo de vez en cuando?', pp: 'Novedades, nuevas series, publicaciones y exposiciones. Pocas veces y sin spam.',
     gift: 'Al suscribirte, un <b>15 % de descuento</b> en tu primera copia fine art.', close: 'Cerrar', no: 'Ahora no'
   } : {
     h: 'Newsletter', p: 'News, new series, publications and exhibitions, now and then. No spam.',
-    ph: 'Your email', b: 'Subscribe', ok: 'Thank you. I will write to you when there is news.', ok2: 'Thank you. I have just sent you a welcome email with a gift.',
+    ph: 'Your email', b: 'Subscribe', ok: 'Thank you. I will write to you when there is news.', ok2: 'Thank you. I have just sent you a welcome email.',
     err: 'It could not be sent. Please try again or write to hola@iyanrojo.com.', bad: 'Please enter a valid email.',
     legal: 'Unsubscribe at any time. <a href="cookies.html#newsletter">Privacy</a>',
     pt: 'Shall I write to you now and then?', pp: 'News, new series, publications and exhibitions. Rarely, and no spam.',
@@ -89,7 +89,6 @@
     box.innerHTML = '<div class="nlp-card"><button type="button" class="nlp-x" aria-label="' + T.close + '">' + T.close + '</button>' +
       '<div class="nlp-img"><img src="' + R + PHOTO + '" alt=""></div>' +
       '<div class="nlp-body"><h2 class="nlp-h" id="nlp-h">' + T.pt + '</h2><p class="nlp-p">' + T.pp + '</p>' +
-      (hasApp ? '<p class="nlp-gift">' + T.gift + '</p>' : '') +
       '<form class="nl-f" novalidate>' + formHTML() + '</form>' +
       '<button type="button" class="nlp-no">' + T.no + '</button></div></div>';
     document.body.appendChild(box);
