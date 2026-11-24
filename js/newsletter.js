@@ -5,7 +5,7 @@
    it goes instead to Iyán's Apps Script, which saves it to his sheet and sends the welcome email. */
 (function () {
   var ENDPOINT = 'https://formsubmit.co/ajax/hola@iyanrojo.com';
-  var APP = '';                                   // https://script.google.com/macros/s/…/exec
+  var APP = 'https://script.google.com/macros/s/AKfycbym1ZbUUQpdJIQocRpw1ALFKz5sBRoDoZfiduPH7n1gNUaUYTB4D3zKAJ6QmRk_fVAQ/exec';
   var WAIT = 60;                                  // seconds of active browsing (across pages) before the pop-up
   var PHOTO = 'photos/78.jpg';
   var es = document.documentElement.lang === 'es', R = window.ROOT || '';

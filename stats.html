@@ -56,7 +56,7 @@
 <script>
 (function(){
   // Same Apps Script as the web form; it answers with the list only when given the key.
-  var APP = '';
+  var APP = 'https://script.google.com/macros/s/AKfycbym1ZbUUQpdJIQocRpw1ALFKz5sBRoDoZfiduPH7n1gNUaUYTB4D3zKAJ6QmRk_fVAQ/exec';
   var body=document.getElementById('nlb-body'), n=document.getElementById('nlb-n'), K='ir-stats-key';
   function key(){ try{ return localStorage.getItem(K)||''; }catch(e){ return ''; } }
   function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
