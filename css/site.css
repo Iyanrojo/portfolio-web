@@ -695,3 +695,21 @@ html.wm-on{overflow:hidden}
 .ck-b{display:flex;gap:8px}
 .ck button{font:inherit;font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:10px 16px;border:1px solid var(--rule);background:none;color:var(--ink);cursor:pointer}
 .ck .ck-ok{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+/* Newsletter */
+.nl{border-top:1px solid var(--rule);margin-top:clamp(40px,6vw,72px);padding:clamp(28px,4vw,44px) 0}
+.nl-in{display:flex;gap:clamp(20px,4vw,60px);align-items:flex-start;flex-wrap:wrap}
+.nl-t{flex:1 1 260px;max-width:440px}
+.nl-h{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;margin:0 0 8px}
+.nl-t p{margin:0;color:var(--muted);line-height:1.55}
+.nl-f{flex:1 1 320px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;max-width:520px}
+.nl-f input[type=email]{flex:1 1 200px;font:inherit;font-size:15px;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--rule);padding:10px 0;border-radius:0;outline:none}
+.nl-f input[type=email]:focus{border-color:var(--ink)}
+.nl-f button{font:inherit;font-size:11px;letter-spacing:.14em;text-transform:uppercase;background:var(--ink);color:var(--bg);border:1px solid var(--ink);padding:12px 20px;cursor:pointer}
+.nl-f button:hover{opacity:.82}
+.nl-f .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.nl-s{flex-basis:100%;margin:2px 0 0;color:var(--ink)}
+.nl-s:empty{display:none}
+.nl-l{flex-basis:100%;margin:0;color:var(--muted)}
+.nl-l a{color:inherit}
+.nl-f.done input[type=email],.nl-f.done button{display:none}
