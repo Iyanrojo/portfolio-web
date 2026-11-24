@@ -472,7 +472,7 @@ var ES = {
   "You can accept or decline again at any time.": "Puedes aceptar o rechazar de nuevo cuando quieras.",
   "Cookie settings": "Configurar cookies",
   "Data controller: Iyán Rojo Greciet · <a class=\"u\" href=\"mailto:hola@iyanrojo.com\">hola@iyanrojo.com</a>": "Responsable: Iyán Rojo Greciet · <a class=\"u\" href=\"mailto:hola@iyanrojo.com\">hola@iyanrojo.com</a>",
-  "If you subscribe, I keep only your email address to send you the newsletter: new series, prints and projects, now and then. It is stored with Brevo (Sendinblue SAS, France, within the EU). You confirm your subscription by email, and every newsletter has a link to unsubscribe. You can also ask me to delete your address at any time.": "Si te suscribes, guardo solo tu email para enviarte la newsletter: nuevas series, copias y proyectos, de vez en cuando. Se almacena en Brevo (Sendinblue SAS, Francia, dentro de la UE). Confirmas la suscripción por email y cada envío incluye un enlace para darte de baja. También puedes pedirme que borre tu dirección cuando quieras.",
+  "If you subscribe, I keep only your email address to write to you when there is news: new series, prints and projects, now and then. It is kept in my own email inbox and is not shared with anyone. To unsubscribe, just reply to any of these emails or write to hola@iyanrojo.com, and I will delete your address.": "Si te suscribes, guardo solo tu email para escribirte cuando haya novedades: nuevas series, copias y proyectos, de vez en cuando. Se guarda en mi propio correo y no se comparte con nadie. Para darte de baja, responde a cualquiera de esos correos o escribe a hola@iyanrojo.com y borraré tu dirección.",
   "← Back to home": "← Volver al inicio"
 };
 
