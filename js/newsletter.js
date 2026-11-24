@@ -16,14 +16,14 @@
     err: 'No se ha podido enviar. Inténtalo de nuevo o escríbeme a hola@iyanrojo.com.', bad: 'Escribe un email válido.',
     legal: 'Puedes darte de baja cuando quieras. <a href="cookies.html#newsletter">Privacidad</a>',
     pt: '¿Te escribo de vez en cuando?', pp: 'Novedades, nuevas series, publicaciones y exposiciones. Pocas veces y sin spam.',
-    gift: 'Al suscribirte, un <b>15 % de descuento</b> en tu primera copia fine art.', close: 'Cerrar', no: 'Ahora no'
+    close: 'Cerrar', no: 'Ahora no', dh: 'Te has suscrito a la newsletter', dp: 'Te escribiré a <b>{e}</b> cuando haya novedades.', dp2: 'Te acabo de enviar un email de bienvenida a <b>{e}</b>. Si no lo ves, mira en spam o promociones.'
   } : {
     h: 'Newsletter', p: 'News, new series, publications and exhibitions, now and then. No spam.',
     ph: 'Your email', b: 'Subscribe', ok: 'Thank you. I will write to you when there is news.', ok2: 'Thank you. I have just sent you a welcome email.',
     err: 'It could not be sent. Please try again or write to hola@iyanrojo.com.', bad: 'Please enter a valid email.',
     legal: 'Unsubscribe at any time. <a href="cookies.html#newsletter">Privacy</a>',
     pt: 'Shall I write to you now and then?', pp: 'News, new series, publications and exhibitions. Rarely, and no spam.',
-    gift: 'Subscribe and get <b>15% off</b> your first fine art print.', close: 'Close', no: 'Not now'
+    close: 'Close', no: 'Not now', dh: 'You are subscribed to the newsletter', dp: 'I will write to <b>{e}</b> when there is news.', dp2: 'I have just sent a welcome email to <b>{e}</b>. If you cannot see it, check spam or promotions.'
   };
   function ls(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
 
@@ -53,7 +53,12 @@
               _replyto: v, _template: 'table', _captcha: 'false' }) })
             .then(function (r) { if (!r.ok) throw 0; });
       req.then(function () {
-        f.classList.add('done'); st.textContent = hasApp ? T.ok2 : T.ok; em.value = ''; ls('ir-nl', 'yes');
+        ls('ir-nl', 'yes'); em.value = '';
+        // A clear confirmation in place of the form.
+        var safe = v.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; });
+        var d = document.createElement('div'); d.className = 'nl-done'; d.setAttribute('role', 'status');
+        d.innerHTML = '<span class="nl-tick" aria-hidden="true">✓</span><div><p class="nl-dh">' + T.dh + '</p><p class="nl-dp">' + (hasApp ? T.dp2 : T.dp).replace('{e}', safe) + '</p></div>';
+        f.replaceWith(d); requestAnimationFrame(function () { d.classList.add('on'); });
         if (window.irTrack) irTrack('sign_up', { method: 'newsletter', source: where });
         if (after) after();
       }).catch(function () { st.textContent = T.err; }).then(function () { btn.disabled = false; });
@@ -101,7 +106,7 @@
     };
     box.addEventListener('click', function (e) { if (e.target === box) close(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && box) close(); });
-    wire(box.querySelector('form'), 'popup', function () { var n = box && box.querySelector('.nlp-no'); if (n) n.hidden = true; setTimeout(close, 3500); });
+    wire(box.querySelector('form'), 'popup', function () { var n = box && box.querySelector('.nlp-no'); if (n) n.hidden = true; setTimeout(close, 6000); });
     requestAnimationFrame(function () { if (box) { box.classList.add('open'); document.documentElement.classList.add('nlp-on'); } });
   }
   function timer() {
